@@ -3,4 +3,5 @@ export default {
     login: "Login",
     loginapp: "LoginApp",
     registration: "RegisTration",
+    home: "Home",
 }

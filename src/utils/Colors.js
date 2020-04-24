@@ -24,6 +24,7 @@ export default {
   red: '#EB5757',
   red_2: '#FF0000',
   red_3: '#dc143c',
+  red_4: '#f08080',
   green_primary: '#22B56A',
   gray_1: '#333333',
   gray_2: '#4F4F4F',

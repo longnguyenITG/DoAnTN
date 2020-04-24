@@ -14,19 +14,19 @@ function index (props) {
     useEffect(()=>{
         Animated.timing(fadeAnim, {
             toValue: 1,
-            duration: 2000
+            duration: 1000
           }).start();
     }, [])
     function renderLogin (){
         setTimeout(() => {
             Animated.timing(fadeAnim, {
                 toValue: 0,
-                duration: 2000
+                duration: 1000
             }).start();
-        }, 5000);
+        }, 3000);
         setTimeout(() => {
             navigation.navigate('Login');
-        }, 7000);
+        }, 4000);
     }
     return(
         <Wrapper>

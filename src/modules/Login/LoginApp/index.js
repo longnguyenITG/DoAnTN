@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import IconEye from 'react-native-vector-icons/Feather'
 import { useSafeArea } from 'react-native-safe-area-context'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import Routes from '../../../utils/Routes'
 import {
     Wrapper,
     TxtTitle,
@@ -73,14 +74,13 @@ function index(props) {
                 paddingBottom: insets.bottom,
                 paddingLeft: insets.left,
                 paddingRight: insets.right
-            }}
-        >
+            }}>
             <BackBT onPress = {() => navigation.goBack()} >
                 <Icon name = 'md-arrow-back' size = {25} />
             </BackBT>
             <TxtTitle>Đăng nhập</TxtTitle>
             {renderTxtIP()}
-            <BtLogin>
+            <BtLogin onPress = {() => navigation.navigate(Routes.home)} >
                 <TxtBtLogin>Đăng nhập</TxtBtLogin>
             </BtLogin>
             <Bt>
