@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
 import IconEye from 'react-native-vector-icons/Feather'
 import { useSafeArea } from 'react-native-safe-area-context'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import {
     Wrapper,
     TxtTitle,
@@ -14,20 +15,24 @@ import {
     View,
     BtLogin,
     TxtBtLogin,
-    TxtBtForgotPass,
     TxtResgisTraTion,
-    TxtBtResgisTraTion
+    TxtBtResgisTraTion,
+    ScrollView
 } from './styled'
 
 function index(props) {
     const insets = useSafeArea();
     const [hideTitleEmail, SetHideTitleEmail] = useState(false)
     const [hideTitlePassWord, SetHideTitlePassWord] = useState(false)
+    const [hideTitleName, SetHideTitleName] = useState(false)
+    const [hideTitleSdt, SetHideTitleSdt] = useState(false)
     const [seePass, SetSeePass] = useState(false)
     const [txtEmail, SettxtEmail] = useState('')
     const [txtPassWord, SettxtPassWord] = useState('')
+    const [txtName, SettxtName] = useState('')
+    const [txtSdt, SettxtSdt] = useState('')
     
-    function renderInput(hideTitle, txtTitle, playHoder, setText, setHide, value, setHideMore, icon){
+    function renderInput(hideTitle, txtTitle, playHoder, setText, setHide, value, setHideMore, setHideMore1, setHideMore2, icon){
         return(
             <ViewIP>
                 {hideTitle ? <TxtIpTitle>{txtTitle}</TxtIpTitle> : null}
@@ -38,6 +43,8 @@ function index(props) {
                             onFocus = {() => {
                                 setHide(true)
                                 setHideMore(false)
+                                setHideMore1(false)
+                                setHideMore2(false)
                             }}
                             value = {value}
                             />  
@@ -56,8 +63,10 @@ function index(props) {
     function renderTxtIP() {
         return(
             <View>
-                {renderInput(hideTitleEmail, 'Email', 'Email...', SettxtEmail, SetHideTitleEmail, txtEmail, SetHideTitlePassWord)}
-                {renderInput(hideTitlePassWord, 'Mật khẩu', 'Mật khẩu...', SettxtPassWord, SetHideTitlePassWord, txtPassWord, SetHideTitleEmail, true)}
+                {renderInput(hideTitleEmail, 'Email*', 'Email*', SettxtEmail, SetHideTitleEmail, txtEmail, SetHideTitlePassWord, SetHideTitleName, SetHideTitleSdt)}
+                {renderInput(hideTitlePassWord, 'Mật khẩu*', 'Mật khẩu*', SettxtPassWord, SetHideTitlePassWord, txtPassWord, SetHideTitleEmail, SetHideTitleName, SetHideTitleSdt, true)}
+                {renderInput(hideTitleName, 'Họ và tên*', 'Họ và tên*', SettxtName, SetHideTitleName, txtName, SetHideTitleEmail, SetHideTitlePassWord, SetHideTitleSdt)}
+                {renderInput(hideTitleSdt, 'Số điện thoại', 'Số điện thoại', SettxtSdt, SetHideTitleSdt, txtSdt, SetHideTitleEmail, SetHideTitlePassWord, SetHideTitleName)}
             </View>
         )        
     }
@@ -69,25 +78,28 @@ function index(props) {
                 paddingBottom: insets.bottom,
                 paddingLeft: insets.left,
                 paddingRight: insets.right
-            }}
-        >
+            }}>
             <BackBT>
                 <Icon name = 'md-arrow-back' size = {25} />
             </BackBT>
-            <TxtTitle>Đăng nhập</TxtTitle>
-            {renderTxtIP()}
-            <BtLogin>
-                <TxtBtLogin>Đăng nhập</TxtBtLogin>
-            </BtLogin>
-            <Bt>
-                <TxtBtForgotPass>Quên mật khẩu?</TxtBtForgotPass>
-            </Bt>
-            <View  style = {{flexDirection: 'row'}} >
-                <TxtResgisTraTion>Bạn chưa có tài khoản?</TxtResgisTraTion>
-                <Bt>
-                    <TxtBtResgisTraTion>Đăng ký</TxtBtResgisTraTion>
-                </Bt>
-            </View>
+            <TxtTitle>Đăng ký</TxtTitle>
+            <KeyboardAwareScrollView       
+                extraScrollHeight={80}
+                scrollEnabled={true}
+                keyboardShouldPersistTaps='handled'>
+                <ScrollView contentContainerStyle={{flexGrow: 1, paddingBottom: 250}}>
+                    {renderTxtIP()}
+                    <BtLogin>
+                        <TxtBtLogin>Đăng ký</TxtBtLogin>
+                    </BtLogin>
+                    <View  style = {{flexDirection: 'row'}} >
+                        <TxtResgisTraTion>Bạn đã có tài khoản?</TxtResgisTraTion>
+                        <Bt>
+                            <TxtBtResgisTraTion>Đăng nhập</TxtBtResgisTraTion>
+                        </Bt>
+                    </View>
+                </ScrollView>
+            </KeyboardAwareScrollView>
         </Wrapper>
     )
 }

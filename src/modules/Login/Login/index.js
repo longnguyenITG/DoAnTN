@@ -32,12 +32,12 @@ function Login(props) {
   }
   function renderRegistrationWithApp() {
     return(
-      <LoginBT style = {{borderColor: Colors.primary_2, borderWidth: 2, backgroundColor: Colors.white}}>
+      <LoginBT style = {{borderColor: Colors.primary_2, borderWidth: 2, backgroundColor: Colors.white}}
+        onPress = {() => navigation.navigate(Routes.registration)}
+      >
         <View 
           style = {{justifyContent: 'center'}}>       
-          <TxtLogin
-            style = {{color: Colors.primary_2}}
-          >Tạo tài khoản Exciting Journey</TxtLogin>        
+          <TxtLogin style = {{color: Colors.primary_2}}>Tạo tài khoản Exciting Journey</TxtLogin>        
         </View>
       </LoginBT>
     )
@@ -107,8 +107,9 @@ function Login(props) {
       {renderLoginWithApp()}
       {renderRegistrationWithApp()}
       <TxtLogin
-            style = {{color: Colors.primary_2, marginTop: 200}}
-          >~~ Good luck to everyone ~~</TxtLogin>
+          style = {{color: Colors.primary_2, marginTop: 200}}>
+          ~~ Good luck to everyone ~~
+      </TxtLogin>
     </Wraper>
   )
 }

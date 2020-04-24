@@ -5,6 +5,7 @@ import Fonts from '../../../utils/Fonts'
 export const Wrapper = styled.View `
     flex: 1;
 `
+export const ScrollView = styled.ScrollView ``
 export const WrapperBT = styled.TouchableOpacity `
 `
 export const View = styled.View ``
@@ -18,7 +19,7 @@ export const TxtTitle = styled.Text `
     ${Fonts.header};
     color: ${Colors.black};
     align-self: center;
-    margin-top: 80;
+    margin-top: 60;
     margin-bottom: 70;
 `
 export const BackBT = styled.TouchableOpacity `
@@ -60,21 +61,15 @@ export const TxtBtLogin = styled.Text `
     color: ${Colors.white};
     font-size: 16;
 `
-export const TxtBtForgotPass = styled.Text `
-    color: ${Colors.primary_1};
-    font-size: 16;
-    margin-top: 20;
-    margin-left: 30;
-`
 export const TxtResgisTraTion = styled.Text `
     color: ${Colors.black};
     font-size: 16;
-    margin-top: 20;
+    margin-top: 25;
     margin-left: 30;
 `
 export const TxtBtResgisTraTion = styled.Text `
     color: ${Colors.primary_1};
     font-size: 16;
-    margin-top: 20;
+    margin-top: 25;
     margin-left: 5;
 `
