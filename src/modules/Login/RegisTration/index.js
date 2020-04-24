@@ -21,18 +21,19 @@ import {
 } from './styled'
 
 function index(props) {
+    const {navigation} = props
     const insets = useSafeArea();
     const [hideTitleEmail, SetHideTitleEmail] = useState(false)
     const [hideTitlePassWord, SetHideTitlePassWord] = useState(false)
     const [hideTitleName, SetHideTitleName] = useState(false)
     const [hideTitleSdt, SetHideTitleSdt] = useState(false)
-    const [seePass, SetSeePass] = useState(false)
+    const [seePass, SetSeePass] = useState(true)
     const [txtEmail, SettxtEmail] = useState('')
     const [txtPassWord, SettxtPassWord] = useState('')
     const [txtName, SettxtName] = useState('')
     const [txtSdt, SettxtSdt] = useState('')
     
-    function renderInput(hideTitle, txtTitle, playHoder, setText, setHide, value, setHideMore, setHideMore1, setHideMore2, icon){
+    function renderInput(hideTitle, txtTitle, playHoder, setText, setHide, value, setHideMore, setHideMore1, setHideMore2, icon, hidePass){
         return(
             <ViewIP>
                 {hideTitle ? <TxtIpTitle>{txtTitle}</TxtIpTitle> : null}
@@ -47,10 +48,11 @@ function index(props) {
                                 setHideMore2(false)
                             }}
                             value = {value}
+                            secureTextEntry = {hidePass ? seePass : false}
                             />  
                         {icon ? <Bt onPress = {() => SetSeePass(!seePass)}>
                             {
-                                seePass 
+                                seePass == false
                                 ? <IconEye name= 'eye-off' size = {18} style = {{marginTop: 13, marginLeft: 20}}/> 
                                 : <IconEye name= 'eye' size = {18} style = {{marginTop: 13, marginLeft: 20}}/> 
                             }                                
@@ -63,10 +65,10 @@ function index(props) {
     function renderTxtIP() {
         return(
             <View>
-                {renderInput(hideTitleEmail, 'Email*', 'Email*', SettxtEmail, SetHideTitleEmail, txtEmail, SetHideTitlePassWord, SetHideTitleName, SetHideTitleSdt)}
-                {renderInput(hideTitlePassWord, 'Mật khẩu*', 'Mật khẩu*', SettxtPassWord, SetHideTitlePassWord, txtPassWord, SetHideTitleEmail, SetHideTitleName, SetHideTitleSdt, true)}
-                {renderInput(hideTitleName, 'Họ và tên*', 'Họ và tên*', SettxtName, SetHideTitleName, txtName, SetHideTitleEmail, SetHideTitlePassWord, SetHideTitleSdt)}
-                {renderInput(hideTitleSdt, 'Số điện thoại', 'Số điện thoại', SettxtSdt, SetHideTitleSdt, txtSdt, SetHideTitleEmail, SetHideTitlePassWord, SetHideTitleName)}
+                {renderInput(hideTitleEmail, 'Email*', 'Email*', SettxtEmail, SetHideTitleEmail, txtEmail, SetHideTitlePassWord, SetHideTitleName, SetHideTitleSdt, false, false)}
+                {renderInput(hideTitlePassWord, 'Mật khẩu*', 'Mật khẩu*', SettxtPassWord, SetHideTitlePassWord, txtPassWord, SetHideTitleEmail, SetHideTitleName, SetHideTitleSdt, true, true)}
+                {renderInput(hideTitleName, 'Họ và tên*', 'Họ và tên*', SettxtName, SetHideTitleName, txtName, SetHideTitleEmail, SetHideTitlePassWord, SetHideTitleSdt, false, false)}
+                {renderInput(hideTitleSdt, 'Số điện thoại', 'Số điện thoại', SettxtSdt, SetHideTitleSdt, txtSdt, SetHideTitleEmail, SetHideTitlePassWord, SetHideTitleName, false, false)}
             </View>
         )        
     }
@@ -79,7 +81,7 @@ function index(props) {
                 paddingLeft: insets.left,
                 paddingRight: insets.right
             }}>
-            <BackBT>
+            <BackBT onPress = {() => navigation.goBack()} >
                 <Icon name = 'md-arrow-back' size = {25} />
             </BackBT>
             <TxtTitle>Đăng ký</TxtTitle>

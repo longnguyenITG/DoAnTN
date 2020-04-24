@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
 import IconEye from 'react-native-vector-icons/Feather'
 import { useSafeArea } from 'react-native-safe-area-context'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import {
     Wrapper,
     TxtTitle,
@@ -16,18 +17,20 @@ import {
     TxtBtLogin,
     TxtBtForgotPass,
     TxtResgisTraTion,
-    TxtBtResgisTraTion
+    TxtBtResgisTraTion,
+    ScrollView
 } from './styled'
 
 function index(props) {
+    const {navigation} = props
     const insets = useSafeArea();
     const [hideTitleEmail, SetHideTitleEmail] = useState(false)
     const [hideTitlePassWord, SetHideTitlePassWord] = useState(false)
-    const [seePass, SetSeePass] = useState(false)
+    const [seePass, SetSeePass] = useState(true)
     const [txtEmail, SettxtEmail] = useState('')
     const [txtPassWord, SettxtPassWord] = useState('')
     
-    function renderInput(hideTitle, txtTitle, playHoder, setText, setHide, value, setHideMore, icon){
+    function renderInput(hideTitle, txtTitle, playHoder, setText, setHide, value, setHideMore, icon, hidePass){
         return(
             <ViewIP>
                 {hideTitle ? <TxtIpTitle>{txtTitle}</TxtIpTitle> : null}
@@ -40,10 +43,11 @@ function index(props) {
                                 setHideMore(false)
                             }}
                             value = {value}
+                            secureTextEntry = {hidePass ? seePass : false}
                             />  
                         {icon ? <Bt onPress = {() => SetSeePass(!seePass)}>
                             {
-                                seePass 
+                                seePass == false 
                                 ? <IconEye name= 'eye-off' size = {18} style = {{marginTop: 13, marginLeft: 20}}/> 
                                 : <IconEye name= 'eye' size = {18} style = {{marginTop: 13, marginLeft: 20}}/> 
                             }                                
@@ -56,8 +60,8 @@ function index(props) {
     function renderTxtIP() {
         return(
             <View>
-                {renderInput(hideTitleEmail, 'Email', 'Email...', SettxtEmail, SetHideTitleEmail, txtEmail, SetHideTitlePassWord)}
-                {renderInput(hideTitlePassWord, 'Mật khẩu', 'Mật khẩu...', SettxtPassWord, SetHideTitlePassWord, txtPassWord, SetHideTitleEmail, true)}
+                {renderInput(hideTitleEmail, 'Email', 'Email...', SettxtEmail, SetHideTitleEmail, txtEmail, SetHideTitlePassWord, false, false)}
+                {renderInput(hideTitlePassWord, 'Mật khẩu', 'Mật khẩu...', SettxtPassWord, SetHideTitlePassWord, txtPassWord, SetHideTitleEmail, true, true)}
             </View>
         )        
     }
@@ -71,7 +75,7 @@ function index(props) {
                 paddingRight: insets.right
             }}
         >
-            <BackBT>
+            <BackBT onPress = {() => navigation.goBack()} >
                 <Icon name = 'md-arrow-back' size = {25} />
             </BackBT>
             <TxtTitle>Đăng nhập</TxtTitle>

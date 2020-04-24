@@ -19,15 +19,15 @@ function index (){
     return (
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen
+            name={sflashscreen}
+            component={SflashScreen}
+            options = {{headerShown: false}}
+          />
           <Stack.Screen name={registration} component={RegisTration}
             options = {{headerShown: false}}
           />
           <Stack.Screen name={loginapp} component={LoginApp}
-            options = {{headerShown: false}}
-          />
-          <Stack.Screen
-            name={sflashscreen}
-            component={SflashScreen}
             options = {{headerShown: false}}
           />
           <Stack.Screen name={login} component={Login}  

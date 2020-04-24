@@ -7,6 +7,7 @@ export const Wrapper = styled.View `
 `
 export const WrapperBT = styled.TouchableOpacity `
 `
+export const ScrollView = styled.ScrollView ``
 export const View = styled.View ``
 export const ViewIP = styled.View `
     width: 90%;
