@@ -5,11 +5,19 @@ import Shadows from '../../../utils/Shadow'
 
 export const Wrapper = styled.View `
     flex: 1;
+    background-color: ${Colors.white_4};
 `
+export const ScrollView = styled.ScrollView ``
+export const View = styled.View ``
 export const ViewHeader = styled.View `
     flex-direction: row;
-    padding: 15px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
     justify-content: space-between;
+    ${'' /* ${Shadows.shadow_1};
+    background: ${Colors.white_2}; */}
 `
 export const TxtTitle = styled.Text `
     font-size: 25;
@@ -40,10 +48,56 @@ export const BtSchedule = styled.TouchableOpacity `
     align-self: center;
 `
 export const WrapperItemFLRecentLy = styled.View `
-    width: 250;
-    height: 200;
-    border-radius: 5;
-    border-width: 0.5;
+    width: 300;
+    height: 300;
     margin-right: 10;
-    ${'' /* ${Shadows.shadow_1} */}
+    border-radius: 2;
+    border-color: #ddd;
+    border-width: 1;
+    background-color: ${Colors.white_3};
+    shadow-color: #000;
+    shadow-offset: {width: 0, height: 0};
+    shadow-opacity: 0.8;
+    shadow-radius: 2;
+    elevation: 4;
+`
+export const ViewAccFL = styled.TouchableOpacity `
+    height: 15%;
+    padding: 10px;
+    background-color: ${Colors.white_3};
+    flex-direction: row;
+    align-items: center;
+    border-top-left-radius: 1;
+    border-top-right-radius: 1;
+`
+export const ViewNameAcc = styled.View `
+    height: 35;
+`
+export const TxtItemName = styled.Text `
+    font-size: 13;
+    color: ${Colors.black};
+`
+export const TxtItemTimeAgo = styled.Text `
+    font-size: 11;
+    color: ${Colors.gray_3};
+`
+export const TitleTourItem = styled.Text `
+    font-size: 15;
+    font-weight: bold;
+    color: ${Colors.black};
+    padding: 5px;
+    padding-left: 17;
+`
+export const WrapContentTour = styled.View `
+    height: 70;
+    width: 100%;
+    flex-direction: row;
+    padding: 5px;
+    align-items: center;
+    padding-top: 10;
+`
+export const ViewChildContentTour = styled.View `
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10;
 `
