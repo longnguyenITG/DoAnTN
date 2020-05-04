@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { FlatList, Image } from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
 import Colors from '../../../utils/Colors'
+import Routes from '../../../utils/Routes'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import IconIonicons from 'react-native-vector-icons/Ionicons'
 import IconFoundation from 'react-native-vector-icons/Foundation'
-import image from '../../../assets/image/d1e285affc590ce2e87fd225aacfd15a.png'
 import dataFake from './fakeData'
 import {FlatList as FlatListComponent} from '../../../components'
 import {
@@ -46,9 +46,9 @@ function index(props) {
     
     function renderItemFL({item}) {
         return(
-            <Bt style= {{marginLeft: 30, marginTop: 5}}>
-                <Image source = {image} style = {{width: 50, height: 50}}/>
-                <TxtItem>Text Item</TxtItem>
+            <Bt style= {{marginLeft: 23, marginTop: 10, width: 70, height: 60, alignItems: 'center'}}>
+                <Image source = {item.image} style = {{width: 40, height: 40}}/>
+                <TxtItem style = {{fontSize: 13}} >{item.key}</TxtItem>
             </Bt>
         )
     }
@@ -63,7 +63,9 @@ function index(props) {
                         <TxtItemTimeAgo>18 phút trước</TxtItemTimeAgo>
                     </ViewNameAcc>
                 </ViewAccFL>
-                <Bt>
+                <Bt
+                    onPress = {() => navigation.navigate(Routes.detail)}
+                >
                     <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '55%'}}/>
                     <TitleTourItem>{item.title}</TitleTourItem>
                     <WrapContentTour>
@@ -83,8 +85,10 @@ function index(props) {
     function renderItemFLDealTour ({item}) {
         return(
             <WrapperItemFLRecentLy style = {{width: 200, height: 220}} >
-                <Bt>
-                    <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '55%'}}/>
+                <Bt
+                    onPress = {() => navigation.navigate(Routes.detail)}
+                >
+                    <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '55%', borderTopLeftRadius: 14, borderTopRightRadius: 14}}/>
                     <TitleTourItem style = {{fontSize: 14}} >{item.title}</TitleTourItem>
                     <WrapContentTour style = {{paddingTop: 5, height: 50}} >
                         <ViewChildContentTour style = {{marginLeft: 10}} >
@@ -98,31 +102,11 @@ function index(props) {
     }
     function renderItemPicktureLike ({item}) {
         return(
-            <WrapperItemFLRecentLy style = {{width: 200, height: 220}} >
+            <WrapperItemFLRecentLy style = {{width: 200, height: 270}} >
                 <Bt>
-                    <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '100%'}}/>
-                    <TitleTourItem style = {{fontSize: 14}} >{item.title}</TitleTourItem>
+                    <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '100%', borderRadius: 14}}/>
                 </Bt>
             </WrapperItemFLRecentLy>
-        )
-    }
-    function renderFL(styleViewHeader, data, renderItem, title){
-        return(
-            <View>
-                <ViewHeader style = {styleViewHeader} >
-                    <TxtTitle style = {{fontSize: 20}} >{title}</TxtTitle>
-                    <Bt>
-                        <TxtMore>Tất cả</TxtMore>
-                    </Bt>
-                </ViewHeader>
-                <FlatList
-                    style = {{flexGrow: 0, marginBottom: 20, marginTop: 10, marginLeft: 20}}
-                    data = {data}
-                    renderItem = {renderItem}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal = {true}
-                />
-            </View>
         )
     }
     return (
@@ -154,14 +138,14 @@ function index(props) {
                 <FlatListComponent
                     styleViewHeader = {{marginTop: 1, marginLeft: 7, marginRight: 7}}
                     data = {dataFake.dataRecently}
-                    renderItem = {renderItemFLRecentLy}     
-                    title = 'Tour được yêu thích nhất'         
+                    renderItem = {renderItemPicktureLike}     
+                    title = 'Ảnh được yêu thích nhất'         
                 />
                 <FlatListComponent
                     styleViewHeader = {{marginTop: 1, marginLeft: 7, marginRight: 7}}
                     data = {dataFake.dataRecently}
-                    renderItem = {renderItemPicktureLike}     
-                    title = 'Ảnh được yêu thích nhất'         
+                    renderItem = {renderItemFLRecentLy}     
+                    title = 'Tour được yêu thích nhất'         
                 />
                 <FlatListComponent
                     styleViewHeader = {{marginTop: 1, marginLeft: 7, marginRight: 7}}

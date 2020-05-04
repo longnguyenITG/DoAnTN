@@ -4,4 +4,9 @@ export default {
     loginapp: "LoginApp",
     registration: "RegisTration",
     home: "Home",
+    detail: "Detail",
+    listmytour: "ListMytour",
+    createtour: "CreateTour",
+    listnotifycation: "ListNotifycation",
+    homesetting: "HomeSetting"
 }

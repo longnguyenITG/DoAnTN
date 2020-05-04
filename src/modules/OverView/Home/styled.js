@@ -51,7 +51,7 @@ export const WrapperItemFLRecentLy = styled.View `
     width: 300;
     height: 300;
     margin-right: 10;
-    border-radius: 2;
+    border-radius: 15;
     border-color: #ddd;
     border-width: 1;
     background-color: ${Colors.white_3};
@@ -59,7 +59,7 @@ export const WrapperItemFLRecentLy = styled.View `
     shadow-offset: {width: 0, height: 0};
     shadow-opacity: 0.8;
     shadow-radius: 2;
-    elevation: 4;
+    elevation: 0;
 `
 export const ViewAccFL = styled.TouchableOpacity `
     height: 15%;
@@ -67,8 +67,8 @@ export const ViewAccFL = styled.TouchableOpacity `
     background-color: ${Colors.white_3};
     flex-direction: row;
     align-items: center;
-    border-top-left-radius: 1;
-    border-top-right-radius: 1;
+    border-top-left-radius: 15;
+    border-top-right-radius: 15;
 `
 export const ViewNameAcc = styled.View `
     height: 35;
