@@ -120,9 +120,9 @@ function index() {
     return (
       <NavigationContainer>
         <StackAll.Navigator>
-          <StackAll.Screen name={home} component={NavigationTab}
+          <StackAll.Screen name={detail} component={Detail}
             options = {{headerShown: false}}
-          /> 
+          />
           <StackAll.Screen
             name={sflashscreen}
             component={SflashScreen}
@@ -139,9 +139,9 @@ function index() {
               animationEnabled: false,
               headerShown: false
             }}/>     
-          <StackAll.Screen name={detail} component={Detail}
+          <StackAll.Screen name={home} component={NavigationTab}
             options = {{headerShown: false}}
-          />                         
+          />             
         </StackAll.Navigator>
       </NavigationContainer>
     );
