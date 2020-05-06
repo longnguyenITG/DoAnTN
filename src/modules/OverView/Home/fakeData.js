@@ -44,9 +44,11 @@ export const dataFake = {
             timeCreate: '2020-04-16T00:00:00',
             imageDesCripTion: 'https://i.pinimg.com/736x/92/e9/8f/92e98f0592ad45575509c1d8a14a3739.jpg',
             imageDesCripTionDetail: [
-                'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png',
-                'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png',
-                'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png'
+                {
+                    imageDay: 'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png',
+                    timeDay: '2020-04-16T00:00:00',
+                    
+                },                
             ],
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
             sumDay: '3 Ngày',

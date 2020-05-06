@@ -4,6 +4,10 @@ import { useSafeArea } from 'react-native-safe-area-context'
 import {ScrollableTabView} from '@valdio/react-native-scrollable-tabview'
 import Colors from '../../../utils/Colors'
 import IconIonicons from 'react-native-vector-icons/Ionicons'
+import Trip from './Trip'
+import Flight from './Flight'
+import Hotel from './Hotel'
+import TicketsTour from './TicketsTour'
 
 import {
     Wrapper,
@@ -14,19 +18,24 @@ import {
     TxtTitle,
     TxtTitlechildren,
     WrapperHeader,
-    Bt
+    Bt,
 } from './styled'
 
 function index(props) {
-    const {navigation} = props
+    const {navigation, route} = props
+    const {item} = route.params
     const insets = useSafeArea()
+    console.log('data', item)
+
 
     const [opacityHeader, setOpacityHeader] = useState('transparent')
 
     function renderHeader() {
         return(
             <WrapperHeader style = {{backgroundColor: opacityHeader}} >
-                <Bt>
+                <Bt
+                    onPress = {() => navigation.goBack()}
+                >
                     <IconIonicons name = 'md-arrow-back' size = {27} color = {opacityHeader == 'transparent' ? 'white' :'black'} style = {{marginRight: opacityHeader == 'transparent' ? 270 : 40}} />
                 </Bt>
                 {
@@ -65,9 +74,9 @@ function index(props) {
                 onScroll={e => {
                 var windowHeight = Dimensions.get('window').height,
                     offset = e.nativeEvent.contentOffset.y
-                if (offset > 180) {
+                if (offset > 150) {
                     setOpacityHeader(Colors.white_4)                   
-                }else if (offset < 180) {
+                }else if (offset < 150) {
                     setOpacityHeader('transparent')                   
               }
             }}>
@@ -79,11 +88,13 @@ function index(props) {
                     <ScrollableTabView
                          showsHorizontalScrollIndicator={false}
                          tabBarUnderlineStyle={{backgroundColor: Colors.secondary_22,height:2}}
-                         tabBarActiveTextColor={Colors.secondary_22}>
-                        <TxtTabBar tabLabel='Chuyến đi' style = {{height: 650}}>My</TxtTabBar>
-                        <TxtTabBar tabLabel='Chuyến bay' style = {{height: 650}}>favorite</TxtTabBar>
-                        <TxtTabBar tabLabel='Khách sạn' style = {{height: 650}}>project</TxtTabBar>
-                        <TxtTabBar tabLabel='Vé & Tours' style = {{height: 650}}>project</TxtTabBar>
+                         tabBarActiveTextColor={Colors.secondary_22}
+                         prerenderingSiblingsNumber={Infinity}
+                         locked = {true}>
+                        <Trip tabLabel='Chuyến đi' item = {item.imageDesCripTionDetail} />                        
+                        <Flight tabLabel='Chuyến bay' />                        
+                        <Hotel tabLabel='Khách sạn' />                        
+                        <TicketsTour tabLabel='Vé & Tour' />                        
                     </ScrollableTabView>
             </ScrollView>
         </Wrapper>

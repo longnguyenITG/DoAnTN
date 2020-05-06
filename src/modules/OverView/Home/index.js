@@ -64,7 +64,7 @@ function index(props) {
                     </ViewNameAcc>
                 </ViewAccFL>
                 <Bt
-                    onPress = {() => navigation.navigate(Routes.detail)}
+                    onPress = {() => navigation.navigate(Routes.detail, {item})}
                 >
                     <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '55%'}}/>
                     <TitleTourItem>{item.title}</TitleTourItem>
@@ -86,7 +86,7 @@ function index(props) {
         return(
             <WrapperItemFLRecentLy style = {{width: 200, height: 220}} >
                 <Bt
-                    onPress = {() => navigation.navigate(Routes.detail)}
+                    onPress = {() => navigation.navigate(Routes.detail, {item})}
                 >
                     <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '55%', borderTopLeftRadius: 14, borderTopRightRadius: 14}}/>
                     <TitleTourItem style = {{fontSize: 14}} >{item.title}</TitleTourItem>
