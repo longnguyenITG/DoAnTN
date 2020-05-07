@@ -3,6 +3,7 @@ import { FlatList, Image } from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
 import Colors from '../../../utils/Colors'
 import Routes from '../../../utils/Routes'
+import Helpers from '../../../utils/Helpers'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import IconIonicons from 'react-native-vector-icons/Ionicons'
 import IconFoundation from 'react-native-vector-icons/Foundation'
@@ -75,7 +76,7 @@ function index(props) {
                         </ViewChildContentTour>
                         <ViewChildContentTour style = {{marginLeft: 10}} >
                             <IconFoundation name = 'dollar' size = {27} color = {Colors.secondary_12} style = {{marginRight: 5}}/>
-                            <TxtItemTimeAgo style = {{fontSize: 13}}>{item.sumMoney}đ</TxtItemTimeAgo>
+                            <TxtItemTimeAgo style = {{fontSize: 13}}>{Helpers.formatNumber(item.sumMoney)}đ</TxtItemTimeAgo>
                         </ViewChildContentTour>
                     </WrapContentTour>
                 </Bt>

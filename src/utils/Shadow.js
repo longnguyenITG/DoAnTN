@@ -18,5 +18,14 @@ export default {
         };
         shadow-opacity: 0.30;
         shadow-radius: 4.65;
-        elevation: 12;`
+        elevation: 10;`,
+    shadow_2:`
+        shadow-color: ${Colors.black};
+        shadow-offset: {
+            width: 0,
+            height: 3,
+        };
+        shadow-opacity: 0.30;
+        shadow-radius: 4.65;
+        elevation: 5;`
 }

@@ -3,30 +3,53 @@ import {Image, Dimensions, Alert} from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
 import {ScrollableTabView} from '@valdio/react-native-scrollable-tabview'
 import Colors from '../../../utils/Colors'
+import Helpers from '../../../utils/Helpers'
 import IconIonicons from 'react-native-vector-icons/Ionicons'
+import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import IconFeather from 'react-native-vector-icons/Feather'
 import Trip from './Trip'
 import Flight from './Flight'
 import Hotel from './Hotel'
 import TicketsTour from './TicketsTour'
+import { FloatingAction } from "react-native-floating-action";
 
 import {
     Wrapper,
     ScrollView,
     ViewTitleDetail,
-    View,
-    TxtTabBar,
     TxtTitle,
     TxtTitlechildren,
     WrapperHeader,
     Bt,
+    WrapperMoney,
+    ViewChildrenMoney,
+    BtJoin,
+    TxtBtJoin
 } from './styled'
 
 function index(props) {
     const {navigation, route} = props
     const {item} = route.params
     const insets = useSafeArea()
-    console.log('data', item)
-
+    const actions = [
+        {
+          text: "Gửi yêu cầu",
+          icon: <IconMaterialCommunityIcons name = 'file-document-edit-outline' size = {30} color = {Colors.white} />,
+          name: "bt_guiyeucau",
+          position: 1,
+          color: '#2D9CDB',
+          buttonSize: 50
+        },
+        {
+          text: "Gọi Hotline",
+          icon: <IconFeather name = 'phone-call' size = {30} color = {Colors.white} />,
+          name: "bt_goihotline",
+          position: 2,
+          color: '#2D9CDB',
+          buttonSize: 50
+        }
+      ]
 
     const [opacityHeader, setOpacityHeader] = useState('transparent')
 
@@ -55,9 +78,9 @@ function index(props) {
     function renderTitle() {
         return(
             <ViewTitleDetail>
-                <TxtTitle>3 ngày đi Mộc châu từ Hưng Yên</TxtTitle>
-                <TxtTitlechildren>12-5-2020,  6 người tham gia</TxtTitlechildren>
-                <TxtTitlechildren>Tạo bởi {<TxtTitlechildren style = {{color: Colors.black}}>Long nguyễn</TxtTitlechildren>}</TxtTitlechildren>
+                <TxtTitle>{item.title}</TxtTitle>
+                <TxtTitlechildren>{Helpers.formatDate(item.timeCreate)},  {item.sumPeopleJoin.length} người tham gia</TxtTitlechildren>
+                <TxtTitlechildren>Tạo bởi {<TxtTitlechildren style = {{color: Colors.black}}>{item.nameAcc}</TxtTitlechildren>}</TxtTitlechildren>
             </ViewTitleDetail>
         )
     }
@@ -81,7 +104,7 @@ function index(props) {
               }
             }}>
                 <Image  
-                    source = {{uri: 'https://media-a.laodong.vn/Storage/NewsPortal/2017/8/28/551691/Du-Lich_1.jpg'}} 
+                    source = {{uri: item.imageDesCripTion}} 
                     style = {{width: Dimensions.get('window').width, height: Dimensions.get('window').height*0.3, marginBottom: 70 }}/>
                   
                     {renderTitle()}
@@ -91,12 +114,32 @@ function index(props) {
                          tabBarActiveTextColor={Colors.secondary_22}
                          prerenderingSiblingsNumber={Infinity}
                          locked = {true}>
-                        <Trip tabLabel='Chuyến đi' item = {item.imageDesCripTionDetail} />                        
+                        <Trip tabLabel='Chuyến đi' itemParams = {item} />                        
                         <Flight tabLabel='Chuyến bay' />                        
                         <Hotel tabLabel='Khách sạn' />                        
                         <TicketsTour tabLabel='Vé & Tour' />                        
                     </ScrollableTabView>
             </ScrollView>
+            <FloatingAction
+                actions={actions}
+                color = {Colors.secondary_22}
+                distanceToEdge = { { vertical: 100, horizontal: 20 }}
+                floatingIcon = {<IconFontAwesome5 name = 'headphones-alt' size = {30} color = {Colors.white} />}
+                onPressItem={name => {
+                    name == 'bt_guiyeucau' ?
+                    Alert.alert('Nhấn', 'Gửi yêu cầu')
+                    : Alert.alert('Nhấn', 'Hotline')
+                }}
+            />
+            <WrapperMoney>
+                <ViewChildrenMoney>
+                    <TxtTitle style = {{paddingTop: 5, marginBottom: 3}} >{Helpers.formatNumber(item.sumMoney)}đ</TxtTitle>
+                    <TxtTitlechildren>Mỗi người</TxtTitlechildren>
+                </ViewChildrenMoney>
+                <BtJoin>
+                    <TxtBtJoin>Đặt ngay</TxtBtJoin>
+                </BtJoin>
+            </WrapperMoney>
         </Wrapper>
     )
 }
