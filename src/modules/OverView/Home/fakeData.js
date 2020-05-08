@@ -39,6 +39,7 @@ export const dataFake = {
     ],
     dataRecently : [
         {
+            keyAcc: 1,
             imageAcc: 'https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/14671255_1737974169787387_2146737138430491119_n.png?_nc_cat=111&_nc_sid=85a577&_nc_oc=AQlhJw6wPKOY0jTyiOur0li3nICOfZzK5mT_FCcM1L8VZ8lnc3XKv6SquJVns_sSHsQ&_nc_ht=scontent.fhan3-2.fna&oh=74fc5bf6c7615a297da6e206dd467d8b&oe=5ED75D22',
             nameAcc: 'Long nguyễn',
             timeCreate: '2020-04-16T00:00:00',
@@ -73,38 +74,89 @@ export const dataFake = {
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
             sumDay: '3 Ngày',
             sumMoney: 3000000,
-            sumPeopleJoin: [
+            sumHotel: [
                 {
+                    nameHotel: 'Yến nhi hotel',
+                    price: 300000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInRoom: 2
+                },
+            ],
+            sumFlight: [
+                {
+                    fromPlace: 'Hưng yên',
+                    toPlace: 'Mộc châu',
+                    price: 3000000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInFlight: 1
+                },
+                {
+                    fromPlace: 'Hưng yên',
+                    toPlace: 'Mộc châu',
+                    price: 3000000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInFlight: 1
+                },
+            ],
+            sumTicketsTour: [
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+            ],
+            sumPeopleJoin: [
+                {   keyAcc: 1,
                     imageAcc: 'https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/14671255_1737974169787387_2146737138430491119_n.png?_nc_cat=111&_nc_sid=85a577&_nc_oc=AQlhJw6wPKOY0jTyiOur0li3nICOfZzK5mT_FCcM1L8VZ8lnc3XKv6SquJVns_sSHsQ&_nc_ht=scontent.fhan3-2.fna&oh=74fc5bf6c7615a297da6e206dd467d8b&oe=5ED75D22',
                     nameAcc: 'Long nguyễn',
                 },
                 {
+                    keyAcc: 2,
                     imageAcc: 'https://ymeet.me/blog/wp-content/uploads/2018/02/tim-ban-trai-di-phuot-ava.jpg',
                     nameAcc: 'Cúnn',
                 },
                 {
+                    keyAcc: 3,
                     imageAcc: 'https://static1.bestie.vn/Mlog/ImageContent/201703/bestie-con-gai-thich-di-phuot-3-20170320134813.jpg',
                     nameAcc: 'Tuấn phạm',
                 },
                 {
+                    keyAcc: 4,
                     imageAcc: 'https://f.phongcachsong.net/2014/09/con_gai_1-16_36_55_754.jpg',
                     nameAcc: 'Huynh phú',
                 },
                 {
+                    keyAcc: 5,
                     imageAcc: 'https://www.wyndhamhalong.com/uploads/blog/2017/Thang_2/nu-gioi-di-phuot-mot-minh-can-luu-y-gi-1.jpg',
                     nameAcc: 'Trang phạm',
                 },
                 {
+                    keyAcc: 6,
                     imageAcc: 'https://blogphuot.info/wp-content/uploads/2016/03/474f4cdd4383ff91fd1d98bcb039d93b.jpg',
                     nameAcc: 'Lan anhh',
                 },
                 {
+                    keyAcc: 7,
                     imageAcc: 'https://static.vexere.com/blog/uploads/2018/06/dulich.png',
                     nameAcc: 'Yến nguyễn',
                 },
             ]
         },
         {
+            keyAcc: 2,
             imageAcc: 'https://ymeet.me/blog/wp-content/uploads/2018/02/tim-ban-trai-di-phuot-ava.jpg',
             nameAcc: 'Cúnn',
             timeCreate: '2020-04-16T00:00:00',
@@ -139,38 +191,106 @@ export const dataFake = {
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
             sumDay: '3 Ngày',
             sumMoney: 3000000,
+            sumHotel: [
+                {
+                    nameHotel: 'Yến nhi hoteil',
+                    price: 300000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInRoom: 2
+                },
+                {
+                    nameHotel: 'Yến nhi hoteil',
+                    price: 300000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInRoom: 2
+                },
+                {
+                    nameHotel: 'Yến nhi hoteil',
+                    price: 300000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInRoom: 2
+                },
+            ],
+            sumFlight: [
+                {
+                    nameFlight: 'VietnamElines',
+                    price: 3000000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInFlight: 1
+                },
+                {
+                    nameFlight: 'VietnamElines',
+                    price: 3000000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInFlight: 1
+                },
+                {
+                    nameFlight: 'VietnamElines',
+                    price: 3000000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInFlight: 1
+                },
+            ],
+            sumTicketsTour: [
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+            ],
             sumPeopleJoin: [
                 {
+                    keyAcc: 1,
                     imageAcc: 'https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/14671255_1737974169787387_2146737138430491119_n.png?_nc_cat=111&_nc_sid=85a577&_nc_oc=AQlhJw6wPKOY0jTyiOur0li3nICOfZzK5mT_FCcM1L8VZ8lnc3XKv6SquJVns_sSHsQ&_nc_ht=scontent.fhan3-2.fna&oh=74fc5bf6c7615a297da6e206dd467d8b&oe=5ED75D22',
                     nameAcc: 'Long nguyễn',
                 },
                 {
+                    keyAcc: 2,
                     imageAcc: 'https://ymeet.me/blog/wp-content/uploads/2018/02/tim-ban-trai-di-phuot-ava.jpg',
                     nameAcc: 'Cúnn',
                 },
                 {
+                    keyAcc: 3,
                     imageAcc: 'https://static1.bestie.vn/Mlog/ImageContent/201703/bestie-con-gai-thich-di-phuot-3-20170320134813.jpg',
                     nameAcc: 'Tuấn phạm',
                 },
                 {
+                    keyAcc: 4,
                     imageAcc: 'https://f.phongcachsong.net/2014/09/con_gai_1-16_36_55_754.jpg',
                     nameAcc: 'Huynh phú',
                 },
                 {
+                    keyAcc: 5,
                     imageAcc: 'https://www.wyndhamhalong.com/uploads/blog/2017/Thang_2/nu-gioi-di-phuot-mot-minh-can-luu-y-gi-1.jpg',
                     nameAcc: 'Trang phạm',
                 },
                 {
+                    keyAcc: 6,
                     imageAcc: 'https://blogphuot.info/wp-content/uploads/2016/03/474f4cdd4383ff91fd1d98bcb039d93b.jpg',
                     nameAcc: 'Lan anhh',
                 },
                 {
+                    keyAcc: 7,
                     imageAcc: 'https://static.vexere.com/blog/uploads/2018/06/dulich.png',
                     nameAcc: 'Yến nguyễn',
                 },
             ]
         },
         {
+            keyAcc: 3,
             imageAcc: 'https://static1.bestie.vn/Mlog/ImageContent/201703/bestie-con-gai-thich-di-phuot-3-20170320134813.jpg',
             nameAcc: 'Cúnn',
             timeCreate: '2020-04-16T00:00:00',
@@ -205,38 +325,106 @@ export const dataFake = {
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
             sumDay: '3 Ngày',
             sumMoney: 3000000,
+            sumHotel: [
+                {
+                    nameHotel: 'Yến nhi hoteil',
+                    price: 300000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInRoom: 2
+                },
+                {
+                    nameHotel: 'Yến nhi hoteil',
+                    price: 300000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInRoom: 2
+                },
+                {
+                    nameHotel: 'Yến nhi hoteil',
+                    price: 300000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInRoom: 2
+                },
+            ],
+            sumFlight: [
+                {
+                    nameFlight: 'VietnamElines',
+                    price: 3000000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInFlight: 1
+                },
+                {
+                    nameFlight: 'VietnamElines',
+                    price: 3000000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInFlight: 1
+                },
+                {
+                    nameFlight: 'VietnamElines',
+                    price: 3000000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInFlight: 1
+                },
+            ],
+            sumTicketsTour: [
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+            ],
             sumPeopleJoin: [
                 {
+                    keyAcc: 1,
                     imageAcc: 'https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/14671255_1737974169787387_2146737138430491119_n.png?_nc_cat=111&_nc_sid=85a577&_nc_oc=AQlhJw6wPKOY0jTyiOur0li3nICOfZzK5mT_FCcM1L8VZ8lnc3XKv6SquJVns_sSHsQ&_nc_ht=scontent.fhan3-2.fna&oh=74fc5bf6c7615a297da6e206dd467d8b&oe=5ED75D22',
                     nameAcc: 'Long nguyễn',
                 },
                 {
+                    keyAcc: 2,
                     imageAcc: 'https://ymeet.me/blog/wp-content/uploads/2018/02/tim-ban-trai-di-phuot-ava.jpg',
                     nameAcc: 'Cúnn',
                 },
                 {
+                    keyAcc: 3,
                     imageAcc: 'https://static1.bestie.vn/Mlog/ImageContent/201703/bestie-con-gai-thich-di-phuot-3-20170320134813.jpg',
                     nameAcc: 'Tuấn phạm',
                 },
                 {
+                    keyAcc: 4,
                     imageAcc: 'https://f.phongcachsong.net/2014/09/con_gai_1-16_36_55_754.jpg',
                     nameAcc: 'Huynh phú',
                 },
                 {
+                    keyAcc: 5,
                     imageAcc: 'https://www.wyndhamhalong.com/uploads/blog/2017/Thang_2/nu-gioi-di-phuot-mot-minh-can-luu-y-gi-1.jpg',
                     nameAcc: 'Trang phạm',
                 },
                 {
+                    keyAcc: 6,
                     imageAcc: 'https://blogphuot.info/wp-content/uploads/2016/03/474f4cdd4383ff91fd1d98bcb039d93b.jpg',
                     nameAcc: 'Lan anhh',
                 },
                 {
+                    keyAcc: 7,
                     imageAcc: 'https://static.vexere.com/blog/uploads/2018/06/dulich.png',
                     nameAcc: 'Yến nguyễn',
                 },
             ]
         },
         {
+            keyAcc: 4,
             imageAcc: 'https://f.phongcachsong.net/2014/09/con_gai_1-16_36_55_754.jpg',
             nameAcc: 'Cúnn',
             timeCreate: '2020-04-16T00:00:00',
@@ -271,32 +459,99 @@ export const dataFake = {
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
             sumDay: '3 Ngày',
             sumMoney: 3000000,
+            sumHotel: [
+                {
+                    nameHotel: 'Yến nhi hoteil',
+                    price: 300000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInRoom: 2
+                },
+                {
+                    nameHotel: 'Yến nhi hoteil',
+                    price: 300000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInRoom: 2
+                },
+                {
+                    nameHotel: 'Yến nhi hoteil',
+                    price: 300000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInRoom: 2
+                },
+            ],
+            sumFlight: [
+                {
+                    nameFlight: 'VietnamElines',
+                    price: 3000000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInFlight: 1
+                },
+                {
+                    nameFlight: 'VietnamElines',
+                    price: 3000000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInFlight: 1
+                },
+                {
+                    nameFlight: 'VietnamElines',
+                    price: 3000000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInFlight: 1
+                },
+            ],
+            sumTicketsTour: [
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+                {
+                    nameTicket: 'Cáp treo tầng mây',
+                    price: 500000,
+                    timeBook: '2020-04-16T00:00:00',
+                    peopleInTicket: 1
+                },
+            ],
             sumPeopleJoin: [
                 {
+                    keyAcc: 1,
                     imageAcc: 'https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/14671255_1737974169787387_2146737138430491119_n.png?_nc_cat=111&_nc_sid=85a577&_nc_oc=AQlhJw6wPKOY0jTyiOur0li3nICOfZzK5mT_FCcM1L8VZ8lnc3XKv6SquJVns_sSHsQ&_nc_ht=scontent.fhan3-2.fna&oh=74fc5bf6c7615a297da6e206dd467d8b&oe=5ED75D22',
                     nameAcc: 'Long nguyễn',
                 },
                 {
+                    keyAcc: 2,
                     imageAcc: 'https://ymeet.me/blog/wp-content/uploads/2018/02/tim-ban-trai-di-phuot-ava.jpg',
                     nameAcc: 'Cúnn',
                 },
                 {
+                    keyAcc: 3,
                     imageAcc: 'https://static1.bestie.vn/Mlog/ImageContent/201703/bestie-con-gai-thich-di-phuot-3-20170320134813.jpg',
                     nameAcc: 'Tuấn phạm',
                 },
                 {
+                    keyAcc: 4,
                     imageAcc: 'https://f.phongcachsong.net/2014/09/con_gai_1-16_36_55_754.jpg',
                     nameAcc: 'Huynh phú',
                 },
                 {
+                    keyAcc: 5,
                     imageAcc: 'https://www.wyndhamhalong.com/uploads/blog/2017/Thang_2/nu-gioi-di-phuot-mot-minh-can-luu-y-gi-1.jpg',
                     nameAcc: 'Trang phạm',
                 },
                 {
+                    keyAcc: 6,
                     imageAcc: 'https://blogphuot.info/wp-content/uploads/2016/03/474f4cdd4383ff91fd1d98bcb039d93b.jpg',
                     nameAcc: 'Lan anhh',
                 },
                 {
+                    keyAcc: 7,
                     imageAcc: 'https://static.vexere.com/blog/uploads/2018/06/dulich.png',
                     nameAcc: 'Yến nguyễn',
                 },

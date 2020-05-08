@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Image, FlatList} from 'react-native'
 import Colors from '../../../../utils/Colors'
 import Helpers from '../../../../utils/Helpers'
+import Routes from '../../../../utils/Routes'
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 import IconFontisto from 'react-native-vector-icons/Fontisto'
 import {
@@ -21,7 +22,7 @@ import {
 } from './styled'
 
 function index(props) {
-    const {itemParams} = props
+    const {itemParams, navigation} = props
 
     function renderItemPicktureLike ({item, index}) {
         return(
@@ -46,6 +47,7 @@ function index(props) {
         )
     }
     function renderInclude(titile, titleMore, iconName) {
+        debugger
         return(
             <WrapperInclude>
                 <View>
@@ -86,8 +88,8 @@ function index(props) {
                 showsHorizontalScrollIndicator={false}
             />
             {renderTitle('Bao gồm', 'Chi tiết')}
-            {renderInclude('Khách sạn', '1 khách sạn, 3 ngày 2 đêm', 'hotel')}
-            {renderInclude('Chuyến bay', '4 vé máy bay khứ hồi', 'plane')}
+            {renderInclude('Khách sạn', `${itemParams.sumHotel.length} khách sạn, ${itemParams.sumDay}`, 'hotel')}
+            {renderInclude('Chuyến bay', `${itemParams.sumFlight.length} vé máy bay khứ hồi`, 'plane')}
             {renderTitle('Thành viên', '')}
             <FlatList
                 style = {{marginBottom: 20}}

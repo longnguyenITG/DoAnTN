@@ -4,6 +4,7 @@ import { useSafeArea } from 'react-native-safe-area-context'
 import {ScrollableTabView} from '@valdio/react-native-scrollable-tabview'
 import Colors from '../../../utils/Colors'
 import Helpers from '../../../utils/Helpers'
+import Routes from '../../../utils/Routes'
 import IconIonicons from 'react-native-vector-icons/Ionicons'
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -114,10 +115,10 @@ function index(props) {
                          tabBarActiveTextColor={Colors.secondary_22}
                          prerenderingSiblingsNumber={Infinity}
                          locked = {true}>
-                        <Trip tabLabel='Chuyến đi' itemParams = {item} />                        
-                        <Flight tabLabel='Chuyến bay' />                        
-                        <Hotel tabLabel='Khách sạn' />                        
-                        <TicketsTour tabLabel='Vé & Tour' />                        
+                        <Trip tabLabel='Chuyến đi' itemParams = {item} navigation = {navigation} />                        
+                        <Flight tabLabel='Chuyến bay' itemParams = {item} navigation = {navigation} />                        
+                        <Hotel tabLabel='Khách sạn' itemParams = {item} navigation = {navigation} />                        
+                        <TicketsTour tabLabel='Vé & Tour' itemParams = {item} navigation = {navigation} />                        
                     </ScrollableTabView>
             </ScrollView>
             <FloatingAction

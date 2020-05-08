@@ -21,7 +21,7 @@ const {
   listmytour,
   createtour,
   listnotifycation,
-  homesetting
+  homesetting,
 } = Routes
 
 const StackAll = createStackNavigator();

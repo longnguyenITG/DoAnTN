@@ -58,7 +58,7 @@ function index(props) {
         return(
             <WrapperItemFLRecentLy>
                 <ViewAccFL>
-                    <Image  source = {{uri: item.imageAcc}} style = {{width: 30, height: 30, borderRadius: 60, borderWidth: 0.3, marginRight: 10}}/>
+                    <Image  source = {{uri: item.imageAcc}} style = {{width: 30, height: 30, borderRadius: 60, borderWidth: 1, marginRight: 10, borderColor: Colors.gray_4}}/>
                     <ViewNameAcc>
                         <TxtItemName>{item.nameAcc}</TxtItemName>
                         <TxtItemTimeAgo>18 phút trước</TxtItemTimeAgo>

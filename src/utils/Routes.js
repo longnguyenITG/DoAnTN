@@ -8,5 +8,5 @@ export default {
     listmytour: "ListMytour",
     createtour: "CreateTour",
     listnotifycation: "ListNotifycation",
-    homesetting: "HomeSetting"
+    homesetting: "HomeSetting",
 }
