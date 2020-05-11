@@ -4,10 +4,11 @@ import Colors from '../../utils/Colors'
 import {
     ViewHeader,
     Bt,
+    TxtTitle
 } from './styled'
 
 function index(props) {
-    const {navigation, iconRight} = props
+    const {navigation, iconRight, onCLick, title} = props
 
     // 'ios-call'
     return(
@@ -16,8 +17,13 @@ function index(props) {
                 <IconIonicons name = 'md-arrow-back' size = {27} color = {Colors.black}/>
             </Bt>
             {
+                title 
+                ?   <TxtTitle>{title}</TxtTitle>
+                :   null
+                }
+            {
                 iconRight
-                ?   <Bt>
+                ?   <Bt onPress = {() => onCLick ? onCLick() : null} >
                         <IconIonicons name = {iconRight} size = {25} color = {Colors.black}/>
                     </Bt>
                 :   null

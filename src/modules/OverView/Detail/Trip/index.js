@@ -23,10 +23,12 @@ import {
 
 function index(props) {
     const {itemParams, navigation} = props
-
     function renderItemPicktureLike ({item, index}) {
         return(
-            <WrapperItemFLRecentLy style = {{width: 130, height: 240, backgroundColor: 'transparent'}} >
+            <WrapperItemFLRecentLy style = {{width: 130, height: 240, backgroundColor: 'transparent'}} 
+                onPress = {() => navigation.navigate(Routes.schedule, {
+                    item: itemParams.imageDesCripTionDetail
+                })}>
                 <Image source = {{uri: item.imageDay}} 
                 style = {{width: '100%', height: 180, borderRadius: 5}}/>
                 <TxtDay>Ngày {index+1}</TxtDay>
@@ -40,7 +42,9 @@ function index(props) {
             <WrapperTitle style = {{marginTop: title == 'Thành viên' ? 30 : 0}} >
                 <TxtTitle>{title}</TxtTitle>
                 {more == '' ? null : 
-                <Bt>
+                <Bt onPress = {() => navigation.navigate(Routes.schedule, {
+                    item: itemParams.imageDesCripTionDetail
+                })} >
                     <TxtTitleMore>{more}</TxtTitleMore>
                 </Bt>}                
             </WrapperTitle>
@@ -87,7 +91,7 @@ function index(props) {
                 horizontal = {true}
                 showsHorizontalScrollIndicator={false}
             />
-            {renderTitle('Bao gồm', 'Chi tiết')}
+            {renderTitle('Bao gồm', '')}
             {renderInclude('Khách sạn', `${itemParams.sumHotel.length} khách sạn, ${itemParams.sumDay}`, 'hotel')}
             {renderInclude('Chuyến bay', `${itemParams.sumFlight.length} vé máy bay khứ hồi`, 'plane')}
             {renderTitle('Thành viên', '')}

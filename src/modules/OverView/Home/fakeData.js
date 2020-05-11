@@ -39,36 +39,52 @@ export const dataFake = {
     ],
     dataRecently : [
         {
+            idTour: 1,
             keyAcc: 1,
             imageAcc: 'https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/14671255_1737974169787387_2146737138430491119_n.png?_nc_cat=111&_nc_sid=85a577&_nc_oc=AQlhJw6wPKOY0jTyiOur0li3nICOfZzK5mT_FCcM1L8VZ8lnc3XKv6SquJVns_sSHsQ&_nc_ht=scontent.fhan3-2.fna&oh=74fc5bf6c7615a297da6e206dd467d8b&oe=5ED75D22',
             nameAcc: 'Long nguyễn',
             timeCreate: '2020-04-16T00:00:00',
             imageDesCripTion: 'https://i.pinimg.com/736x/92/e9/8f/92e98f0592ad45575509c1d8a14a3739.jpg',
             imageDesCripTionDetail: [
-                {
+                {                    
                     imageDay: 'https://ytuongkinhdoanh.vn/wp-content/uploads/2019/10/nganh-du-lich-la-gi-va-lam-nhung-cong-viec-gi-.jpg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://lh3.googleusercontent.com/proxy/fKGSU9hcyvGOReuiPw5UmIGCW4LU6pkXUUdqwQpUWO82wmulm5aNEcy4v3zb5lNyFIyU3pB8Qo_vk8eYGXuD5lvxGS6pc82lUv9ciw367qrbg8QOz8ukdrQXxS0V9HafMmZq-0Wv1t1Uvs5WgpBv2GI',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://linhhungtourist.com.vn/wp-content/uploads/2019/03/1551111810-291-2-1551079327-width650height433.jpg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://vcdn1-dulich.vnecdn.net/2019/12/26/1-Phong-Nam-Quay-Son-Cao-Ky-Nhan.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=6x9iOOfrvddpnFFZUYSwyg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
             ],
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
@@ -156,6 +172,7 @@ export const dataFake = {
             ]
         },
         {
+            idTour: 2,
             keyAcc: 2,
             imageAcc: 'https://ymeet.me/blog/wp-content/uploads/2018/02/tim-ban-trai-di-phuot-ava.jpg',
             nameAcc: 'Cúnn',
@@ -165,27 +182,42 @@ export const dataFake = {
                 {
                     imageDay: 'https://ytuongkinhdoanh.vn/wp-content/uploads/2019/10/nganh-du-lich-la-gi-va-lam-nhung-cong-viec-gi-.jpg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://lh3.googleusercontent.com/proxy/fKGSU9hcyvGOReuiPw5UmIGCW4LU6pkXUUdqwQpUWO82wmulm5aNEcy4v3zb5lNyFIyU3pB8Qo_vk8eYGXuD5lvxGS6pc82lUv9ciw367qrbg8QOz8ukdrQXxS0V9HafMmZq-0Wv1t1Uvs5WgpBv2GI',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://linhhungtourist.com.vn/wp-content/uploads/2019/03/1551111810-291-2-1551079327-width650height433.jpg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://vcdn1-dulich.vnecdn.net/2019/12/26/1-Phong-Nam-Quay-Son-Cao-Ky-Nhan.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=6x9iOOfrvddpnFFZUYSwyg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
             ],
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
@@ -213,19 +245,15 @@ export const dataFake = {
             ],
             sumFlight: [
                 {
-                    nameFlight: 'VietnamElines',
+                    fromPlace: 'Hưng yên',
+                    toPlace: 'Mộc châu',
                     price: 3000000,
                     timeBook: '2020-04-16T00:00:00',
                     peopleInFlight: 1
                 },
                 {
-                    nameFlight: 'VietnamElines',
-                    price: 3000000,
-                    timeBook: '2020-04-16T00:00:00',
-                    peopleInFlight: 1
-                },
-                {
-                    nameFlight: 'VietnamElines',
+                    fromPlace: 'Hưng yên',
+                    toPlace: 'Mộc châu',
                     price: 3000000,
                     timeBook: '2020-04-16T00:00:00',
                     peopleInFlight: 1
@@ -290,6 +318,7 @@ export const dataFake = {
             ]
         },
         {
+            idTour: 3,
             keyAcc: 3,
             imageAcc: 'https://static1.bestie.vn/Mlog/ImageContent/201703/bestie-con-gai-thich-di-phuot-3-20170320134813.jpg',
             nameAcc: 'Cúnn',
@@ -299,27 +328,42 @@ export const dataFake = {
                 {
                     imageDay: 'https://ytuongkinhdoanh.vn/wp-content/uploads/2019/10/nganh-du-lich-la-gi-va-lam-nhung-cong-viec-gi-.jpg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://lh3.googleusercontent.com/proxy/fKGSU9hcyvGOReuiPw5UmIGCW4LU6pkXUUdqwQpUWO82wmulm5aNEcy4v3zb5lNyFIyU3pB8Qo_vk8eYGXuD5lvxGS6pc82lUv9ciw367qrbg8QOz8ukdrQXxS0V9HafMmZq-0Wv1t1Uvs5WgpBv2GI',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://linhhungtourist.com.vn/wp-content/uploads/2019/03/1551111810-291-2-1551079327-width650height433.jpg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://vcdn1-dulich.vnecdn.net/2019/12/26/1-Phong-Nam-Quay-Son-Cao-Ky-Nhan.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=6x9iOOfrvddpnFFZUYSwyg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
             ],
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
@@ -347,19 +391,15 @@ export const dataFake = {
             ],
             sumFlight: [
                 {
-                    nameFlight: 'VietnamElines',
+                    fromPlace: 'Hưng yên',
+                    toPlace: 'Mộc châu',
                     price: 3000000,
                     timeBook: '2020-04-16T00:00:00',
                     peopleInFlight: 1
                 },
                 {
-                    nameFlight: 'VietnamElines',
-                    price: 3000000,
-                    timeBook: '2020-04-16T00:00:00',
-                    peopleInFlight: 1
-                },
-                {
-                    nameFlight: 'VietnamElines',
+                    fromPlace: 'Hưng yên',
+                    toPlace: 'Mộc châu',
                     price: 3000000,
                     timeBook: '2020-04-16T00:00:00',
                     peopleInFlight: 1
@@ -424,6 +464,7 @@ export const dataFake = {
             ]
         },
         {
+            idTour: 4,
             keyAcc: 4,
             imageAcc: 'https://f.phongcachsong.net/2014/09/con_gai_1-16_36_55_754.jpg',
             nameAcc: 'Cúnn',
@@ -433,27 +474,42 @@ export const dataFake = {
                 {
                     imageDay: 'https://ytuongkinhdoanh.vn/wp-content/uploads/2019/10/nganh-du-lich-la-gi-va-lam-nhung-cong-viec-gi-.jpg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://lh3.googleusercontent.com/proxy/fKGSU9hcyvGOReuiPw5UmIGCW4LU6pkXUUdqwQpUWO82wmulm5aNEcy4v3zb5lNyFIyU3pB8Qo_vk8eYGXuD5lvxGS6pc82lUv9ciw367qrbg8QOz8ukdrQXxS0V9HafMmZq-0Wv1t1Uvs5WgpBv2GI',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://linhhungtourist.com.vn/wp-content/uploads/2019/03/1551111810-291-2-1551079327-width650height433.jpg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
                 {
                     imageDay: 'https://vcdn1-dulich.vnecdn.net/2019/12/26/1-Phong-Nam-Quay-Son-Cao-Ky-Nhan.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=6x9iOOfrvddpnFFZUYSwyg',
                     timeDay: '2020-04-16T00:00:00',
-                    place: '5 địa điểm, 6km'
+                    place: '5 địa điểm, 6km',
+                    goTime: '1h 30p',
+                    namePlace: 'Đồi chè trái tim',
+                    timeStart: '09:00',
                 },                
             ],
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
@@ -481,19 +537,15 @@ export const dataFake = {
             ],
             sumFlight: [
                 {
-                    nameFlight: 'VietnamElines',
+                    fromPlace: 'Hưng yên',
+                    toPlace: 'Mộc châu',
                     price: 3000000,
                     timeBook: '2020-04-16T00:00:00',
                     peopleInFlight: 1
                 },
                 {
-                    nameFlight: 'VietnamElines',
-                    price: 3000000,
-                    timeBook: '2020-04-16T00:00:00',
-                    peopleInFlight: 1
-                },
-                {
-                    nameFlight: 'VietnamElines',
+                    fromPlace: 'Hưng yên',
+                    toPlace: 'Mộc châu',
                     price: 3000000,
                     timeBook: '2020-04-16T00:00:00',
                     peopleInFlight: 1

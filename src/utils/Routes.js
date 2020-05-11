@@ -9,4 +9,5 @@ export default {
     createtour: "CreateTour",
     listnotifycation: "ListNotifycation",
     homesetting: "HomeSetting",
+    schedule: "Schedule",
 }
