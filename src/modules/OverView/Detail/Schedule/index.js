@@ -1,7 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, createRef } from 'react'
 import { Image } from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
 import { Header } from '../../../../components'
+import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import Colors from '../../../../utils/Colors'
+import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import IconAntDesign from 'react-native-vector-icons/AntDesign'
+import Modal from 'react-native-modal'
 
 import {
     Wrapper,
@@ -9,14 +15,67 @@ import {
     ViewItem,
     ViewChildrenImage,
     ViewChildrenTitle,
-    TxtTimeStart
+    TxtTimeStart,
+    TxtTitle,
+    TxtPlace,
+    ViewRowChild,
+    TxtDocument,
+    BtDetail,
+    ViewFatherItem,
+    Line,
+    ViewCar,
+    TxtGoTime,
+    ViewGoTime,
+    ViewModal,
+    BtModal,
+    TxtBtModal,
+    TxtReport,
 } from './styled'
 
 function index(props) {
+    debugger
     const {navigation, route} = props
     const {item} = route.params
     const insets = useSafeArea()
-    debugger
+    const refReport = createRef()
+    const [statusVisibale ,setStatusVisibale] = useState(false)
+    const [statusReport, setStatusReport] = useState(false)
+    function renderCar(e, i) {
+        return (
+            <ViewCar>
+                <Line></Line>
+                <IconFontAwesome5 name = 'car' size = {23} color = {Colors.secondary_22} style = {{marginLeft: 20, marginTop: 3, marginBottom: 5}} />
+                <ViewGoTime>
+                <TxtGoTime>{e.goTime}</TxtGoTime>
+                </ViewGoTime>
+                <Line  style = {{marginTop: 5, marginBottom: 5}}></Line>
+            </ViewCar>
+        )
+    }
+
+    function renderModalReport(item) {
+        return(
+            <Modal
+                isVisible={statusVisibale}
+                style = {{maxHeight: '80%', maxWidth: '80%', alignSelf: "center"}}
+                coverScreen
+                backdropOpacity={0.5}
+                useNativeDriver={true}>
+                <ViewModal>
+                        {/* {
+                            arrTemp.map(e => (
+                                <IconAntDesign name = 'star' size = {30} color = {Colors.secondary_12} />
+                            ))
+                        }
+                         */}
+                    <BtModal
+                        onPress = {() => setStatusVisibale(false)}>
+                        <TxtBtModal>OK</TxtBtModal>
+                    </BtModal>
+                </ViewModal>
+            </Modal>
+        )
+    }
 
     return (
         <Wrapper
@@ -26,20 +85,42 @@ function index(props) {
                     paddingRight: insets.right,
                 }}>
                 <Header navigation = {navigation} iconRight = 'md-more' title = 'Chi tiết lịch trình'/>
-                <ScrollView>
+                <ScrollView
+                    showsVerticalScrollIndicator = {false}>
                     {
-                        item.map(e => (
-                            <ViewItem>
-                                <ViewChildrenImage>
-                                    <Image source = {{uri: e.imageDay}} style = {{height: 100, width: 106, marginRight: 5}} />
-                                    <TxtTimeStart>{e.timeStart}</TxtTimeStart>
-                                </ViewChildrenImage>
-                                <ViewChildrenTitle></ViewChildrenTitle>
-                            </ViewItem>
+                        item.map((e, i) => (
+                            <ViewFatherItem>
+                                <ViewItem>
+                                    <ViewChildrenImage>
+                                        <Image source = {{uri: e.imageDay}} style = {{height: 100, width: 106, marginRight: 5}} />
+                                        <TxtTimeStart>{e.timeStart}</TxtTimeStart>
+                                    </ViewChildrenImage>
+                                    <ViewChildrenTitle>
+                                        <TxtTitle>{e.namePlace}</TxtTitle>
+                                        <TxtPlace>{e.place}</TxtPlace>
+                                        <ViewRowChild>
+                                            <BtDetail
+                                                onPress = {() => setStatusVisibale(true)}>
+                                                <IconMaterialCommunityIcons name = 'file-document-edit-outline' size = {18} color = {Colors.primary_3} />
+                                                <TxtDocument>Ghi chú</TxtDocument>
+                                            </BtDetail>
+                                            <BtDetail>
+                                                <IconMaterialIcons name = 'location-on' size = {18} color = {Colors.primary_3} />
+                                                <TxtDocument>Vị trí</TxtDocument>
+                                            </BtDetail>
+                                        </ViewRowChild>
+                                    </ViewChildrenTitle>
+                                </ViewItem>
+                                {
+                                    i == item.length - 1 ? null 
+                                    : renderCar(e, i)
+
+                                }
+                                {statusVisibale && renderModalReport(e)}
+                            </ViewFatherItem>
                         ))
                     }
-                </ScrollView>
-
+                </ScrollView>                
         </Wrapper>
     )
 }

@@ -53,6 +53,8 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên',
+                    report: 5
                 },                
                 {
                     imageDay: 'https://lh3.googleusercontent.com/proxy/fKGSU9hcyvGOReuiPw5UmIGCW4LU6pkXUUdqwQpUWO82wmulm5aNEcy4v3zb5lNyFIyU3pB8Qo_vk8eYGXuD5lvxGS6pc82lUv9ciw367qrbg8QOz8ukdrQXxS0V9HafMmZq-0Wv1t1Uvs5WgpBv2GI',
@@ -60,7 +62,9 @@ export const dataFake = {
                     place: '5 địa điểm, 6km',
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
-                    timeStart: '09:00',
+                    timeStart: '12:00',
+                    location: 'Hưng yên',
+                    report: 5
                 },                
                 {
                     imageDay: 'https://linhhungtourist.com.vn/wp-content/uploads/2019/03/1551111810-291-2-1551079327-width650height433.jpg',
@@ -68,7 +72,9 @@ export const dataFake = {
                     place: '5 địa điểm, 6km',
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
-                    timeStart: '09:00',
+                    timeStart: '15:00',
+                    location: 'Hưng yên',
+                    report: 5
                 },                
                 {
                     imageDay: 'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png',
@@ -76,7 +82,9 @@ export const dataFake = {
                     place: '5 địa điểm, 6km',
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
-                    timeStart: '09:00',
+                    timeStart: '20:00',
+                    location: 'Hưng yên',
+                    report: 5
                 },                
                 {
                     imageDay: 'https://vcdn1-dulich.vnecdn.net/2019/12/26/1-Phong-Nam-Quay-Son-Cao-Ky-Nhan.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=6x9iOOfrvddpnFFZUYSwyg',
@@ -85,6 +93,8 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên',
+                    report: 5
                 },                
             ],
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
@@ -186,6 +196,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
                 {
                     imageDay: 'https://lh3.googleusercontent.com/proxy/fKGSU9hcyvGOReuiPw5UmIGCW4LU6pkXUUdqwQpUWO82wmulm5aNEcy4v3zb5lNyFIyU3pB8Qo_vk8eYGXuD5lvxGS6pc82lUv9ciw367qrbg8QOz8ukdrQXxS0V9HafMmZq-0Wv1t1Uvs5WgpBv2GI',
@@ -194,6 +205,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
                 {
                     imageDay: 'https://linhhungtourist.com.vn/wp-content/uploads/2019/03/1551111810-291-2-1551079327-width650height433.jpg',
@@ -202,6 +214,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
                 {
                     imageDay: 'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png',
@@ -210,6 +223,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
                 {
                     imageDay: 'https://vcdn1-dulich.vnecdn.net/2019/12/26/1-Phong-Nam-Quay-Son-Cao-Ky-Nhan.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=6x9iOOfrvddpnFFZUYSwyg',
@@ -218,6 +232,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
             ],
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
@@ -332,6 +347,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
                 {
                     imageDay: 'https://lh3.googleusercontent.com/proxy/fKGSU9hcyvGOReuiPw5UmIGCW4LU6pkXUUdqwQpUWO82wmulm5aNEcy4v3zb5lNyFIyU3pB8Qo_vk8eYGXuD5lvxGS6pc82lUv9ciw367qrbg8QOz8ukdrQXxS0V9HafMmZq-0Wv1t1Uvs5WgpBv2GI',
@@ -340,6 +356,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
                 {
                     imageDay: 'https://linhhungtourist.com.vn/wp-content/uploads/2019/03/1551111810-291-2-1551079327-width650height433.jpg',
@@ -348,6 +365,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
                 {
                     imageDay: 'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png',
@@ -364,6 +382,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
             ],
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
@@ -478,6 +497,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
                 {
                     imageDay: 'https://lh3.googleusercontent.com/proxy/fKGSU9hcyvGOReuiPw5UmIGCW4LU6pkXUUdqwQpUWO82wmulm5aNEcy4v3zb5lNyFIyU3pB8Qo_vk8eYGXuD5lvxGS6pc82lUv9ciw367qrbg8QOz8ukdrQXxS0V9HafMmZq-0Wv1t1Uvs5WgpBv2GI',
@@ -486,6 +506,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
                 {
                     imageDay: 'https://linhhungtourist.com.vn/wp-content/uploads/2019/03/1551111810-291-2-1551079327-width650height433.jpg',
@@ -494,6 +515,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
                 {
                     imageDay: 'https://focusasiatravel.vn/wp-content/uploads/2019/03/combo-moc-chau-2-ngay-1-dem.png',
@@ -502,6 +524,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
                 {
                     imageDay: 'https://vcdn1-dulich.vnecdn.net/2019/12/26/1-Phong-Nam-Quay-Son-Cao-Ky-Nhan.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=6x9iOOfrvddpnFFZUYSwyg',
@@ -510,6 +533,7 @@ export const dataFake = {
                     goTime: '1h 30p',
                     namePlace: 'Đồi chè trái tim',
                     timeStart: '09:00',
+                    location: 'Hưng yên'
                 },                
             ],
             title: '3 Ngày đi Mộc Châu từ Hưng Yên',
