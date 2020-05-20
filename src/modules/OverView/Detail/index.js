@@ -124,7 +124,7 @@ function index(props) {
             <FloatingAction
                 actions={actions}
                 color = {Colors.secondary_22}
-                distanceToEdge = { { vertical: 100, horizontal: 20 }}
+                distanceToEdge = { { vertical:150, horizontal: 20 }}
                 floatingIcon = {<IconFontAwesome5 name = 'headphones-alt' size = {30} color = {Colors.white} />}
                 onPressItem={name => {
                     name == 'bt_guiyeucau' ?
