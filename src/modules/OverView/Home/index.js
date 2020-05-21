@@ -28,12 +28,14 @@ import {
     WrapContentTour,
     ViewChildContentTour,
     ScrollView,
-    View
+    View,
+    RefreshControl
 } from './styled'
 
 function index(props) {
     const {navigation} = props
     const insets = useSafeArea();
+    const [widgetRefreshing, setWidgetRefreshing] = useState(false)
     function renderHeader() {
         return(
             <ViewHeader>
@@ -110,17 +112,27 @@ function index(props) {
             </WrapperItemFLRecentLy>
         )
     }
+    function widgetOnRefresh() {
+        // getWidgetDetail(widgetInfoCustom)
+        // refresh lại 
+        return setWidgetRefreshing(false)
+    }
     return (
         <Wrapper        
             style = {{
                     paddingTop: insets.top,
-                    paddingBottom: insets.bottom,
+                    // paddingBottom: insets.bottom,
                     paddingLeft: insets.left,
                     paddingRight: insets.right
                 }}>
                 {renderHeader()}
                 <TxtContentTitle>Lên lịch trình du lịch, chia sẻ khoảnh khắc, tìm kiếm tuyến đường, dự báo thời tiết.</TxtContentTitle>
-            <ScrollView>
+            <ScrollView
+                 refreshControl={
+                    <RefreshControl
+                    refreshing={widgetRefreshing}
+                    onRefresh={() => widgetOnRefresh()}/>
+                }>
                 <FlatList
                     style = {{flexGrow: 0, marginBottom: 20}}
                     data = {dataFake.data}

@@ -137,7 +137,25 @@ function index(props) {
                     <TxtTitle style = {{paddingTop: 5, marginBottom: 3}} >{Helpers.formatNumber(item.sumMoney)}đ</TxtTitle>
                     <TxtTitlechildren>Mỗi người</TxtTitlechildren>
                 </ViewChildrenMoney>
-                <BtJoin>
+                <BtJoin
+                    onPress = {() => 
+                        Alert.alert('Xác nhận', 'Bạn chắc chắn muốn tham gia tour \nDu lịch này chứ?',
+                        [
+                            {
+                                text: 'Tham gia',
+                                onPress: ()=> {
+                                    // call api join tour
+                                }
+                            },
+                            {
+                                text: 'Hủy',
+                                onPress: ()=> {
+                                    // cancel
+                                }
+                            },
+                        ])
+                        }
+                >
                     <TxtBtJoin>Đặt ngay</TxtBtJoin>
                 </BtJoin>
             </WrapperMoney>

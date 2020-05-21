@@ -8,6 +8,7 @@ export const Wrapper = styled.View `
     background-color: ${Colors.white_4};
 `
 export const ScrollView = styled.ScrollView ``
+export const RefreshControl = styled.RefreshControl``
 export const View = styled.View ``
 export const ViewHeader = styled.View `
     flex-direction: row;
