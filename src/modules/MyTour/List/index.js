@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
 import Colors from '../../../utils/Colors'
+import Routes from '../../../utils/Routes'
 import imagetravel from '../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png'
 
 import {
@@ -14,7 +15,8 @@ import {
 const arrTest = []
 
 function index(props) {
-
+    
+    const {navigation} = props
     const [colorWrapper, setColorWrapper] = useState(arrTest.length > 0 ? Colors.white_4 : Colors.gray_4)
     return (
         <Wrapper style = {{backgroundColor: colorWrapper}} >
@@ -26,7 +28,8 @@ function index(props) {
                         <TxtTitle>
                             Hãy bắt đầu tạo chuyến đi của bạn với một lịch trình hấp dẫn và chi phí tối ưu nhất.
                         </TxtTitle>
-                        <BtJoin>
+                        <BtJoin
+                            onPress = {()=> navigation.navigate(Routes.createtour) }>
                             <TxtBtJoin>Lên lịch trình</TxtBtJoin>
                         </BtJoin>
                     </ViewEmpty>

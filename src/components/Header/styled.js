@@ -9,7 +9,7 @@ export const ViewHeader = styled.View `
     height: 75;
     padding-left: 20;
     padding-right: 20;
-    padding-bottom: 5;
+    padding-bottom: 10;
     align-items: flex-end;
     background-color: ${Colors.white_4};
     ${Shadows.shadow_3}
