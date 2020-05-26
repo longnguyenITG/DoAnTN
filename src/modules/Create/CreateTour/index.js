@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createRef } from 'react'
-import { ListView } from 'react-native'
 import { Header } from '../../../components'
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import IconOcticons from 'react-native-vector-icons/Octicons'
@@ -8,40 +7,43 @@ import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import IconFontisto from 'react-native-vector-icons/Fontisto'
 import Colors from '../../../utils/Colors'
 import Calendar from 'react-native-calendar-select';
+import moment from 'moment'
 import {
     Wrapper,
     ViewComponent,
     ViewChild,
     TxtTitle,
     TxtContent,
-    View
+    View,
+    BtJoin,
+    TxtBtJoin
 } from './styled'
 
 function index(props) {
     const {navigation} = props
-    let color = {
-        subColor: '#f0f0f0'
-      };
-      let customI18n = {
-        'w': ['', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
-        'weekday': ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    let customI18n = {
+        'w': ['', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'CN'],
+        'weekday': ['', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật'],
         'text': {
-          'start': 'Check in',
-          'end': 'Check out',
-          'date': 'Date',
-          'save': 'Confirm',
-          'clear': 'Reset'
+          'start': 'Ngày đi',
+          'end': 'Ngày về',
+          'date': '--',
+          'save': 'Hoàn thành',
+          'clear': 'Xoá'
         },
-        'date': 'DD / MM'  // date format
+        'date': 'DD-MM-YYYY'  // date format
+      };
+    let color = {
+        subColor: Colors.white_4
       };
     const dateRef = createRef()
 
-    const [startDate, setStartDate] = useState(new Date(2017, 6, 12))
-    const [endDate, setEndDate] = useState(new Date(2017, 8, 2))
+    const [startDate, setStartDate] = useState()
+    const [endDate, setEndDate] = useState()
 
     function confirmDate({startDate, endDate, startMoment, endMoment}) {
-        setStartDate(startDate)
-        setEndDate(endDate)
+        setStartDate(moment(String(startDate)).format('DD-MM-YYYY'))
+        setEndDate(moment(String(endDate)).format('DD-MM-YYYY'))
     }
 
     function renderDate() {
@@ -52,8 +54,8 @@ function index(props) {
             customI18n={customI18n}
             color={color}
             format="YYYYMMDD"
-            minDate="20100510"
-            maxDate="20100312"
+            // minDate="20100510"
+            // maxDate="20100312"
             startDate={startDate}
             endDate={endDate}
             onConfirm={confirmDate}
@@ -90,16 +92,18 @@ function index(props) {
                     <View>
                         <TxtTitle>Ngày khởi hành</TxtTitle>
                             <TxtContent
-                                placeholder = '25/05/2020'
+                                placeholder = 'Chọn ngày'
                                 editable = {false}
+                                value = {startDate}
                             />
                     </View>
                     <IconFontAwesome5 name = 'exchange-alt' size = {20} color = {Colors.gray_3} />
                     <View style = {{marginRight: 50}} >
                         <TxtTitle>Ngày về</TxtTitle>
                             <TxtContent
-                                placeholder = '25/05/2020'
+                                placeholder = 'Chọn ngày'
                                 editable = {false}
+                                value = {endDate}
                             />
                     </View>
                 </ViewChild>
@@ -114,6 +118,10 @@ function index(props) {
                     />
                 </ViewChild>
             </ViewComponent>
+            <BtJoin
+                onPress = {()=> null}>
+                <TxtBtJoin>Tiếp tục</TxtBtJoin>
+             </BtJoin>
             {renderDate()}
         </Wrapper>
     )

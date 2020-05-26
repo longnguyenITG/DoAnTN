@@ -8,7 +8,7 @@ import {Home, Detail, Schedule} from '../../modules/OverView'
 import {ListMytour} from '../../modules/MyTour'
 import {CreateTour} from '../../modules/Create'
 import {ListNotifycation} from '../../modules/Notifycation'
-import {HomeSetting} from '../../modules/Account'
+import {HomeSetting, Setting} from '../../modules/Account'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const {
@@ -22,7 +22,8 @@ const {
   createtour,
   listnotifycation,
   homesetting,
-  schedule
+  schedule,
+  setting
 } = Routes
 
 const StackAll = createStackNavigator();
@@ -121,6 +122,9 @@ function index() {
     return (
       <NavigationContainer>
         <StackAll.Navigator>
+          <StackAll.Screen name={home} component={NavigationTab}
+            options = {{headerShown: false}}
+          />  
           <StackAll.Screen
             name={sflashscreen}
             component={SflashScreen}
@@ -137,9 +141,7 @@ function index() {
               animationEnabled: false,
               headerShown: false
             }}/>
-          <StackAll.Screen name={home} component={NavigationTab}
-            options = {{headerShown: false}}
-          />              
+                      
           <StackAll.Screen name={detail} component={Detail}
             options = {{headerShown: false}}
           />
@@ -147,6 +149,12 @@ function index() {
             options = {{headerShown: false}}
           />
           <StackAll.Screen name={createtour} component={CreateTour}
+            options = {{headerShown: false}}
+          />
+          <StackAll.Screen name={listmytour} component={ListMytour}
+            options = {{headerShown: false}}
+          />
+          <StackAll.Screen name={setting} component={Setting}
             options = {{headerShown: false}}
           />
         </StackAll.Navigator>

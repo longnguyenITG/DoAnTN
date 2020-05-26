@@ -31,3 +31,17 @@ export const TxtContent = styled.TextInput `
     color: ${Colors.gray_2};
 `
 export const View = styled.View ``
+export const BtJoin = styled.TouchableOpacity `
+    width: 250;
+    height: 43;
+    background-color: ${Colors.red};
+    border-radius: 5;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-top: 30;
+`
+export const TxtBtJoin = styled.Text `
+    color: white;
+    font-size: 16;
+`

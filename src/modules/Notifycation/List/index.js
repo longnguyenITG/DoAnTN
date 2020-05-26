@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import React from 'react'
 
-export class index extends Component {
-    render() {
-        return (
-            <View>
-                <Text> List NotifyCation </Text>
-            </View>
-        )
-    }
+import {
+  Wrapper,
+  Txt
+} from './styled'
+function index(props) {
+  return (
+    <Wrapper>
+      <Txt> List thông báo </Txt>
+    </Wrapper>
+  )
 }
 
 export default index

@@ -10,4 +10,5 @@ export default {
     listnotifycation: "ListNotifycation",
     homesetting: "HomeSetting",
     schedule: "Schedule",
+    setting: "Setting",
 }

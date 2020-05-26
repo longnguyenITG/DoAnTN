@@ -12,13 +12,13 @@ function index(props) {
 
     // 'ios-call'
     return(
-        <ViewHeader>
+        <ViewHeader style = {{justifyContent: iconRight ? 'space-between' : null}} >
             <Bt onPress = {() => navigation.goBack()}>
                 <IconIonicons name = 'md-arrow-back' size = {27} color = {Colors.black}/>
             </Bt>
             {
                 title 
-                ?   <TxtTitle>{title}</TxtTitle>
+                ?   <TxtTitle style = {{marginLeft: iconRight ? 0 : 30}}>{title}</TxtTitle>
                 :   null
                 }
             {
