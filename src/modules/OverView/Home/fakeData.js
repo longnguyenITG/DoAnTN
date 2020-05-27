@@ -37,7 +37,7 @@ export const dataFake = {
             image: imageVevaTour
         },
     ],
-    dataRecently : [
+    dataRecently: [
         {
             idTour: 1,
             keyAcc: 1,
@@ -634,6 +634,162 @@ export const dataFake = {
             ]
         },
     ],
+    dataNotify: [
+        {
+            idNotify: 1,
+            image: 'https://vgotravel.com.vn/upload/images/nen%20di%20tour%20hay%20tu%20tuc%20nhung%20trai%20nghiem%20rieng%20biet%20(1).jpg',
+            content: 'Long nguyễn 1 đã thêm 1 tour mới.',
+            time: '2020-04-16T00:00:00',
+            location: {
+                latlng: {
+                    latitude: 20.998363,
+                    longitude: 105.793726,
+                },
+                
+                title: 'LILAMA 10',
+            },
+        },
+        {
+            idNotify: 2,
+            image: 'https://vgotravel.com.vn/upload/images/nen%20di%20tour%20hay%20tu%20tuc%20nhung%20trai%20nghiem%20rieng%20biet%20(1).jpg',
+            content: 'Long nguyễn 2 đã thêm 1 tour mới.',
+            time: '2020-04-16T00:00:00',
+            location: {
+                latlng: {
+                    latitude: 20.998363,
+                    longitude: 105.793726,
+                },
+                
+                title: 'LILAMA 10',
+            },
+        },
+        {
+            idNotify: 3,
+            image: 'https://vgotravel.com.vn/upload/images/nen%20di%20tour%20hay%20tu%20tuc%20nhung%20trai%20nghiem%20rieng%20biet%20(1).jpg',
+            content: 'Long nguyễn đã thêm 1 tour mới.',
+            time: '2020-04-16T00:00:00',
+            location: {
+                latlng: {
+                    latitude: 20.998363,
+                    longitude: 105.793726,
+                },
+                
+                title: 'LILAMA 10',
+            },
+        },
+        {
+            idNotify: 4,
+            image: 'https://vgotravel.com.vn/upload/images/nen%20di%20tour%20hay%20tu%20tuc%20nhung%20trai%20nghiem%20rieng%20biet%20(1).jpg',
+            content: 'Long nguyễn đã thêm 1 tour mới.',
+            time: '2020-04-16T00:00:00',
+            location: {
+                latlng: {
+                    latitude: 20.998363,
+                    longitude: 105.793726,
+                },
+                
+                title: 'LILAMA 10',
+            },
+        },
+        {
+            idNotify: 5,
+            image: 'https://vgotravel.com.vn/upload/images/nen%20di%20tour%20hay%20tu%20tuc%20nhung%20trai%20nghiem%20rieng%20biet%20(1).jpg',
+            content: 'Long nguyễn đã thêm 1 tour mới.',
+            time: '2020-04-16T00:00:00',
+            location: {
+                latlng: {
+                    latitude: 20.998363,
+                    longitude: 105.793726,
+                },
+                
+                title: 'LILAMA 10',
+            },
+        },
+        {
+            idNotify: 6,
+            image: 'https://vgotravel.com.vn/upload/images/nen%20di%20tour%20hay%20tu%20tuc%20nhung%20trai%20nghiem%20rieng%20biet%20(1).jpg',
+            content: 'Long nguyễn đã thêm 1 tour mới.',
+            time: '2020-04-16T00:00:00',
+            location: {
+                latlng: {
+                    latitude: 20.998363,
+                    longitude: 105.793726,
+                },
+                
+                title: 'LILAMA 10',
+            },
+        },
+        {
+            idNotify: 7,
+            image: 'https://vgotravel.com.vn/upload/images/nen%20di%20tour%20hay%20tu%20tuc%20nhung%20trai%20nghiem%20rieng%20biet%20(1).jpg',
+            content: 'Long nguyễn đã thêm 1 tour mới.',
+            time: '2020-04-16T00:00:00',
+            location: {
+                latlng: {
+                    latitude: 20.998363,
+                    longitude: 105.793726,
+                },
+                
+                title: 'LILAMA 10',
+            },
+        },
+        {
+            idNotify: 8,
+            image: 'https://vgotravel.com.vn/upload/images/nen%20di%20tour%20hay%20tu%20tuc%20nhung%20trai%20nghiem%20rieng%20biet%20(1).jpg',
+            content: 'Long nguyễn đã thêm 1 tour mới.',
+            time: '2020-04-16T00:00:00',
+            location: {
+                latlng: {
+                    latitude: 20.998363,
+                    longitude: 105.793726,
+                },
+                
+                title: 'LILAMA 10',
+            },
+        },
+        {
+            idNotify: 9,
+            image: 'https://vgotravel.com.vn/upload/images/nen%20di%20tour%20hay%20tu%20tuc%20nhung%20trai%20nghiem%20rieng%20biet%20(1).jpg',
+            content: 'Long nguyễn đã thêm 1 tour mới.',
+            time: '2020-04-16T00:00:00',
+            location: {
+                latlng: {
+                    latitude: 20.998363,
+                    longitude: 105.793726,
+                },
+                
+                title: 'LILAMA 10',
+            },
+        },
+        {
+            idNotify: 10,
+            image: 'https://vgotravel.com.vn/upload/images/nen%20di%20tour%20hay%20tu%20tuc%20nhung%20trai%20nghiem%20rieng%20biet%20(1).jpg',
+            content: 'Long nguyễn đã thêm 1 tour mới.',
+            time: '2020-04-16T00:00:00',
+            location: {
+                latlng: {
+                    latitude: 20.998363,
+                    longitude: 105.793726,
+                },
+                
+                title: 'LILAMA 10',
+            },
+        },
+        {
+            idNotify: 11,
+            image: 'https://vgotravel.com.vn/upload/images/nen%20di%20tour%20hay%20tu%20tuc%20nhung%20trai%20nghiem%20rieng%20biet%20(1).jpg',
+            content: 'Long nguyễn đã thêm 1 tour mới.',
+            time: '2020-04-16T00:00:00',
+            location: {
+                latlng: {
+                    latitude: 20.998363,
+                    longitude: 105.793726,
+                },
+                
+                title: 'LILAMA 10',
+            },
+        },
+    ]
 }
 
 

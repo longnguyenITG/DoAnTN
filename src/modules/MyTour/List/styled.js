@@ -5,8 +5,6 @@ import Fonts from '../../../utils/Fonts'
 
 export const Wrapper = styled.View `
     flex: 1;
-    padding: 10px;
-    background: gray;
     align-items: center;
 `
 export const TxtTitle = styled.Text `
@@ -32,3 +30,22 @@ export const TxtBtJoin = styled.Text `
     color: white;
     font-size: 16;
 `
+export const ViewHeader = styled.View `
+    width: 100%;
+    height: 75;
+    align-items: center;
+    padding-top: 23;
+    background-color: ${Colors.white_5};
+    ${Shadows.shadow_3}
+    border-bottom-width: 0.2;
+    border-color: ${Colors.gray_5};
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 20;
+    padding-right: 20;
+`
+export const TxtHeader = styled.Text `
+    font-size: 19;
+    padding-left: 29%;
+`
+export const Bt = styled.TouchableOpacity ``

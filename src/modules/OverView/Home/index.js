@@ -128,11 +128,12 @@ function index(props) {
                 {renderHeader()}
                 <TxtContentTitle>Lên lịch trình du lịch, chia sẻ khoảnh khắc, tìm kiếm tuyến đường, dự báo thời tiết.</TxtContentTitle>
             <ScrollView
-                 refreshControl={
+                refreshControl={
                     <RefreshControl
                     refreshing={widgetRefreshing}
                     onRefresh={() => widgetOnRefresh()}/>
-                }>
+                }
+                showsVerticalScrollIndicator = {false}>
                 <FlatList
                     style = {{flexGrow: 0, marginBottom: 20}}
                     data = {dataFake.data}
