@@ -47,5 +47,5 @@ export default {
   white_transparent: 'rgba(255, 255, 255, 0.5)',
   black_transparent: 'rgba(0,0,0,0.5)',
   modal_blue_transparent: 'rgba(210,240,253,0.3)',
-
+  blue_custom: '#008ae6'
 }

@@ -49,3 +49,23 @@ export const TxtHeader = styled.Text `
     padding-left: 29%;
 `
 export const Bt = styled.TouchableOpacity ``
+
+export const TabView = styled.View `
+    width: 100%;
+    height: 37;
+    border-radius: 7;
+    border-width: 1;
+    margin-top: 10;
+    border-color: ${Colors.blue_custom};
+    flex-direction: row;
+`
+export const BtTabView = styled.TouchableOpacity `
+    width: 33.4%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+`
+export const TxtTabView = styled.Text `
+    font-size: 15;
+    color: ${Colors.blue_custom};
+`

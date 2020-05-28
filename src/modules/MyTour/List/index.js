@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, createRef } from 'react'
 import { Image, View } from 'react-native'
 import Colors from '../../../utils/Colors'
 import Routes from '../../../utils/Routes'
@@ -18,7 +18,10 @@ import {
     TxtBtJoin,
     ViewHeader,
     TxtHeader,
-    Bt
+    Bt,
+    TabView,
+    BtTabView,
+    TxtTabView
 } from './styled'
 
 // const arrTest = []
@@ -27,7 +30,10 @@ const arrTest = Data.dataRecently
 function index(props) {
     
     const {navigation} = props
+
+    const scrollableTabViewRef = createRef()
     const [colorWrapper, setColorWrapper] = useState(arrTest.length > 0 ? Colors.white_4 : Colors.gray_4)
+    const [scrollIndex, setScrollIndex] = useState(0)
 
     function renderNotList() {
         return(
@@ -45,17 +51,44 @@ function index(props) {
         )
     }
 
+    function pressTabView(index) {
+        scrollableTabViewRef.current.goToPage(index)
+        setScrollIndex(index)
+    }
+
+    function renderTabBar() {
+        return(
+            <TabView>
+                <BtTabView style = {{borderTopLeftRadius: 6, borderBottomLeftRadius: 6, backgroundColor: scrollIndex == 0 ? Colors.secondary_22: null}}
+                    onPress = {()=> pressTabView(0)} >
+                    <TxtTabView style = {{color: scrollIndex == 0 ? Colors.white: Colors.secondary_22}} >Sắp tới</TxtTabView>
+                </BtTabView>
+                <BtTabView style = {{borderLeftWidth: 0.6, borderRightWidth: 0.6, borderColor: Colors.secondary_22, backgroundColor: scrollIndex == 1 ? Colors.secondary_22: null}}
+                    onPress = {()=> pressTabView(1)} >
+                    <TxtTabView style = {{color: scrollIndex == 1 ? Colors.white: Colors.secondary_22}} >Đang đi</TxtTabView>
+                </BtTabView>
+                <BtTabView style = {{borderTopRightRadius: 6, borderBottomRightRadius: 6, backgroundColor: scrollIndex == 2 ? Colors.secondary_22: null}}
+                    onPress = {()=> pressTabView(2)} >
+                    <TxtTabView style = {{color: scrollIndex == 2 ? Colors.white: Colors.secondary_22}} >Đã đi</TxtTabView>
+                </BtTabView>
+            </TabView>
+        )
+    }
+
     function renderList() {
         return(
             <ScrollableTabView
-                style = {{margin: 15}}
+                style = {{margin: 10}}
+                ref = {scrollableTabViewRef}
+                renderTabBar = {() => renderTabBar()}
+                onChangeTab={event => setScrollIndex(event.i)}
                 showsHorizontalScrollIndicator={false}
                 tabBarUnderlineStyle={{backgroundColor: Colors.secondary_22,height:2}}
                 tabBarActiveTextColor={Colors.secondary_22}
                 prerenderingSiblingsNumber={Infinity}>
-                <UpComing tabLabel='Sắp tới' />                        
-                <Walking tabLabel='Đang đi' />                        
-                <Went tabLabel='Đã đi' />                        
+                <UpComing tabLabel='Sắp tới' navigation = {navigation} />                        
+                <Walking tabLabel='Đang đi' navigation = {navigation} />                        
+                <Went tabLabel='Đã đi' navigation = {navigation} />                        
             </ScrollableTabView>
         )
     }
@@ -67,14 +100,6 @@ function index(props) {
                     <IconOcticons name = 'search' size = {20} style = {{textAlign: 'right'}} />
                 </Bt>
             </ViewHeader>
-        )
-    }
-
-    function renderListAll() {
-        return (
-            <View>
-                
-            </View>
         )
     }
 

@@ -21,21 +21,8 @@ function index(props) {
       text: 'Xoá',
       type: 'delete',
       onPress: () => {
-        Alert.alert('Thông báo', 'bạn có thực sự muốn xoá không?', [
-          {
-            text: 'Cancel',
-            onPress: ()=> {
-              null
-            }
-          },
-          {
-            text: 'OK',
-            onPress: ()=> {
-              dataArr.splice(dataArr.findIndex(e => e.idNotify == keyItem), 1)
-              setDataArr(dataArr.slice())
-            }
-          },
-        ])
+          dataArr.splice(dataArr.findIndex(e => e.idNotify == keyItem), 1)
+          setDataArr(dataArr.slice())
       }
     }
   ]
