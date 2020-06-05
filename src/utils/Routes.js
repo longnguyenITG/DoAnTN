@@ -11,4 +11,7 @@ export default {
     homesetting: "HomeSetting",
     schedule: "Schedule",
     setting: "Setting",
+    profile: "Profile",
+    editprofile: "EditProfile",
+    changepass: "ChangePass",
 }

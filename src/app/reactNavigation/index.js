@@ -8,7 +8,7 @@ import {Home, Detail, Schedule} from '../../modules/OverView'
 import {ListMytour} from '../../modules/MyTour'
 import {CreateTour} from '../../modules/Create'
 import {ListNotifycation} from '../../modules/Notifycation'
-import {HomeSetting, Setting} from '../../modules/Account'
+import {HomeSetting, Setting, Profile, EditProfile, ChangePass} from '../../modules/Account'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const {
@@ -23,7 +23,10 @@ const {
   listnotifycation,
   homesetting,
   schedule,
-  setting
+  setting,
+  profile,
+  editprofile,
+  changepass
 } = Routes
 
 const StackAll = createStackNavigator();
@@ -140,8 +143,7 @@ function index() {
             options={{
               animationEnabled: false,
               headerShown: false
-            }}/>
-                      
+            }}/>   
           <StackAll.Screen name={detail} component={Detail}
             options = {{headerShown: false}}
           />
@@ -155,6 +157,15 @@ function index() {
             options = {{headerShown: false}}
           />
           <StackAll.Screen name={setting} component={Setting}
+            options = {{headerShown: false}}
+          />
+          <StackAll.Screen name={profile} component={Profile}
+            options = {{headerShown: false}}
+          />
+          <StackAll.Screen name={editprofile} component={EditProfile}
+            options = {{headerShown: false}}
+          />
+          <StackAll.Screen name={changepass} component={ChangePass}
             options = {{headerShown: false}}
           />
         </StackAll.Navigator>

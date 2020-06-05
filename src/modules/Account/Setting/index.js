@@ -9,6 +9,7 @@ import {
     TxtComponent,
     ViewComponentChild
 } from './styled'
+import Routes from '../../../utils/Routes'
 function index(props) {
 
     const {navigation} = props
@@ -55,7 +56,8 @@ function index(props) {
     return(
         <Wrapper>
             <Header navigation = {navigation} title = 'Cài đặt' />
-            <ViewComponent>
+            <ViewComponent
+                onPress = {() => navigation.navigate(Routes.changepass)}>
                 <TxtComponent>Đổi mật khẩu</TxtComponent>
                 <IconIonicons name = 'ios-arrow-forward' size = {20} color = {Colors.gray_3} />
             </ViewComponent>

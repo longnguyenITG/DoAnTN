@@ -1,2 +1,5 @@
 export {default as HomeSetting} from './Home'
 export {default as Setting} from './Setting'
+export {default as Profile} from './Profile'
+export {default as EditProfile} from './Profile/Edit'
+export {default as ChangePass} from './ChangePass'

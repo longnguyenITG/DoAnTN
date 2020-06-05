@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Image} from 'react-native'
 import Colors from '../../../utils/Colors'
+import Routes from '../../../utils/Routes'
 import IconIonicons from 'react-native-vector-icons/Ionicons'
 import IconFoundation from 'react-native-vector-icons/Foundation'
 import IconOcticons from 'react-native-vector-icons/Octicons'
@@ -68,7 +69,8 @@ function index(props) {
 
     function renderProfile() {
         return(
-            <ViewProfile>
+            <ViewProfile
+                onPress = {() => navigation.navigate(Routes.profile)}>
                 <View>
                     <Image 
                         source ={{uri: 'https://1.bp.blogspot.com/-A7UYXuVWb_Q/XncdHaYbcOI/AAAAAAAAZhM/hYOevjRkrJEZhcXPnfP42nL3ZMu4PvIhgCLcBGAsYHQ/s1600/Trend-Avatar-Facebook%2B%25281%2529.jpg'}} 
