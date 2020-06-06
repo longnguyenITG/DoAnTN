@@ -140,7 +140,8 @@ function index(props) {
                     renderItem = {renderItemFL}
                     numColumns = {4}
                 />
-                <BtSchedule>
+                <BtSchedule
+                    onPress = {() => navigation.navigate(Routes.createtour)}>
                     <TxtSchedule>Lên lịch trình</TxtSchedule>
                 </BtSchedule>
                 <FlatListComponent

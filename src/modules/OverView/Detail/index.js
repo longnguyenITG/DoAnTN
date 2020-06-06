@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Image, Dimensions, Alert} from 'react-native'
+import {Image, Dimensions, Alert, Linking, Platform} from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
 import {ScrollableTabView} from '@valdio/react-native-scrollable-tabview'
 import Colors from '../../../utils/Colors'
@@ -85,6 +85,16 @@ function index(props) {
             </ViewTitleDetail>
         )
     }
+
+    function callHotline() {
+        let phoneNumber = '0984087956'
+        Platform.OS === 'android' ? phoneNumber = 'tel:${0984087956}' : phoneNumber = 'telprompt:${0984087956}'
+        Linking.openURL(phoneNumber)
+    }
+    function ReportApp() {
+        const linkReport = 'https://docs.google.com/forms/d/11XUO2--WBsoG2OnBbD5C7WnoRgEA0bHVpve5P4VGNHo/edit'
+        Linking.openURL(linkReport)
+    }
     return (
         <Wrapper 
             style = {{
@@ -127,9 +137,9 @@ function index(props) {
                 distanceToEdge = { { vertical:150, horizontal: 20 }}
                 floatingIcon = {<IconFontAwesome5 name = 'headphones-alt' size = {30} color = {Colors.white} />}
                 onPressItem={name => {
-                    name == 'bt_guiyeucau' ?
-                    Alert.alert('Nhấn', 'Gửi yêu cầu')
-                    : Alert.alert('Nhấn', 'Hotline')
+                    name == 'bt_guiyeucau' 
+                    ? ReportApp()
+                    : callHotline()
                 }}
             />
             <WrapperMoney>

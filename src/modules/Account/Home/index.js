@@ -25,7 +25,7 @@ function index(props) {
             key: 1,
             icon: 'ios-list-box',
             title: 'Lịch trình của tôi',
-            navigateTo: 'listmytour'
+            navigateTo: 'ListMytour'
         },
         {
             key: 2,
@@ -138,13 +138,24 @@ function index(props) {
         }
     }
 
+    function pressIcon(item) {
+        switch (item.key) {
+            case 6:
+                return navigation.navigate(item.navigateTo)
+            case 1:
+                return navigation.navigate(item.navigateTo)
+            default:
+                break;
+        }
+    }
+
     function renderComponent(e, i) {
         return(
             <ViewComponent style = {{borderTopWidth: e.key == 1 ? 0.3 : 0, 
                                     borderColor: Colors.gray_3,
                                     borderBottomWidth: e.key == 6 ? 0.3 : 0,
                                     paddingLeft: renderMarginWrapper(e.key)}}
-                                    onPress = {()=> e.key == 6 ? navigation.navigate(e.navigateTo) : null}>
+                                    onPress = {()=> pressIcon(e)}>
                 {renderIcon(e)}
                 <ViewChild style = {{marginLeft: renderMargin(e.key)}}  >
                     <TxtComponent style = {{paddingLeft: e.key == 4 ? 5 : 0}} >{e.title}</TxtComponent>
