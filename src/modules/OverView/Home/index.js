@@ -169,7 +169,10 @@ function index(props) {
                     styleViewHeader = {{marginTop: 15, marginLeft: 7, marginRight: 7}}
                     data = {dataFake.dataRecently}
                     renderItem = {renderItemFLRecentLy}     
-                    title = 'Lịch trình được tạo gần đây'         
+                    title = 'Lịch trình được tạo gần đây'
+                    onPress
+                    item = {dataFake.dataRecently}
+                    navigation = {navigation}
                 />
                 <FlatListComponent
                     styleViewHeader = {{marginTop: 1, marginLeft: 7, marginRight: 7}}
@@ -181,13 +184,19 @@ function index(props) {
                     styleViewHeader = {{marginTop: 1, marginLeft: 7, marginRight: 7}}
                     data = {dataFake.dataRecently}
                     renderItem = {renderItemFLRecentLy}     
-                    title = 'Tour được yêu thích nhất'         
+                    title = 'Tour được yêu thích nhất'
+                    onPress
+                    item = {dataFake.dataRecently}
+                    navigation = {navigation}
                 />
                 <FlatListComponent
                     styleViewHeader = {{marginTop: 1, marginLeft: 7, marginRight: 7}}
                     data = {dataFake.dataRecently}
                     renderItem = {renderItemFLDealTour}     
-                    title = 'Vé & Tour khuyến mãi hấp dẫn'         
+                    title = 'Vé & Tour khuyến mãi hấp dẫn'
+                    onPress
+                    item = {dataFake.dataRecently}
+                    navigation = {navigation}  
                 />
             </ScrollView>
         </Wrapper>

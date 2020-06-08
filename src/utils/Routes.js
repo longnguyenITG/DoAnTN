@@ -15,4 +15,5 @@ export default {
     editprofile: "EditProfile",
     changepass: "ChangePass",
     webview: "WebView",
+    viewall: "ViewAll",
 }
