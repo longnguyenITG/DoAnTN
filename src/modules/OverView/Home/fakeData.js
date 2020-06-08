@@ -9,31 +9,38 @@ import imageVevaTour from '../../../assets/image/ve&tour.png'
 export const dataFake = {
     data: [
         {
-            key: "Lịch trình",
+            key: "lich_trinh",
+            name: "Lịch trình",
             image: imageLichTrinh
         },
         {
-            key: "Khách sạn",
+            key: "khach_san",
+            name: "Khách sạn",
             image: imageKhachSan
         },
         {
-            key: "Chuyến bay",
+            key: "chuyen_bay",
+            name: "Chuyến bay",
             image: imageChuyenBay
         },
         {
-            key: "Combo",
+            key: "combo",
+            name: "Combo",
             image: imageCombo
         },
         {
-            key: "Nhà hàng",
+            key: "nha_hang",
+            name: "Nhà hàng",
             image: imageNhaHang
         },
         {
-            key: "Tham quan",
+            key: "tham_quan",
+            name: "Tham quan",
             image: imageThamQuan
         },
         {
-            key: "Vé & Tour",
+            key: "ve_tour",
+            name: "Vé & Tour",
             image: imageVevaTour
         },
     ],

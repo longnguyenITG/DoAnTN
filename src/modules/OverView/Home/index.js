@@ -46,12 +46,33 @@ function index(props) {
             </ViewHeader>
         )
     }
+
+    function getLinkUrl(key) {
+        switch (key) {
+            case 'lich_trinh':
+                return 'https://travel.com.vn/du-lich-viet-nam.aspx'
+            case 'khach_san':
+                return 'https://tripu.vn/vi/hotels'
+            case 'chuyen_bay':
+                return 'http://www.worldtrans.vn/'
+            case 'combo':
+                return 'https://travel.com.vn/tim-tour/FASGN/ket-qua-tim-kiem.aspx'
+            case 'nha_hang':
+                return 'https://dulichviet.com.vn/khach-san'
+            case 'tham_quan':
+                return 'https://dulichviet.com.vn/'
+            case 've_tour':
+                return 'https://dulichviet.com.vn/tour-bay'
+        }
+    }
     
     function renderItemFL({item}) {
+        const linkUrl = getLinkUrl(item.key)
         return(
-            <Bt style= {{marginLeft: 23, marginTop: 10, width: 70, height: 60, alignItems: 'center'}}>
+            <Bt style= {{marginLeft: 23, marginTop: 10, width: 70, height: 60, alignItems: 'center'}}
+                onPress = {() => navigation.navigate(Routes.webview, {linkUrl, title: item.name})}>
                 <Image source = {item.image} style = {{width: 40, height: 40}}/>
-                <TxtItem style = {{fontSize: 13}} >{item.key}</TxtItem>
+                <TxtItem style = {{fontSize: 12.5}} >{item.name}</TxtItem>
             </Bt>
         )
     }
