@@ -6,7 +6,8 @@ import Colors from '../../../../utils/Colors'
 import Helpers from '../../../../utils/Helpers'
 import Routes from '../../../../utils/Routes'
 import IconFeather from 'react-native-vector-icons/Feather'
-import imagetravel from '../../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png'
+// import imagetravel from '../../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png'
+const imagetravel = require ('../../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png')
 import Data from '../../../OverView/Home/fakeData'
 import {
     Wrapper,
