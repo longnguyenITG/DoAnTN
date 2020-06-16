@@ -7,7 +7,7 @@ import Helpers from '../../../utils/Helpers'
 import Routes from '../../../utils/Routes'
 import IconFeather from 'react-native-vector-icons/Feather'
 // import imagetravel from '../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png'
-const imagetravel = require ('../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png')
+// const imagetravel = require ('../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png')
 import { Header } from '../../../components'
 import {
     Wrapper,
@@ -77,7 +77,8 @@ function index(props) {
     function renderNotList() {
         return(
             <ViewEmpty>
-                <Image source = {imagetravel} 
+                {/* <Image source = {imagetravel}  */}
+                <Image source = {{uri: 'https://github.com/longnguyenITG/DoAnTN/blob/master/src/assets/image/156-1563673_about-me-icon-%C4%91i-du-l%E1%BB%8Bch.png?raw=true'}} 
                     style = {{width: 130, height: 130, alignSelf: 'center', marginTop: '30%'}}/>
                 <TxtTitle>
                     Sắp tới bạn dự định đi đâu nào???

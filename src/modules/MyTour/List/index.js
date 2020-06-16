@@ -3,7 +3,7 @@ import { Image, View } from 'react-native'
 import Colors from '../../../utils/Colors'
 import Routes from '../../../utils/Routes'
 // import imagetravel from '../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png'
-const imagetravel = require ('../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png')
+// const imagetravel = require ('../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png')
 import {ScrollableTabView} from '@valdio/react-native-scrollable-tabview'
 import Data from '../../OverView/Home/fakeData'
 import UpComing from './UpComing'
@@ -39,7 +39,8 @@ function index(props) {
     function renderNotList() {
         return(
             <ViewEmpty>
-                <Image source = {imagetravel} 
+                {/* <Image source = {imagetravel}  */}
+                <Image source = {{uri: 'https://github.com/longnguyenITG/DoAnTN/blob/master/src/assets/image/156-1563673_about-me-icon-%C4%91i-du-l%E1%BB%8Bch.png?raw=true'}} 
                     style = {{width: 170, height: 170, alignSelf: 'center', marginTop: '70%'}}/>
                 <TxtTitle>
                     Hãy bắt đầu tạo chuyến đi của bạn với một lịch trình hấp dẫn và chi phí tối ưu nhất.
