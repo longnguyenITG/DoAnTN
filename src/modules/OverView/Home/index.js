@@ -80,7 +80,7 @@ function index(props) {
     function renderItemFLRecentLy ({item}) {
         return(
             <WrapperItemFLRecentLy>
-                <ViewAccFL>
+                <ViewAccFL onPress = {()=> navigation.navigate(Routes.profile)} >
                     <Image  source = {{uri: item.imageAcc}} style = {{width: 30, height: 30, borderRadius: 60, borderWidth: 1, marginRight: 10, borderColor: Colors.gray_4}}/>
                     <ViewNameAcc>
                         <TxtItemName>{item.nameAcc}</TxtItemName>

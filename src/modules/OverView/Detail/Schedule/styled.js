@@ -14,7 +14,7 @@ export const ViewItem = styled.View `
     height: 130;
     margin-bottom: 10;
     flex-direction: row;
-    border-width: 0.5;
+    border-width: 0.4;
 `
 export const ViewChildrenImage = styled.View `
     width: 30%;

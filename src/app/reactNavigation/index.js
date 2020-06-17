@@ -4,7 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Routes from '../../utils/Routes'
 import {SflashScreen, Login, LoginApp, RegisTration} from '../../modules/Login'
-import {Home, Detail, Schedule, WebView, ViewAll} from '../../modules/OverView'
+import {Home, Detail, Schedule, WebView, ViewAll, Map} from '../../modules/OverView'
 import {ListMytour} from '../../modules/MyTour'
 import {CreateTour} from '../../modules/Create'
 import {ListNotifycation} from '../../modules/Notifycation'
@@ -28,7 +28,8 @@ const {
   editprofile,
   changepass,
   webview,
-  viewall
+  viewall,
+  map
 } = Routes
 
 const StackAll = createStackNavigator();
@@ -174,6 +175,9 @@ function index() {
             options = {{headerShown: false}}
           />
           <StackAll.Screen name={viewall} component={ViewAll}
+            options = {{headerShown: false}}
+          />
+          <StackAll.Screen name={map} component={Map}
             options = {{headerShown: false}}
           />
         </StackAll.Navigator>

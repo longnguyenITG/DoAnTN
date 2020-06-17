@@ -8,6 +8,7 @@ import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import IconAntDesign from 'react-native-vector-icons/AntDesign'
 import Modal from 'react-native-modal'
+import Routes from '../../../../utils/Routes'
 
 import {
     Wrapper,
@@ -33,7 +34,7 @@ import {
 } from './styled'
 
 function index(props) {
-    debugger
+    
     const {navigation, route} = props
     const {item} = route.params
     const insets = useSafeArea()
@@ -102,9 +103,9 @@ function index(props) {
                                             <BtDetail
                                                 onPress = {() => setStatusVisibale(true)}>
                                                 <IconMaterialCommunityIcons name = 'file-document-edit-outline' size = {18} color = {Colors.primary_3} />
-                                                <TxtDocument>Ghi chú</TxtDocument>
+                                                <TxtDocument>Mô tả</TxtDocument>
                                             </BtDetail>
-                                            <BtDetail>
+                                            <BtDetail onPress = {() => navigation.navigate(Routes.map, {item: e})} >
                                                 <IconMaterialIcons name = 'location-on' size = {18} color = {Colors.primary_3} />
                                                 <TxtDocument>Vị trí</TxtDocument>
                                             </BtDetail>

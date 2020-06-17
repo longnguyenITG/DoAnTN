@@ -47,5 +47,13 @@ export default {
   white_transparent: 'rgba(255, 255, 255, 0.5)',
   black_transparent: 'rgba(0,0,0,0.5)',
   modal_blue_transparent: 'rgba(210,240,253,0.3)',
-  blue_custom: '#008ae6'
+  blue_custom: '#008ae6',
+  olivedrad: '#6b8e23',
+  mediumturquoise: '#48d1cc',
+  mediumslateblue: '#7b68ee',
+  lightsalmon: '#ffa07a',
+  lightcoral: '#f08080', 
+  lightblue: '#add8e6',
+  floralwhite: '#fffaf0',
+  gold: '#ffd700'
 }

@@ -12,7 +12,7 @@ export const ViewHeader = styled.View `
     padding-bottom: 10;
     align-items: flex-end;
     background-color: ${Colors.white_4};
-    ${Shadows.shadow_3}
+    ${Shadows.shadow_3};
 
 `
 export const TxtTitle = styled.Text `

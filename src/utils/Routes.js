@@ -16,4 +16,5 @@ export default {
     changepass: "ChangePass",
     webview: "WebView",
     viewall: "ViewAll",
+    map: "Map",
 }

@@ -51,7 +51,7 @@ function index(props) {
         )
     }
     function renderInclude(titile, titleMore, iconName) {
-        debugger
+        
         return(
             <WrapperInclude>
                 <View>
