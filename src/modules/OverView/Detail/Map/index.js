@@ -36,7 +36,7 @@ function index(props) {
                         ))
                     }
                 </ViewIcon>
-                <TxtLabel>Vị trí cụ thể:</TxtLabel>
+                <TxtLabel>Thông tin vị trí:</TxtLabel>
                 <ViewDetailPlace>
                     <ViewDot></ViewDot>
                     <TxtDetailLabel>Hàm tử - khoái châu - hưng yên</TxtDetailLabel>
