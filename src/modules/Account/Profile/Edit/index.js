@@ -69,7 +69,7 @@ function renderTxtIP() {
         <TxtUserName>Đổi ảnh đại diện</TxtUserName>
       </Bt>
       {renderTxtIP()}
-      <BtLogin onPress = {() => null} >
+      <BtLogin onPress = {() => navigation.navigate(Routes.test)} >
         <TxtBtLogin>Lưu thay đổi</TxtBtLogin>
       </BtLogin>
     </Wrapper>

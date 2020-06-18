@@ -8,8 +8,9 @@ import {Home, Detail, Schedule, WebView, ViewAll, Map} from '../../modules/OverV
 import {ListMytour} from '../../modules/MyTour'
 import {CreateTour} from '../../modules/Create'
 import {ListNotifycation} from '../../modules/Notifycation'
-import {HomeSetting, Setting, Profile, EditProfile, ChangePass} from '../../modules/Account'
+import {HomeSetting, Setting, Profile, EditProfile, ChangePass, Test} from '../../modules/Account'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {RecoilRoot} from 'recoil'
 
 const {
   sflashscreen,
@@ -29,7 +30,8 @@ const {
   changepass,
   webview,
   viewall,
-  map
+  map,
+  test
 } = Routes
 
 const StackAll = createStackNavigator();
@@ -126,62 +128,67 @@ function NavigationTab() {
 
 function index() {
     return (
-      <NavigationContainer>
-        <StackAll.Navigator>
-          <StackAll.Screen name={home} component={NavigationTab}
-            options = {{headerShown: false}}
-          />  
-          <StackAll.Screen
-            name={sflashscreen}
-            component={SflashScreen}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={registration} component={RegisTration}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={loginapp} component={LoginApp}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={login} component={Login}
-            options={{
-              animationEnabled: false,
-              headerShown: false
-            }}/>   
-          <StackAll.Screen name={detail} component={Detail}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={schedule} component={Schedule}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={createtour} component={CreateTour}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={listmytour} component={ListMytour}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={setting} component={Setting}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={profile} component={Profile}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={editprofile} component={EditProfile}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={changepass} component={ChangePass}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={webview} component={WebView}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={viewall} component={ViewAll}
-            options = {{headerShown: false}}
-          />
-          <StackAll.Screen name={map} component={Map}
-            options = {{headerShown: false}}
-          />
-        </StackAll.Navigator>
-      </NavigationContainer>
+      <RecoilRoot>
+        <NavigationContainer>
+          <StackAll.Navigator>
+            <StackAll.Screen name={home} component={NavigationTab}
+              options = {{headerShown: false}}
+            />  
+            <StackAll.Screen
+              name={sflashscreen}
+              component={SflashScreen}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={registration} component={RegisTration}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={loginapp} component={LoginApp}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={login} component={Login}
+              options={{
+                animationEnabled: false,
+                headerShown: false
+              }}/>   
+            <StackAll.Screen name={detail} component={Detail}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={schedule} component={Schedule}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={createtour} component={CreateTour}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={listmytour} component={ListMytour}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={setting} component={Setting}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={profile} component={Profile}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={editprofile} component={EditProfile}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={changepass} component={ChangePass}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={webview} component={WebView}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={viewall} component={ViewAll}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={map} component={Map}
+              options = {{headerShown: false}}
+            />
+            <StackAll.Screen name={test} component={Test}
+              options = {{headerShown: false}}
+            />
+          </StackAll.Navigator>
+        </NavigationContainer>
+      </RecoilRoot>
     );
 }
 
