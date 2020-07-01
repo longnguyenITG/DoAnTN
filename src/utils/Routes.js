@@ -17,5 +17,4 @@ export default {
     webview: "WebView",
     viewall: "ViewAll",
     map: "Map",
-    test: "Test",
 }

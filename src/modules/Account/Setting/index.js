@@ -45,7 +45,7 @@ function index(props) {
         return(
             <View>
                 {listOption.map((item, index) => (
-                    <ViewComponentChild style = {{borderTopWidth: item.key == 1 ? 0 : 0.3, borderColor: Colors.gray_5}} >
+                    <ViewComponentChild key = {index} style = {{borderTopWidth: item.key == 1 ? 0 : 0.3, borderColor: Colors.gray_5}} >
                         <TxtComponent>{item.title}</TxtComponent>
                         <IconIonicons name = 'ios-arrow-forward' size = {20} color = {Colors.gray_3} />
                     </ViewComponentChild>
@@ -62,7 +62,8 @@ function index(props) {
                 <IconIonicons name = 'ios-arrow-forward' size = {20} color = {Colors.gray_3} />
             </ViewComponent>
             {renderListComponent()}
-            <ViewComponent>
+            <ViewComponent 
+                onPress = {() => navigation.navigate(Routes.loginapp)} >
                 <TxtComponent>Đăng xuất</TxtComponent>
                 <IconIonicons name = 'ios-arrow-forward' size = {20} color = {Colors.gray_3} />
             </ViewComponent>

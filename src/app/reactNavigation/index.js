@@ -8,7 +8,7 @@ import {Home, Detail, Schedule, WebView, ViewAll, Map} from '../../modules/OverV
 import {ListMytour} from '../../modules/MyTour'
 import {CreateTour} from '../../modules/Create'
 import {ListNotifycation} from '../../modules/Notifycation'
-import {HomeSetting, Setting, Profile, EditProfile, ChangePass, Test} from '../../modules/Account'
+import {HomeSetting, Setting, Profile, EditProfile, ChangePass} from '../../modules/Account'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {RecoilRoot} from 'recoil'
 
@@ -31,7 +31,6 @@ const {
   webview,
   viewall,
   map,
-  test
 } = Routes
 
 const StackAll = createStackNavigator();
@@ -181,9 +180,6 @@ function index() {
               options = {{headerShown: false}}
             />
             <StackAll.Screen name={map} component={Map}
-              options = {{headerShown: false}}
-            />
-            <StackAll.Screen name={test} component={Test}
               options = {{headerShown: false}}
             />
           </StackAll.Navigator>
