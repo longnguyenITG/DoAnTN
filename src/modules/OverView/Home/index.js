@@ -35,7 +35,9 @@ import {
 function index(props) {
     const {navigation} = props
     const insets = useSafeArea();
+
     const [widgetRefreshing, setWidgetRefreshing] = useState(false)
+
     function renderHeader() {
         return(
             <ViewHeader>

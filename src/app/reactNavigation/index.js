@@ -130,9 +130,7 @@ function index() {
       <RecoilRoot>
         <NavigationContainer>
           <StackAll.Navigator>
-            <StackAll.Screen name={home} component={NavigationTab}
-              options = {{headerShown: false}}
-            />  
+     
             <StackAll.Screen
               name={sflashscreen}
               component={SflashScreen}
@@ -182,6 +180,10 @@ function index() {
             <StackAll.Screen name={map} component={Map}
               options = {{headerShown: false}}
             />
+            <StackAll.Screen name={home} component={NavigationTab}
+              options = {{headerShown: false}}
+            /> 
+            
           </StackAll.Navigator>
         </NavigationContainer>
       </RecoilRoot>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Image} from 'react-native'
 // import {LoginButton, AccessToken} from 'react-native-fbsdk';
 import {LoginManager} from 'react-native-fbsdk'
@@ -6,6 +6,10 @@ import Colors from '../../../utils/Colors'
 import Routes from '../../../utils/Routes'
 import iconLogin from '../../../assets/image/d1e285affc590ce2e87fd225aacfd15a.png'
 import iconLoginFB from '../../../assets/image/facebook-scalable-graphics-icon-facebook-logo-facebook-logo-png-clip-art-thumbnail.png'
+import {useRecoilState} from 'recoil'
+import {isLoading, listAccount} from '../atom'
+import {getListAccount} from '../selector'
+import {Loading} from '../../../components'
 import {
   Wraper,
   TxtTitle,
@@ -18,7 +22,18 @@ import {
 
 function Login(props) {
 
-  const {navigation} = props
+  const {navigation, route} = props
+  // const {logout} = route.params
+  const [isLoadingState, setIsLoadingState] = useRecoilState(isLoading)
+  const [listAccountState, setListAccountState] = useRecoilState(listAccount)
+  // const [reset, setReset] = useState(logout)
+
+  console.log('listAccount', listAccountState)
+
+  useEffect(()=> {
+    getListAccount(setListAccountState, setIsLoadingState)
+  }, [])
+
   function renderTitle() {
     return(
       <WraperTitle>        
@@ -100,12 +115,18 @@ function Login(props) {
       </LoginBT>
     )
   }
+  function renderLoading(){
+    return(
+      <Loading isVisible={isLoadingState} />
+    )
+  }
   return (
     <Wraper>   
       {renderTitle()}
       {renderLoginWithFB()}
       {renderLoginWithApp()}
       {renderRegistrationWithApp()}
+      {renderLoading()}
       <TxtLogin
           style = {{color: Colors.primary_2, marginTop: 200}}>
           ~~ Good luck to everyone ~~

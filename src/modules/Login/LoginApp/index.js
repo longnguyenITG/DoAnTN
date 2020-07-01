@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
+import {Alert} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import IconEye from 'react-native-vector-icons/Feather'
 import { useSafeArea } from 'react-native-safe-area-context'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Routes from '../../../utils/Routes'
+import {listAccount, Account} from '../atom'
 import {
     Wrapper,
     TxtTitle,
@@ -21,10 +23,15 @@ import {
     TxtBtResgisTraTion,
     ScrollView
 } from './styled'
+import { useRecoilState } from 'recoil'
 
 function index(props) {
     const {navigation} = props
     const insets = useSafeArea();
+
+    const [listAccountState, setListAccountState] = useRecoilState(listAccount)
+    const [AccountState, setAccountState] = useRecoilState(Account)
+
     const [hideTitleEmail, SetHideTitleEmail] = useState(false)
     const [hideTitlePassWord, SetHideTitlePassWord] = useState(false)
     const [seePass, SetSeePass] = useState(true)
@@ -61,10 +68,23 @@ function index(props) {
     function renderTxtIP() {
         return(
             <View>
-                {renderInput(hideTitleEmail, 'Email', 'Email...', SettxtEmail, SetHideTitleEmail, txtEmail, SetHideTitlePassWord, false, false)}
+                {renderInput(hideTitleEmail, 'Tài khoản', 'Tài khoản...', SettxtEmail, SetHideTitleEmail, txtEmail, SetHideTitlePassWord, false, false)}
                 {renderInput(hideTitlePassWord, 'Mật khẩu', 'Mật khẩu...', SettxtPassWord, SetHideTitlePassWord, txtPassWord, SetHideTitleEmail, true, true)}
             </View>
         )        
+    }
+
+    function Login() {
+        if(listAccountState) {
+            debugger
+           let AccountIndex = listAccountState.findIndex(e => e.userName == txtEmail && e.passWord == txtPassWord)
+           if(AccountIndex >= 0){
+                setAccountState(listAccountState[AccountIndex])
+                navigation.navigate(Routes.home)
+           }else{
+                Alert.alert('Thông báo', 'Tài khoản hoặc mật khẩu không chính xác!')
+           }
+        } 
     }
 
     return(
@@ -80,7 +100,7 @@ function index(props) {
             </BackBT>
             <TxtTitle>Đăng nhập</TxtTitle>
             {renderTxtIP()}
-            <BtLogin onPress = {() => navigation.navigate(Routes.home)} >
+            <BtLogin onPress = {() => Login()} >
                 <TxtBtLogin>Đăng nhập</TxtBtLogin>
             </BtLogin>
             <Bt>
@@ -88,7 +108,7 @@ function index(props) {
             </Bt>
             <View  style = {{flexDirection: 'row'}} >
                 <TxtResgisTraTion>Bạn chưa có tài khoản?</TxtResgisTraTion>
-                <Bt>
+                <Bt onPress = {()=> navigation.navigate(Routes.registration)} >
                     <TxtBtResgisTraTion>Đăng ký</TxtBtResgisTraTion>
                 </Bt>
             </View>

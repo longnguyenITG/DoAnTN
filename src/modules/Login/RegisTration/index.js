@@ -1,8 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import { Alert } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import IconEye from 'react-native-vector-icons/Feather'
 import { useSafeArea } from 'react-native-safe-area-context'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import Routes from '../../../utils/Routes'
+import {listAccount, isLoading, successfully} from '../atom'
+import {useRecoilState} from 'recoil'
+import {Loading} from '../../../components'
+import {uploadAccount} from '../selector'
 import {
     Wrapper,
     TxtTitle,
@@ -23,6 +29,11 @@ import {
 function index(props) {
     const {navigation} = props
     const insets = useSafeArea();
+    
+    const [listAccountState, setListAccountState] = useRecoilState(listAccount)
+    const [isLoadingState, setIsLoading] = useRecoilState(isLoading)
+    const [successfullyState, setSuccessfullyState] = useRecoilState(successfully)
+
     const [hideTitleEmail, SetHideTitleEmail] = useState(false)
     const [hideTitlePassWord, SetHideTitlePassWord] = useState(false)
     const [hideTitleName, SetHideTitleName] = useState(false)
@@ -32,6 +43,11 @@ function index(props) {
     const [txtPassWord, SettxtPassWord] = useState('')
     const [txtName, SettxtName] = useState('')
     const [txtSdt, SettxtSdt] = useState('')
+
+    useEffect(() => {
+        successfullyState && navigation.navigate(Routes.home)
+        setSuccessfullyState(false)
+    }, [successfullyState])
     
     function renderInput(hideTitle, txtTitle, playHoder, setText, setHide, value, setHideMore, setHideMore1, setHideMore2, icon, hidePass){
         return(
@@ -65,13 +81,29 @@ function index(props) {
     function renderTxtIP() {
         return(
             <View>
-                {renderInput(hideTitleEmail, 'Email*', 'Email*', SettxtEmail, SetHideTitleEmail, txtEmail, SetHideTitlePassWord, SetHideTitleName, SetHideTitleSdt, false, false)}
+                {renderInput(hideTitleEmail, 'Tài khoản*', 'Tài khoản*', SettxtEmail, SetHideTitleEmail, txtEmail, SetHideTitlePassWord, SetHideTitleName, SetHideTitleSdt, false, false)}
                 {renderInput(hideTitlePassWord, 'Mật khẩu*', 'Mật khẩu*', SettxtPassWord, SetHideTitlePassWord, txtPassWord, SetHideTitleEmail, SetHideTitleName, SetHideTitleSdt, true, true)}
                 {renderInput(hideTitleName, 'Họ và tên*', 'Họ và tên*', SettxtName, SetHideTitleName, txtName, SetHideTitleEmail, SetHideTitlePassWord, SetHideTitleSdt, false, false)}
                 {renderInput(hideTitleSdt, 'Số điện thoại', 'Số điện thoại', SettxtSdt, SetHideTitleSdt, txtSdt, SetHideTitleEmail, SetHideTitlePassWord, SetHideTitleName, false, false)}
             </View>
         )        
     }
+
+    function regisTration() {
+        if(txtEmail || txtPassWord || txtName) {
+            const index = listAccountState.findIndex(e => e.userName == txtEmail)
+            index < 0 ? uploadAccount(txtEmail, txtPassWord, txtName, txtSdt, setIsLoading, setSuccessfullyState)
+            : Alert.alert('Thông báo', 'Tài khoản đã tồn tại!')
+        }else{
+            Alert.alert('Thông báo', 'Vui lòng nhập những thông tin bắt buộc có dấu *')
+        }
+         
+    }
+    function renderLoading(){
+        return(
+          <Loading isVisible={isLoadingState} />
+        )
+      }
 
     return(
         <Wrapper
@@ -91,17 +123,18 @@ function index(props) {
                 keyboardShouldPersistTaps='handled'>
                 <ScrollView contentContainerStyle={{flexGrow: 1, paddingBottom: 250}}>
                     {renderTxtIP()}
-                    <BtLogin>
+                    <BtLogin onPress = {()=> regisTration()} >
                         <TxtBtLogin>Đăng ký</TxtBtLogin>
                     </BtLogin>
                     <View  style = {{flexDirection: 'row'}} >
                         <TxtResgisTraTion>Bạn đã có tài khoản?</TxtResgisTraTion>
-                        <Bt>
+                        <Bt onPress = {()=> navigation.navigate(Routes.loginapp)} >
                             <TxtBtResgisTraTion>Đăng nhập</TxtBtResgisTraTion>
                         </Bt>
                     </View>
                 </ScrollView>
             </KeyboardAwareScrollView>
+            {renderLoading()}
         </Wrapper>
     )
 }

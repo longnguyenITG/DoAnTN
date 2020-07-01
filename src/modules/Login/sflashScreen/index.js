@@ -25,7 +25,7 @@ function index (props) {
             }).start();
         }, 3000);
         setTimeout(() => {
-            navigation.navigate('Login');
+            navigation.navigate('Login', {logout: false});
         }, 4000);
     }
     return(
