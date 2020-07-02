@@ -9,4 +9,5 @@ export default {
       if (num == null) return ''
       return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     },
+    regExEmail: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
 }

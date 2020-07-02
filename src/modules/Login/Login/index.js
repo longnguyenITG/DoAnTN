@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {Image} from 'react-native'
-// import {LoginButton, AccessToken} from 'react-native-fbsdk';
+import {Image, Alert} from 'react-native'
+import {LoginButton, AccessToken} from 'react-native-fbsdk';
 import {LoginManager} from 'react-native-fbsdk'
 import Colors from '../../../utils/Colors'
 import Routes from '../../../utils/Routes'
@@ -8,7 +8,7 @@ import iconLogin from '../../../assets/image/d1e285affc590ce2e87fd225aacfd15a.pn
 import iconLoginFB from '../../../assets/image/facebook-scalable-graphics-icon-facebook-logo-facebook-logo-png-clip-art-thumbnail.png'
 import {useRecoilState} from 'recoil'
 import {isLoading, listAccount} from '../atom'
-import {getListAccount} from '../selector'
+import {getListAccount, uploadAccount} from '../selector'
 import {Loading} from '../../../components'
 import {
   Wraper,
@@ -70,38 +70,43 @@ function Login(props) {
     )
   }
 
+  function getInfoWithFB(token) {
+    debugger
+    fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token)
+    .then((response) => response.json())
+    .then((json) => {
+      if(json){
+        // uploadAccount(txtEmail, txtPassWord, txtName, txtSdt, setIsLoading, setSuccessfullyState)
+      }else{
+        Alert.alert('Thông báo', 'Không kết nối được FaceBook...')
+      }
+        
+    })
+    .catch(() => {
+      reject('ERROR GETTING DATA FROM FACEBOOK')
+    })
+  }
+
   function  handleFacebookLogin () {
-    LoginManager.logInWithPermissions(['public_profile', 'email', 'user_friends']).then(
-      function (result) {
+    LoginManager.logInWithPermissions(['public_profile', 'email']).then(
+      function(result) {
         if (result.isCancelled) {
-          console.log('Login cancelled')
+          alert('Login was cancelled');
         } else {
-          console.log('Login success with permissions: ' + result.grantedPermissions.toString())
+          AccessToken.getCurrentAccessToken().then((data) => {
+          const { accessToken } = data
+          getInfoWithFB(accessToken)
+        })
         }
       },
-      function (error) {
-        console.log('Login fail with error: ' + error)
+      function(error) {
+        alert('Login failed with error: ' + error);
       }
-    )
+    );
   }
 
   function renderLoginWithFB() {
     return(
-      // <LoginButton
-      //   style = {{width: '70%', height: 40, marginBottom: 10}}
-      //   onLoginFinished={(error, result) => {
-      //     if (error) {
-      //       console.log('login has error: ' + result.error);
-      //     } else if (result.isCancelled) {
-      //       console.log('login is cancelled.');
-      //     } else {
-      //       AccessToken.getCurrentAccessToken().then(data => {
-      //         console.log(data.accessToken.toString());
-      //       });
-      //     }
-      //   }}
-      //   onLogoutFinished={() => console.log('logout.')}
-      // /> 
       <LoginBT
         style = {{backgroundColor: Colors.primary_2}}
         onPress = {()=> handleFacebookLogin()}
