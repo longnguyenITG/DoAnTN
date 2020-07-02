@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Routes from '../../utils/Routes'
-import {SflashScreen, Login, LoginApp, RegisTration} from '../../modules/Login'
+import {SflashScreen, Login, LoginApp, RegisTration, ForgotPassWord} from '../../modules/Login'
 import {Home, Detail, Schedule, WebView, ViewAll, Map} from '../../modules/OverView'
 import {ListMytour} from '../../modules/MyTour'
 import {CreateTour} from '../../modules/Create'
@@ -31,6 +31,7 @@ const {
   webview,
   viewall,
   map,
+  forgotpassword
 } = Routes
 
 const StackAll = createStackNavigator();
@@ -181,6 +182,9 @@ function index() {
               options = {{headerShown: false}}
             />
             <StackAll.Screen name={home} component={NavigationTab}
+              options = {{headerShown: false}}
+            /> 
+            <StackAll.Screen name={forgotpassword} component={ForgotPassWord}
               options = {{headerShown: false}}
             /> 
             

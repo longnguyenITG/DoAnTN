@@ -81,6 +81,7 @@ function index(props) {
            if(AccountIndex >= 0){
                 setAccountState(listAccountState[AccountIndex])
                 navigation.navigate(Routes.home)
+                SettxtPassWord('')
            }else{
                 Alert.alert('Thông báo', 'Tài khoản hoặc mật khẩu không chính xác!')
            }
@@ -103,7 +104,7 @@ function index(props) {
             <BtLogin onPress = {() => Login()} >
                 <TxtBtLogin>Đăng nhập</TxtBtLogin>
             </BtLogin>
-            <Bt>
+            <Bt onPress = {()=> navigation.navigate(Routes.forgotpassword)} >
                 <TxtBtForgotPass>Quên mật khẩu?</TxtBtForgotPass>
             </Bt>
             <View  style = {{flexDirection: 'row'}} >

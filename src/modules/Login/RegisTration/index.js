@@ -45,8 +45,20 @@ function index(props) {
     const [txtSdt, SettxtSdt] = useState('')
 
     useEffect(() => {
-        successfullyState && navigation.navigate(Routes.home)
-        setSuccessfullyState(false)
+       
+        if(successfullyState){
+            Alert.alert('Success', 'Đăng ký thành công.', [
+                {
+                    text: 'OK',
+                    onPress: ()=> navigation.push(Routes.login)
+                }
+            ])
+            SettxtEmail('')
+            SettxtPassWord('')
+            SettxtName('')
+            SettxtSdt('')
+            setSuccessfullyState(false)
+        } 
     }, [successfullyState])
     
     function renderInput(hideTitle, txtTitle, playHoder, setText, setHide, value, setHideMore, setHideMore1, setHideMore2, icon, hidePass){

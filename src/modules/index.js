@@ -1,2 +1,6 @@
 export { default as Login } from './Login'
 export { default as OverView } from './OverView'
+export { default as Account } from './Account'
+export { default as Create } from './Create'
+export { default as MyTour } from './MyTour'
+export { default as Notifycation } from './Notifycation'

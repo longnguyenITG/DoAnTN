@@ -23,10 +23,9 @@ import {
 function Login(props) {
 
   const {navigation, route} = props
-  // const {logout} = route.params
+
   const [isLoadingState, setIsLoadingState] = useRecoilState(isLoading)
   const [listAccountState, setListAccountState] = useRecoilState(listAccount)
-  // const [reset, setReset] = useState(logout)
 
   console.log('listAccount', listAccountState)
 
