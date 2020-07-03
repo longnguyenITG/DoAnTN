@@ -8,10 +8,11 @@ export const getListAccount = async (setAtom, setLoading) => {
   setLoading(false)
 }
 export const uploadAccount = async (user, passWord, fullName, numberPhone, setLoading, setSuccessfully) => {
-  debugger
-  setLoading(true)
+  setLoading && setLoading(true)
   const data = await AuthenAPI.submitAccount(user, passWord, fullName, numberPhone)
-  data.success ? setSuccessfully(true)
-  : Alert.alert('Thông báo', 'Có lỗi xảy ra, vui lòng thực hiện lại')
+  if(setSuccessfully){
+    data.success ? setSuccessfully(true)
+    : Alert.alert('Thông báo', 'Có lỗi xảy ra, vui lòng thực hiện lại')
+  }
   setLoading(false)
 }

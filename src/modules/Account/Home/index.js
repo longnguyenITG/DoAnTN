@@ -170,7 +170,7 @@ function index(props) {
             {renderProfile()}
             {
                 listOption.map( (e, i) => (
-                    <WarpperComponent>
+                    <WarpperComponent key = {i} >
                         {renderComponent(e, i)}
                     </WarpperComponent>
                 ) )

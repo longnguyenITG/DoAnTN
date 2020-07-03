@@ -27,8 +27,6 @@ function Login(props) {
   const [isLoadingState, setIsLoadingState] = useRecoilState(isLoading)
   const [listAccountState, setListAccountState] = useRecoilState(listAccount)
 
-  console.log('listAccount', listAccountState)
-
   useEffect(()=> {
     getListAccount(setListAccountState, setIsLoadingState)
   }, [])
@@ -71,14 +69,19 @@ function Login(props) {
   }
 
   function getInfoWithFB(token) {
-    debugger
     fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token)
     .then((response) => response.json())
     .then((json) => {
       if(json){
-        // uploadAccount(txtEmail, txtPassWord, txtName, txtSdt, setIsLoading, setSuccessfullyState)
+        let index = listAccountState.findIndex(e => e.userName == json.email)
+        if(index < 0) {
+          uploadAccount(json.email, '1234', json.name, '1234')
+          navigation.navigate(Routes.home)
+        } else {
+          navigation.navigate(Routes.home)
+        }
       }else{
-        Alert.alert('Thông báo', 'Không kết nối được FaceBook...')
+        Alert.alert('Thông báo', 'Không lấy được dữ liệu FaceBook, vui lòng kết nối lại...')
       }
         
     })

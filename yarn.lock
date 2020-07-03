@@ -6026,6 +6026,11 @@ realpath-native@^2.0.0:
   resolved "https://registry.yarnpkg.com/realpath-native/-/realpath-native-2.0.0.tgz#7377ac429b6e1fd599dc38d08ed942d0d7beb866"
   integrity sha512-v1SEYUOXXdbBZK8ZuNgO4TBjamPsiSgcFr0aP+tEKpQZK8vooEUqV6nm6Cv502mX4NF2EfsnVqtNAHG+/6Ur1Q==
 
+recoil-logger@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/recoil-logger/-/recoil-logger-1.0.1.tgz#a7f66293d474c895a1d0c6a5cb231cfd2f5cebc9"
+  integrity sha512-deUy1T8Dwx/Ji6RIFCtk6NNIxu/7boxvhwjTLvLqI7kiAc4sXR+EtY3wKphrjhEnZwJcyh50aWme6dK78lKUyg==
+
 recoil@^0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.0.8.tgz#b24eb00fb8bfcbefb68836dc5ebc93cf884ed0f4"

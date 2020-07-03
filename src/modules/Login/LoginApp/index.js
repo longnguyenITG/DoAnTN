@@ -76,7 +76,6 @@ function index(props) {
 
     function Login() {
         if(listAccountState) {
-            debugger
            let AccountIndex = listAccountState.findIndex(e => e.userName == txtEmail && e.passWord == txtPassWord)
            if(AccountIndex >= 0){
                 setAccountState(listAccountState[AccountIndex])

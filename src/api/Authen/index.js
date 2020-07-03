@@ -8,7 +8,6 @@ export default {
     })
   },
   submitAccount: function(userName, passWord, fullName, sdt) {
-    debugger
     return fetch ('http://192.168.99.94/DoAnTN/uploadUser.php',
     {
       method: 'POST',

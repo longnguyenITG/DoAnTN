@@ -11,6 +11,7 @@ import {ListNotifycation} from '../../modules/Notifycation'
 import {HomeSetting, Setting, Profile, EditProfile, ChangePass} from '../../modules/Account'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {RecoilRoot} from 'recoil'
+import RecoilLogger from 'recoil-logger'
 
 const {
   sflashscreen,
@@ -129,6 +130,7 @@ function NavigationTab() {
 function index() {
     return (
       <RecoilRoot>
+        <RecoilLogger/>
         <NavigationContainer>
           <StackAll.Navigator>
      
