@@ -1,6 +1,7 @@
+import Constants from '../../utils/Constants'
 export default {
   fetchListAccount: function() {
-    return fetch ('http://192.168.99.94/DoAnTN/getAccount.php')
+    return fetch (`${Constants.host}/DoAnTN/getAccount.php`)
     .then((response)=> response.json())
     .then((json)=> json)
     .catch((err)=> {
@@ -8,7 +9,7 @@ export default {
     })
   },
   submitAccount: function(userName, passWord, fullName, sdt) {
-    return fetch ('http://192.168.99.94/DoAnTN/uploadUser.php',
+    return fetch (`${Constants.host}/DoAnTN/uploadUser.php`,
     {
       method: 'POST',
       headers: {

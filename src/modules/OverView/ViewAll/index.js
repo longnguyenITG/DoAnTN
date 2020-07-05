@@ -39,10 +39,10 @@ function index(props) {
         return(
             <WrapperItemFLRecentLy>
                 <ViewAccFL>
-                    <Image  source = {{uri: item.imageAcc}} style = {{width: 30, height: 30, borderRadius: 60, borderWidth: 1, marginRight: 10, borderColor: Colors.gray_4}}/>
+                    <Image  source = {{uri: item.image}} style = {{width: 30, height: 30, borderRadius: 60, borderWidth: 1, marginRight: 10, borderColor: Colors.gray_4}}/>
                     <ViewAccChild>
                         <ViewNameAcc>
-                            <TxtItemName>{item.nameAcc}</TxtItemName>
+                            <TxtItemName>{item.userName}</TxtItemName>
                             <TxtItemTimeAgo>{Helpers.formatDate(item.timeCreate)}</TxtItemTimeAgo>
                         </ViewNameAcc>
                         <ViewIcon>
@@ -57,7 +57,7 @@ function index(props) {
                 </ViewAccFL>
                 <Bt
                     onPress = {() => navigation.navigate(Routes.detail, {item})}>
-                    <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '55%'}}/>
+                    <Image source = {{uri: item.imageDesCription}} style = {{width: '100%', height: '55%'}}/>
                     <TitleTourItem>{item.title}</TitleTourItem>
                     <WrapContentTour>
                         <ViewChildContentTour style = {{marginLeft: 10}} >

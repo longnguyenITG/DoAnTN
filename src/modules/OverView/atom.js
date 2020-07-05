@@ -1,29 +1,29 @@
 import {atom} from 'recoil'
 
 export const isLoading = atom({
-  key: 'isLoadingAuthen',
+  key: 'isLoadingOverview',
   default: false,
   persistence_UNSTABLE: {
     type: 'log'
   },
 })
 export const successfully = atom({
-  key: 'successfullyAuthen',
+  key: 'successfullyOverview',
   default: false,
   persistence_UNSTABLE: {
     type: 'log'
   },
 })
-export const listAccount = atom({
-  key: 'listAccount',
-  default: null,
+export const listTour = atom({
+  key: 'listTour',
+  default: [],
   persistence_UNSTABLE: {
     type: 'log'
   },
 })
-export const Account = atom({
-  key: 'Account',
-  default: null,
+export const detailTour = atom({
+  key: 'detailTour',
+  default: {},
   persistence_UNSTABLE: {
     type: 'log'
   },

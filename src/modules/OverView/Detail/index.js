@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Image, Dimensions, Alert, Linking, Platform} from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
 import {ScrollableTabView} from '@valdio/react-native-scrollable-tabview'
@@ -14,6 +14,9 @@ import Flight from './Flight'
 import Hotel from './Hotel'
 import TicketsTour from './TicketsTour'
 import { FloatingAction } from "react-native-floating-action";
+import {detailTour, isLoading} from '../atom'
+import {useRecoilState} from 'recoil'
+import {getDetailTour} from '../selector'
 
 import {
     Wrapper,
@@ -52,7 +55,14 @@ function index(props) {
         }
       ]
 
+    const [isLoadingState, setIsLoadingState] = useRecoilState(isLoading)
+    const [detailTourState, setDetailTourState] = useRecoilState(detailTour)
+
     const [opacityHeader, setOpacityHeader] = useState('transparent')
+
+    useEffect(() => {
+        getDetailTour(item.idTour, setDetailTourState, setIsLoadingState)
+    }, [])
 
     function renderHeader() {
         return(
@@ -80,7 +90,7 @@ function index(props) {
         return(
             <ViewTitleDetail>
                 <TxtTitle>{item.title}</TxtTitle>
-                <TxtTitlechildren>{Helpers.formatDate(item.timeCreate)},  {item.sumPeopleJoin.length} người tham gia</TxtTitlechildren>
+                {/* <TxtTitlechildren>{Helpers.formatDate(item.timeCreate)},  {item.sumPeopleJoin.length} người tham gia</TxtTitlechildren> */}
                 <TxtTitlechildren>Tạo bởi {<TxtTitlechildren style = {{color: Colors.black}}>{item.nameAcc}</TxtTitlechildren>}</TxtTitlechildren>
             </ViewTitleDetail>
         )
@@ -119,7 +129,7 @@ function index(props) {
                     style = {{width: Dimensions.get('window').width, height: Dimensions.get('window').height*0.3, marginBottom: 70 }}/>
                   
                     {renderTitle()}
-                    <ScrollableTabView
+                    {/* <ScrollableTabView
                          showsHorizontalScrollIndicator={false}
                          tabBarUnderlineStyle={{backgroundColor: Colors.secondary_22,height:2}}
                          tabBarActiveTextColor={Colors.secondary_22}
@@ -129,7 +139,7 @@ function index(props) {
                         <Flight tabLabel='Chuyến bay' itemParams = {item} navigation = {navigation} />                        
                         <Hotel tabLabel='Khách sạn' itemParams = {item} navigation = {navigation} />                        
                         <TicketsTour tabLabel='Vé & Tour' itemParams = {item} navigation = {navigation} />                        
-                    </ScrollableTabView>
+                    </ScrollableTabView> */}
             </ScrollView>
             <FloatingAction
                 actions={actions}

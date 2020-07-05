@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FlatList, Image } from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
 import Colors from '../../../utils/Colors'
@@ -9,6 +9,10 @@ import IconIonicons from 'react-native-vector-icons/Ionicons'
 import IconFoundation from 'react-native-vector-icons/Foundation'
 import dataFake from './fakeData'
 import {FlatList as FlatListComponent} from '../../../components'
+import {isLoading, successfully, listTour} from '../atom'
+import {useRecoilState} from 'recoil'
+import {getListTour} from '../selector'
+import {Loading} from '../../../components'
 import {
     Wrapper,
     ViewHeader,
@@ -36,7 +40,15 @@ function index(props) {
     const {navigation} = props
     const insets = useSafeArea();
 
+    const [isLoadingState, setIsLoadingState] = useRecoilState(isLoading)
+    const [successfullyState, setSuccessfullyState] = useRecoilState(successfully)
+    const [listTourState, setListTourState] = useRecoilState(listTour)
+
     const [widgetRefreshing, setWidgetRefreshing] = useState(false)
+
+    useEffect(() => {
+        getListTour(setListTourState, setIsLoadingState)
+    }, [])
 
     function renderHeader() {
         return(
@@ -83,16 +95,16 @@ function index(props) {
         return(
             <WrapperItemFLRecentLy>
                 <ViewAccFL onPress = {()=> navigation.navigate(Routes.profile)} >
-                    <Image  source = {{uri: item.imageAcc}} style = {{width: 30, height: 30, borderRadius: 60, borderWidth: 1, marginRight: 10, borderColor: Colors.gray_4}}/>
+                    <Image  source = {{uri: item.image}} style = {{width: 30, height: 30, borderRadius: 60, borderWidth: 1, marginRight: 10, borderColor: Colors.gray_4}}/>
                     <ViewNameAcc>
-                        <TxtItemName>{item.nameAcc}</TxtItemName>
-                        <TxtItemTimeAgo>18 phút trước</TxtItemTimeAgo>
+                        <TxtItemName>{item.userName}</TxtItemName>
+                        <TxtItemTimeAgo>{Helpers.formatDate(item.timeCreate)}</TxtItemTimeAgo>
                     </ViewNameAcc>
                 </ViewAccFL>
                 <Bt
                     onPress = {() => navigation.navigate(Routes.detail, {item})}
                 >
-                    <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '55%'}}/>
+                    <Image source = {{uri: item.imageDesCription}} style = {{width: '100%', height: '55%'}}/>
                     <TitleTourItem>{item.title}</TitleTourItem>
                     <WrapContentTour>
                         <ViewChildContentTour style = {{marginLeft: 10}} >
@@ -114,12 +126,12 @@ function index(props) {
                 <Bt
                     onPress = {() => navigation.navigate(Routes.detail, {item})}
                 >
-                    <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '55%', borderTopLeftRadius: 14, borderTopRightRadius: 14}}/>
+                    <Image source = {{uri: item.imageDesCription}} style = {{width: '100%', height: '55%', borderTopLeftRadius: 14, borderTopRightRadius: 14}}/>
                     <TitleTourItem style = {{fontSize: 14}} >{item.title}</TitleTourItem>
                     <WrapContentTour style = {{paddingTop: 5, height: 50}} >
                         <ViewChildContentTour style = {{marginLeft: 10}} >
                             <TxtItemTimeAgo style = {{fontSize: 13}}>giá từ  </TxtItemTimeAgo>
-                            <TxtItemTimeAgo style = {{fontSize: 13, color: Colors.black, fontWeight: 'bold'}}>7,000,000đ</TxtItemTimeAgo>
+                            <TxtItemTimeAgo style = {{fontSize: 13, color: Colors.black, fontWeight: 'bold'}}>{Helpers.formatNumber(item.sumMoney)}đ</TxtItemTimeAgo>
                         </ViewChildContentTour>
                     </WrapContentTour>
                 </Bt>
@@ -130,7 +142,7 @@ function index(props) {
         return(
             <WrapperItemFLRecentLy style = {{width: 200, height: 270}} >
                 <Bt>
-                    <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '100%', borderRadius: 14}}/>
+                    <Image source = {{uri: item.imageDesCription}} style = {{width: '100%', height: '100%', borderRadius: 14}}/>
                 </Bt>
             </WrapperItemFLRecentLy>
         )
@@ -139,6 +151,11 @@ function index(props) {
         // getWidgetDetail(widgetInfoCustom)
         // refresh lại 
         return setWidgetRefreshing(false)
+    }
+    function renderLoading() {
+        return(
+            <Loading isVisible = {isLoadingState} />
+        )
     }
     return (
         <Wrapper        
@@ -169,38 +186,39 @@ function index(props) {
                 </BtSchedule>
                 <FlatListComponent
                     styleViewHeader = {{marginTop: 15, marginLeft: 7, marginRight: 7}}
-                    data = {dataFake.dataRecently}
+                    data = {listTourState.slice(listTourState.length - 10)}
                     renderItem = {renderItemFLRecentLy}     
                     title = 'Lịch trình được tạo gần đây'
                     onPress
-                    item = {dataFake.dataRecently}
+                    item = {listTourState.slice(listTourState.length - 10)}
                     navigation = {navigation}
                 />
                 <FlatListComponent
                     styleViewHeader = {{marginTop: 1, marginLeft: 7, marginRight: 7}}
-                    data = {dataFake.dataRecently}
+                    data = {listTourState.filter(e => e.sumLike > 0).sort(function(a,b) {return a.sumLike - b.sumLike}).slice(-10)}
                     renderItem = {renderItemPicktureLike}     
                     title = 'Ảnh được yêu thích nhất'         
                 />
                 <FlatListComponent
                     styleViewHeader = {{marginTop: 1, marginLeft: 7, marginRight: 7}}
-                    data = {dataFake.dataRecently}
+                    data = {listTourState.filter(e => e.sumLike > 0).sort(function(a,b) {return a.sumLike - b.sumLike}).slice(-10)}
                     renderItem = {renderItemFLRecentLy}     
                     title = 'Tour được yêu thích nhất'
                     onPress
-                    item = {dataFake.dataRecently}
+                    item = {listTourState.filter(e => e.sumLike > 0).sort(function(a,b) {return a.sumLike - b.sumLike}).slice(-10)}
                     navigation = {navigation}
                 />
                 <FlatListComponent
                     styleViewHeader = {{marginTop: 1, marginLeft: 7, marginRight: 7}}
-                    data = {dataFake.dataRecently}
+                    data = {listTourState.filter(e => e.deal > 0).slice(-10)}
                     renderItem = {renderItemFLDealTour}     
                     title = 'Vé & Tour khuyến mãi hấp dẫn'
                     onPress
-                    item = {dataFake.dataRecently}
+                    item = {listTourState.filter(e => e.deal > 0).slice(-10)}
                     navigation = {navigation}  
                 />
             </ScrollView>
+            {renderLoading()}
         </Wrapper>
     )
 }
