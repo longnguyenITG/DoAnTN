@@ -18,7 +18,7 @@ import {
 } from './styled'
 
 function index(props) {
-    const {itemParams, navigation} = props
+    const {itemParams, navigation, itemDetail} = props
 
     function renderItemFlight({item}) {
         return(
@@ -39,11 +39,11 @@ function index(props) {
     return (
         <Wrapper>
         {
-            itemParams.sumFlight.length < 1 ? <TxtEmpty>Chưa có Vé & Tour nào cho chuyến đi của bạn</TxtEmpty> : null
+            itemDetail.sumTicketsTour && itemDetail.sumTicketsTour.length < 1 ? <TxtEmpty>Chưa có Vé & Tour nào cho chuyến đi của bạn</TxtEmpty> : null
         }
             
             <FlatList
-                data = {itemParams.sumTicketsTour}
+                data = {itemDetail.sumTicketsTour}
                 renderItem = {renderItemFlight}
                 showsVerticalScrollIndicator = {false}
             />

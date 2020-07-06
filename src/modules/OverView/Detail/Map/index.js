@@ -39,21 +39,21 @@ function index(props) {
                 <TxtLabel>Thông tin vị trí:</TxtLabel>
                 <ViewDetailPlace>
                     <ViewDot></ViewDot>
-                    <TxtDetailLabel>Hàm tử - khoái châu - hưng yên</TxtDetailLabel>
+                    <TxtDetailLabel>{item.location}</TxtDetailLabel>
                 </ViewDetailPlace>
             </ViewTitle>
             <MapView
                 provider={PROVIDER_GOOGLE} // remove if not using Google Maps
                 style = {{flex: 1}}
                 region={{
-                    latitude: 20.890656,
-                    longitude: 104.686605,
+                    latitude: item.latitude ? item.latitude : 20.890656,
+                    longitude: item.longitude ? item.longitude : 104.686605,
                     latitudeDelta: 0.1,
                     longitudeDelta: 0.5,
                 }}>
                 <Marker
-                    coordinate = {{latitude: 20.890656, longitude: 104.686605}}
-                    title = 'Đồi trè trái tim'
+                    coordinate = {{latitude: item.latitude ? item.latitude : 20.890656, longitude: item.longitude ? item.longitude : 104.686605}}
+                    title = {item.namePlace}
                 />
             </MapView>
         </Wrapper>

@@ -28,3 +28,10 @@ export const detailTour = atom({
     type: 'log'
   },
 })
+export const liked = atom({
+  key: 'liked',
+  default: false,
+  persistence_UNSTABLE: {
+    type: 'log'
+  },
+})

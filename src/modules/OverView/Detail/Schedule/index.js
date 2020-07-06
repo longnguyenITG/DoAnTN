@@ -63,12 +63,7 @@ function index(props) {
                 backdropOpacity={0.5}
                 useNativeDriver={true}>
                 <ViewModal>
-                        {/* {
-                            arrTemp.map(e => (
-                                <IconAntDesign name = 'star' size = {30} color = {Colors.secondary_12} />
-                            ))
-                        }
-                         */}
+                    {/* <TxtReport>{item.desCription}</TxtReport> */}
                     <BtModal
                         onPress = {() => setStatusVisibale(false)}>
                         <TxtBtModal>OK</TxtBtModal>
@@ -90,7 +85,7 @@ function index(props) {
                     showsVerticalScrollIndicator = {false}>
                     {
                         item.map((e, i) => (
-                            <ViewFatherItem>
+                            <ViewFatherItem key = {i} >
                                 <ViewItem>
                                     <ViewChildrenImage>
                                         <Image source = {{uri: e.imageDay}} style = {{height: 100, width: 106, marginRight: 5}} />

@@ -22,12 +22,12 @@ import {
 } from './styled'
 
 function index(props) {
-    const {itemParams, navigation} = props
+    const {itemParams, navigation, itemDetail} = props
     function renderItemPicktureLike ({item, index}) {
         return(
             <WrapperItemFLRecentLy style = {{width: 130, height: 240, backgroundColor: 'transparent'}} 
                 onPress = {() => navigation.navigate(Routes.schedule, {
-                    item: itemParams.imageDesCripTionDetail
+                    item: itemDetail.imageDesCripTionDetail
                 })}>
                 <Image source = {{uri: item.imageDay}} 
                 style = {{width: '100%', height: 180, borderRadius: 5}}/>
@@ -43,7 +43,7 @@ function index(props) {
                 <TxtTitle>{title}</TxtTitle>
                 {more == '' ? null : 
                 <Bt onPress = {() => navigation.navigate(Routes.schedule, {
-                    item: itemParams.imageDesCripTionDetail
+                    item: itemDetail.imageDesCripTionDetail
                 })} >
                     <TxtTitleMore>{more}</TxtTitleMore>
                 </Bt>}                
@@ -68,10 +68,10 @@ function index(props) {
     function renderItemAcc({item}) {
         return(
             <WrapperAcc>
-                <Image source = {{uri: item.imageAcc ? item.imageAcc : 'https://st.quantrimang.com/photos/image/2017/04/08/anh-dai-dien-FB-200.jpg'}} 
+                <Image source = {{uri: item.image ? item.image : 'https://st.quantrimang.com/photos/image/2017/04/08/anh-dai-dien-FB-200.jpg'}} 
                     style = {{width: '100%', height: '100%', borderRadius: 50}}/>
                     {
-                        item.nameAcc == itemParams.nameAcc
+                        item.idUser == itemParams.idUser
                         ?  
                         <WrapperKey>
                             <IconFontisto name = 'key' size = {10} color = {Colors.secondary_12} />
@@ -86,18 +86,18 @@ function index(props) {
            {renderTitle('Lịch trình', 'Chi tiết')}
             <FlatList
                 style = {{marginBottom: 20}}
-                data = {itemParams.imageDesCripTionDetail}
+                data = {itemDetail.imageDesCripTionDetail}
                 renderItem = {renderItemPicktureLike}
                 horizontal = {true}
                 showsHorizontalScrollIndicator={false}
             />
             {renderTitle('Bao gồm', '')}
-            {renderInclude('Khách sạn', `${itemParams.sumHotel.length} khách sạn, ${itemParams.sumDay}`, 'hotel')}
-            {renderInclude('Chuyến bay', `${itemParams.sumFlight.length} vé máy bay khứ hồi`, 'plane')}
+            {renderInclude('Khách sạn', `${itemDetail.sumHotel && itemDetail.sumHotel.length} khách sạn, ${itemParams.sumDay}`, 'hotel')}
+            {renderInclude('Chuyến bay', `${itemDetail.sumFlight && itemDetail.sumFlight.length} vé máy bay khứ hồi`, 'plane')}
             {renderTitle('Thành viên', '')}
             <FlatList
                 style = {{marginBottom: 20}}
-                data = {itemParams.sumPeopleJoin}
+                data = {itemDetail.sumPeopleJoin}
                 renderItem = {renderItemAcc}
                 numColumns = {5}
                 showsHorizontalScrollIndicator={false}
