@@ -1,13 +1,13 @@
 import {atom} from 'recoil'
 
-export const isLoading = atom({
+export const isLoadingAuthen = atom({
   key: 'isLoadingAuthen',
   default: false,
   persistence_UNSTABLE: {
     type: 'log'
   },
 })
-export const successfully = atom({
+export const successfullyAuthen = atom({
   key: 'successfullyAuthen',
   default: false,
   persistence_UNSTABLE: {

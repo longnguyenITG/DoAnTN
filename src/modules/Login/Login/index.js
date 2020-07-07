@@ -7,7 +7,7 @@ import Routes from '../../../utils/Routes'
 import iconLogin from '../../../assets/image/d1e285affc590ce2e87fd225aacfd15a.png'
 import iconLoginFB from '../../../assets/image/facebook-scalable-graphics-icon-facebook-logo-facebook-logo-png-clip-art-thumbnail.png'
 import {useRecoilState} from 'recoil'
-import {isLoading, listAccount} from '../atom'
+import {isLoadingAuthen, listAccount} from '../atom'
 import {getListAccount, uploadAccount} from '../selector'
 import {Loading} from '../../../components'
 import {
@@ -24,7 +24,7 @@ function Login(props) {
 
   const {navigation, route} = props
 
-  const [isLoadingState, setIsLoadingState] = useRecoilState(isLoading)
+  const [isLoadingState, setIsLoadingState] = useRecoilState(isLoadingAuthen)
   const [listAccountState, setListAccountState] = useRecoilState(listAccount)
 
   useEffect(()=> {

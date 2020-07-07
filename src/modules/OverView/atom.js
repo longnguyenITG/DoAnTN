@@ -1,13 +1,13 @@
 import {atom} from 'recoil'
 
-export const isLoading = atom({
+export const isLoadingOverview = atom({
   key: 'isLoadingOverview',
   default: false,
   persistence_UNSTABLE: {
     type: 'log'
   },
 })
-export const successfully = atom({
+export const successfullyOverview = atom({
   key: 'successfullyOverview',
   default: false,
   persistence_UNSTABLE: {

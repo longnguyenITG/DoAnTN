@@ -14,7 +14,7 @@ import Flight from './Flight'
 import Hotel from './Hotel'
 import TicketsTour from './TicketsTour'
 import { FloatingAction } from "react-native-floating-action";
-import {detailTour, isLoading, liked} from '../atom'
+import {detailTour, isLoadingOverview, liked} from '../atom'
 import {useRecoilState} from 'recoil'
 import {getDetailTour, joinTour, getLiked, deleteLiked, uploadLiked} from '../selector'
 import {Account} from '../../Login/atom'
@@ -57,7 +57,7 @@ function index(props) {
         }
       ]
 
-    const [isLoadingState, setIsLoadingState] = useRecoilState(isLoading)
+    const [isLoadingState, setIsLoadingState] = useRecoilState(isLoadingOverview)
     const [detailTourState, setDetailTourState] = useRecoilState(detailTour)
     const [accountState, setAccountState] = useRecoilState(Account)
     const [likedState, setLikedState] = useRecoilState(liked)

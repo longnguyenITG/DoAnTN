@@ -5,7 +5,7 @@ import IconEye from 'react-native-vector-icons/Feather'
 import { useSafeArea } from 'react-native-safe-area-context'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Routes from '../../../utils/Routes'
-import {listAccount, isLoading, successfully} from '../atom'
+import {listAccount, isLoadingAuthen, successfullyAuthen} from '../atom'
 import {useRecoilState} from 'recoil'
 import {Loading} from '../../../components'
 import {uploadAccount} from '../selector'
@@ -31,8 +31,8 @@ function index(props) {
     const insets = useSafeArea();
     
     const [listAccountState, setListAccountState] = useRecoilState(listAccount)
-    const [isLoadingState, setIsLoading] = useRecoilState(isLoading)
-    const [successfullyState, setSuccessfullyState] = useRecoilState(successfully)
+    const [isLoadingState, setIsLoading] = useRecoilState(isLoadingAuthen)
+    const [successfullyState, setSuccessfullyState] = useRecoilState(successfullyAuthen)
 
     const [hideTitleEmail, SetHideTitleEmail] = useState(false)
     const [hideTitlePassWord, SetHideTitlePassWord] = useState(false)

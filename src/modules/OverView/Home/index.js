@@ -9,7 +9,7 @@ import IconIonicons from 'react-native-vector-icons/Ionicons'
 import IconFoundation from 'react-native-vector-icons/Foundation'
 import dataFake from './fakeData'
 import {FlatList as FlatListComponent} from '../../../components'
-import {isLoading, successfully, listTour} from '../atom'
+import {isLoadingOverview, successfullyOverview, listTour} from '../atom'
 import {useRecoilState} from 'recoil'
 import {getListTour} from '../selector'
 import {Loading} from '../../../components'
@@ -40,8 +40,8 @@ function index(props) {
     const {navigation} = props
     const insets = useSafeArea();
 
-    const [isLoadingState, setIsLoadingState] = useRecoilState(isLoading)
-    const [successfullyState, setSuccessfullyState] = useRecoilState(successfully)
+    const [isLoadingState, setIsLoadingState] = useRecoilState(isLoadingOverview)
+    const [successfullyState, setSuccessfullyState] = useRecoilState(successfullyOverview)
     const [listTourState, setListTourState] = useRecoilState(listTour)
 
     const [widgetRefreshing, setWidgetRefreshing] = useState(false)

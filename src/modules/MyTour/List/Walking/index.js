@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
-import { FlatList, Image } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { FlatList, Image, Share } from 'react-native'
 import IconIonicons from 'react-native-vector-icons/Ionicons'
 import IconFoundation from 'react-native-vector-icons/Foundation'
 import Colors from '../../../../utils/Colors'
 import Helpers from '../../../../utils/Helpers'
 import Routes from '../../../../utils/Routes'
-// import imagetravel from '../../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png'
-// const imagetravel = require ('../../../../assets/image/156-1563673_about-me-icon-đi-du-lịch.png')
-import Data from '../../../OverView/Home/fakeData'
+import {isLoadingMyTour, listTourWalking} from '../../atom'
+import {Account} from '../../../Login/atom'
+import {useRecoilState} from 'recoil'
+import {getListTourWalking} from '../../selector'
+import {Loading} from '../../../../components'
 import {
     Wrapper,
     WrapperItemFLRecentLy,
@@ -31,32 +33,60 @@ function index(props) {
 
     const {navigation} = props
 
-    // const data = []
-    const data = Data.dataRecently
+    const [isLoadingState, setIsLoadingState] = useRecoilState(isLoadingMyTour)
+    const [listTourWalkingState, setListTourWalkingState] = useRecoilState(listTourWalking)
+    const [accountState, setAccountState] = useRecoilState(Account)
+
+    useEffect(()=> {
+        getListTourWalking(accountState.idUser, setListTourWalkingState, setIsLoadingState)
+    }, [])
 
     function renderItemUpComing ({item}) {
         return(
             <WrapperItemFLRecentLy>
                 <ViewAccFL>
-                    <Image  source = {{uri: item.imageAcc}} style = {{width: 30, height: 30, borderRadius: 60, borderWidth: 1, marginRight: 10, borderColor: Colors.gray_4}}/>
+                    <Image  source = {{uri: item.image}} style = {{width: 30, height: 30, borderRadius: 60, borderWidth: 1, marginRight: 10, borderColor: Colors.gray_4}}/>
                     <ViewAccChild>
                         <ViewNameAcc>
-                            <TxtItemName>{item.nameAcc}</TxtItemName>
+                            <TxtItemName>{item.userName}</TxtItemName>
                             <TxtItemTimeAgo>{Helpers.formatDate(item.timeCreate)}</TxtItemTimeAgo>
                         </ViewNameAcc>
                         <ViewIcon>
-                            <Bt>
+                            <Bt
+                                onPress = {async ()=> {
+                                try {
+                                const result = await Share.share({
+                                    message:
+                                    'Xin chào, bạn đang chia sẻ từ Exciting Journey',
+                                });
+                                if (result.action === Share.sharedAction) {
+                                    if (result.activityType) {
+                                    // shared with activity type of result.activityType
+                                    } else {
+                                    // shared
+                                    }
+                                } else if (result.action === Share.dismissedAction) {
+                                    // dismissed
+                                }
+                                } catch (error) {
+                                alert(error.message);
+                                }
+                            }}>
                                 <IconIonicons name = 'md-share' size = {23} color = {Colors.gray_3} style = {{marginRight: 20}} />
                             </Bt>
                             <Bt>
-                                <IconIonicons name = 'ios-heart-empty' size = {23} color = {Colors.gray_3} />
+                                {
+                                    item.like_yn ? 
+                                    <IconIonicons name = 'ios-heart' size = {23} color = 'red'/>
+                                    : <IconIonicons name = 'ios-heart-empty' size = {23} color = {Colors.gray_3} />
+                                }
                             </Bt>
                         </ViewIcon>
                     </ViewAccChild>
                 </ViewAccFL>
                 <Bt
                     onPress = {() => navigation.navigate(Routes.detail, {item})}>
-                    <Image source = {{uri: item.imageDesCripTion}} style = {{width: '100%', height: '55%'}}/>
+                    <Image source = {{uri: item.imageDesCription}} style = {{width: '100%', height: '55%'}}/>
                     <TitleTourItem>{item.title}</TitleTourItem>
                     <WrapContentTour>
                         <ViewChildContentTour style = {{marginLeft: 10}} >
@@ -70,6 +100,12 @@ function index(props) {
                     </WrapContentTour>
                 </Bt>
             </WrapperItemFLRecentLy>
+        )
+    }
+
+    function renderLoading(){
+        return(
+            <Loading isVisible = {isLoadingState} />
         )
     }
 
@@ -91,15 +127,17 @@ function index(props) {
     return (
         <Wrapper>
             {
-                !data.length
+                !listTourWalkingState.length
                 ? renderNotList()
                 : <FlatList
                     style = {{paddingTop: 7}}
-                    data = {data}
+                    data = {listTourWalkingState}
                     renderItem = {renderItemUpComing}
                     showsVerticalScrollIndicator = {false}
+                    keyExtractor = {(item, index) => `Walking${item.idTour}`}
                     />
             }
+            {renderLoading()}
         </Wrapper>
     )
 }

@@ -87,7 +87,8 @@ function index(props) {
                 showsHorizontalScrollIndicator={false}
                 tabBarUnderlineStyle={{backgroundColor: Colors.secondary_22,height:2}}
                 tabBarActiveTextColor={Colors.secondary_22}
-                prerenderingSiblingsNumber={Infinity}>
+                // prerenderingSiblingsNumber={Infinity}
+                >
                 <UpComing tabLabel='Sắp tới' navigation = {navigation} />                        
                 <Walking tabLabel='Đang đi' navigation = {navigation} />                        
                 <Went tabLabel='Đã đi' navigation = {navigation} />                        
@@ -96,7 +97,7 @@ function index(props) {
     }
     function renderHeader() {
         return(
-            <ViewHeader>
+            <ViewHeader key = 'keyHeader' >
                 <TxtHeader>Lịch trình của tôi</TxtHeader>
                 <Bt>
                     <IconOcticons name = 'search' size = {20} style = {{textAlign: 'right'}} />
