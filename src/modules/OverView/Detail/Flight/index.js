@@ -3,6 +3,7 @@ import { FlatList } from 'react-native'
 import IconFontisto from 'react-native-vector-icons/Fontisto'
 import Colors from '../../../../utils/Colors'
 import Helpers from '../../../../utils/Helpers'
+import Routes from '../../../../utils/Routes'
 import {
     Wrapper,
     TxtEmpty,
@@ -49,7 +50,8 @@ function index(props) {
                 renderItem = {renderItemFlight}
                 showsVerticalScrollIndicator = {false}
             />
-            <BtFill>
+            <BtFill
+                onPress = {() => navigation.navigate(Routes.webview, {linkUrl: 'http://www.worldtrans.vn/', title: 'Chuyến bay'})}>
                 <IconFontisto name = 'search' size = {15} color = {Colors.secondary_22} />
                 <TxtBtFill>Tìm chuyến bay</TxtBtFill>
             </BtFill>
