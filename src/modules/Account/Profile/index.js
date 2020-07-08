@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Image} from 'react-native'
 import {Header} from '../../../components'
 import Colors from '../../../utils/Colors'
 import Routes from '../../../utils/Routes'
+import {Account} from '../../Login/atom'
+import {listTour} from '../../OverView/atom'
+import {useRecoilState} from 'recoil'
 import {
   Wrapper,
   TxtUserName,
@@ -14,8 +17,19 @@ import {
   TxtTitle,
   ViewFlex
 } from './styled'
+
 function index(props) {
-  const {navigation} = props
+  const {navigation, detailAccount} = props
+
+  const [accountState, setAccountState] = useRecoilState(Account)
+  const [listTourState, setListTourState] = useRecoilState(listTour)
+  const [dataAccount, setDataAccount] = useState(accountState)
+
+  useEffect(() => {
+    detailAccount && Object.keys(detailAccount).length ? setDataAccount(detailAccount)
+    : setDataAccount(accountState)
+  }, [accountState, detailAccount])
+
   function renderChild(number, text) {
     return(
       <BtChild>
@@ -31,15 +45,15 @@ function index(props) {
       <Header navigation = {navigation}  iconRight = 'md-settings' transparent
           onCLick = {() => navigation.navigate(Routes.setting)}
       />
-      <Image source = {{uri: 'https://1.bp.blogspot.com/-A7UYXuVWb_Q/XncdHaYbcOI/AAAAAAAAZhM/hYOevjRkrJEZhcXPnfP42nL3ZMu4PvIhgCLcBGAsYHQ/s1600/Trend-Avatar-Facebook%2B%25281%2529.jpg'}}
+      <Image source = {{uri: dataAccount.image}}
             style = {{width: 90, height: 90, borderRadius: 95, alignSelf: 'center', marginTop: '20%', borderWidth: 2, borderColor: Colors.white_4}} />
-      <TxtUserName>Nguyễn Thị Lan Anh</TxtUserName>
+      <TxtUserName>{dataAccount.userName}</TxtUserName>
       <BtEditProfile
-        onPress = {() => navigation.navigate(Routes.editprofile)}>
+        onPress = {() => navigation.navigate(Routes.editprofile, {dataAccount})}>
         <TxtBt>Chỉnh sửa trang cá nhân</TxtBt>
       </BtEditProfile>
       <ViewChild style = {{borderBottomWidth: 0.5, borderColor: Colors.gray_5}} >
-        {renderChild('0', 'Tour')}
+        {renderChild(`${listTourState.filter(e => e.idUser == dataAccount.idUser).length}` ? `${listTourState.filter(e => e.idUser == dataAccount.idUser).length}` : '0', 'Tour')}
         {renderChild('0', 'Thích')}
         {renderChild('0', 'Ảnh')}
       </ViewChild>

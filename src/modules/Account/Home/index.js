@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Image} from 'react-native'
 import Colors from '../../../utils/Colors'
 import Routes from '../../../utils/Routes'
@@ -6,6 +6,8 @@ import IconIonicons from 'react-native-vector-icons/Ionicons'
 import IconFoundation from 'react-native-vector-icons/Foundation'
 import IconOcticons from 'react-native-vector-icons/Octicons'
 import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import {Account} from '../../Login/atom'
+import {useRecoilState} from 'recoil'
 import {
     Wrapper,
     ViewHeader,
@@ -18,6 +20,7 @@ import {
     TxtComponent,
     WarpperComponent
 } from './styled'
+
 function index(props) {
     const {navigation} = props
     const listOption = [
@@ -59,6 +62,8 @@ function index(props) {
         },
     ]
 
+    const [accountState, setAccountState] = useRecoilState (Account)
+
     function renderHeader() {
         return(
             <ViewHeader>
@@ -73,10 +78,10 @@ function index(props) {
                 onPress = {() => navigation.navigate(Routes.profile)}>
                 <View>
                     <Image 
-                        source ={{uri: 'https://1.bp.blogspot.com/-A7UYXuVWb_Q/XncdHaYbcOI/AAAAAAAAZhM/hYOevjRkrJEZhcXPnfP42nL3ZMu4PvIhgCLcBGAsYHQ/s1600/Trend-Avatar-Facebook%2B%25281%2529.jpg'}} 
+                        source ={{uri: accountState.image}} 
                         style = {{width: 60, height: 60, borderRadius: 50, borderWidth: 1, borderColor: Colors.gray_5}}
                     />
-                    <TxtProfile>Long nguyễn</TxtProfile>
+                    <TxtProfile>{accountState.userName}</TxtProfile>
                 </View>
                 <IconIonicons name = 'ios-arrow-forward' size = {23} color = {Colors.gray_3} />
             </ViewProfile>
