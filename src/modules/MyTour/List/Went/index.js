@@ -8,8 +8,8 @@ import Routes from '../../../../utils/Routes'
 import IconFeather from 'react-native-vector-icons/Feather'
 import {isLoadingMyTour, listTourWent} from '../../atom'
 import {Account} from '../../../Login/atom'
-import {useRecoilState} from 'recoil'
-import {getListTourWent} from '../../selector'
+import {useRecoilState, useSetRecoilState} from 'recoil'
+import {getListTourWent, deleteLiked, uploadLiked, deleteAtomLikeWent, uploadAtomLikeWent} from '../../selector'
 import {Loading} from '../../../../components'
 import {
     Wrapper,
@@ -38,11 +38,14 @@ function index(props) {
     const [listTourWentState, setListTourWentState] = useRecoilState(listTourWent)
     const [accountState, setAccountState] = useRecoilState(Account)
 
+    const deleteAtomLikeWentState = useSetRecoilState(deleteAtomLikeWent)
+    const uploadAtomLikeWentState = useSetRecoilState(uploadAtomLikeWent)
+
     useEffect(()=> {
         getListTourWent(accountState.idUser, setListTourWentState, setIsLoadingState)
     }, [])
 
-    function renderItemUpComing ({item}) {
+    function renderItemUpComing ({item, index}) {
         return(
             <WrapperItemFLRecentLy>
                 <ViewAccFL>
@@ -75,7 +78,18 @@ function index(props) {
                             }}>
                                 <IconIonicons name = 'md-share' size = {23} color = {Colors.gray_3} style = {{marginRight: 20}} />
                             </Bt>
-                            <Bt>
+                            <Bt
+                                onPress = {()=> {
+                                    if(item.like_yn){
+                                        deleteLiked(item.idTour, accountState.idUser)
+                                        deleteAtomLikeWentState(index)
+                                        
+                                    } else {
+                                        uploadLiked(item.idTour, accountState.idUser)
+                                        uploadAtomLikeWentState(index)
+                                        
+                                    }
+                                }}>
                                 {
                                     item.like_yn ? 
                                     <IconIonicons name = 'ios-heart' size = {23} color = 'red'/>

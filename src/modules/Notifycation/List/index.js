@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react'
 import {FlatList, Image, Alert} from 'react-native'
 import Helpers from '../../../utils/Helpers'
 import Swipeout from 'react-native-swipeout';
-import {useRecoilState} from 'recoil'
+import {useRecoilState, useSetRecoilState} from 'recoil'
 import {isLoadingNotify, listNotify, successFullyNotify} from '../atom'
-import {getListNotify, deleteNotify} from '../selector'
+import {getListNotify, deleteNotify, deleteAtomNotify} from '../selector'
 import {Loading} from '../../../components'
 
 import {
@@ -21,9 +21,9 @@ function index(props) {
   const [isLoadingNotifyState, setIsLoadingNotifyState] = useRecoilState(isLoadingNotify)
   const [listNotifyState, setListNotifyState] = useRecoilState(listNotify)
   const [successFullyNotifyState, setSuccessFullyNotifyState] = useRecoilState(successFullyNotify)
+  const deleteAtomNotifyState = useSetRecoilState(deleteAtomNotify)
 
   const [keyItem, setKeyItem] = useState()
-  const [dataArr, setDataArr] = useState([])
   const [reFreshing, setReFreshing] = useState(false)
 
   const swipeoutBtns = [
@@ -33,6 +33,7 @@ function index(props) {
       onPress: () => {
         debugger
         deleteNotify(keyItem, setIsLoadingNotifyState, setSuccessFullyNotifyState)
+        
       }
     }
   ]
@@ -42,14 +43,8 @@ function index(props) {
   }, [])
 
   useEffect(() => {
-    setDataArr(listNotifyState)
-  }, [listNotifyState])
-
-  useEffect(() => {
     if(successFullyNotifyState) {
-      const index = dataArr.findIndex(e => e.idNoti == keyItem)
-      dataArr.splice(index, 1)
-      setDataArr(dataArr)
+      deleteAtomNotifyState(keyItem)
       setSuccessFullyNotifyState(false)
     }
   }, [successFullyNotifyState])
@@ -85,7 +80,7 @@ function index(props) {
     <Wrapper>
       {renderHeader()}
       <FlatList
-        data = {dataArr}
+        data = {listNotifyState}
         renderItem = {renderItem}
         showsVerticalScrollIndicator = {false}
         onRefresh = {() => setReFreshing(false)}

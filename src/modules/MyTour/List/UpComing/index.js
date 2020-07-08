@@ -8,8 +8,8 @@ import Routes from '../../../../utils/Routes'
 import IconFeather from 'react-native-vector-icons/Feather'
 import {isLoadingMyTour, listTourComing} from '../../atom'
 import {Account} from '../../../Login/atom'
-import {useRecoilState} from 'recoil'
-import {getListTourComing} from '../../selector'
+import {useRecoilState, useSetRecoilState} from 'recoil'
+import {getListTourComing, deleteLiked, uploadLiked, deleteAtomLikeComing, uploadAtomLikeComing} from '../../selector'
 import {Loading} from '../../../../components'
 import {
     Wrapper,
@@ -37,6 +37,8 @@ function index(props) {
     const [isLoadingState, setIsLoadingState] = useRecoilState(isLoadingMyTour)
     const [listTourComingState, setListTourComingState] = useRecoilState(listTourComing)
     const [accountState, setAccountState] = useRecoilState(Account)
+    const deleteAtomLikeComingState = useSetRecoilState(deleteAtomLikeComing)
+    const uploadAtomLikeComingState = useSetRecoilState(uploadAtomLikeComing)
 
     const [visible, setVisible] = useState(true)
 
@@ -80,13 +82,13 @@ function index(props) {
                             <Bt
                                 onPress = {()=> {
                                     if(item.like_yn){
-                                        // deleteLike()
-                                        // listTourComingState.slice(1)
-                                        // setListTourComingState(listTourComingState)
+                                        deleteLiked(item.idTour, accountState.idUser)
+                                        deleteAtomLikeComingState(index)
+                                        
                                     } else {
-                                        // uploadLike()
-                                        // listTourComingState[index].like_yn = 1
-                                        // setListTourComingState(listTourComingState.slice())
+                                        uploadLiked(item.idTour, accountState.idUser)
+                                        uploadAtomLikeComingState(index)
+                                        
                                     }
                                 }} >
                                 {
