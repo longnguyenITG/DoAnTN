@@ -6,6 +6,12 @@ import Routes from '../../../../utils/Routes'
 import ImagePicker from 'react-native-image-picker'
 import RNFetchBlob from 'rn-fetch-blob'
 import Constant from '../../../../utils/Constants'
+import {Account} from '../../../Login/atom'
+import {isLoadingAccount} from '../../atom'
+import {useRecoilState} from 'recoil'
+import {Loading} from '../../../../components'
+import {getAccountUpdated} from '../../selector'
+
 import {
   Wrapper,
   TxtUserName,
@@ -21,6 +27,9 @@ import {
 function index(props) {
   const {navigation, route} = props
   const {dataAccount} = route.params
+
+  const [accountState, setAccountState] = useRecoilState(Account)
+  const [isLoadingAccountState, setIsLoadingAccountState] = useRecoilState(isLoadingAccount)
 
   const options = {
     title: 'Select Avatar',
@@ -91,8 +100,9 @@ function renderTxtIP() {
   }
 
   function updateAccount() {
-
+    setIsLoadingAccountState(true)
     if(data == null || !txtFullName || !txtEmail || !txtSDT) {
+      setIsLoadingAccountState(false)
       Alert.alert('Thông báo', 'Vui lòng điền đầy đủ thông tin')
     } else {
 
@@ -109,16 +119,22 @@ function renderTxtIP() {
 
       ]).then((resp) => {
         debugger
-        // var tempMSG = resp.data;
-
-        // tempMSG = tempMSG.replace(/^"|"$/g, '');
-        console.log('resp', resp)
-        // Alert.alert(tempMSG);
+        setIsLoadingAccountState(false)
+        if(JSON.parse(resp.data).success) {
+          getAccountUpdated(accountState.idUser, setAccountState)
+          navigation.goBack()
+        } 
 
       }).catch((err) => {
         console.log('updateAccount err', err)
       })
     }
+  }
+
+  function renderLoading() {
+    return(
+      <Loading isVisible = {isLoadingAccountState} />
+    )
   }
 
   return (
@@ -140,6 +156,7 @@ function renderTxtIP() {
       <BtLogin onPress = {() => updateAccount()} >
         <TxtBtLogin>Lưu thay đổi</TxtBtLogin>
       </BtLogin>
+      {renderLoading()}
     </Wrapper>
   )
 }

@@ -63,7 +63,7 @@ function index(props) {
             </ViewComponent>
             {renderListComponent()}
             <ViewComponent 
-                onPress = {() => navigation.navigate(Routes.login)} >
+                onPress = {() => navigation.push(Routes.login)} >
                 <TxtComponent>Đăng xuất</TxtComponent>
                 <IconIonicons name = 'ios-arrow-forward' size = {20} color = {Colors.gray_3} />
             </ViewComponent>
