@@ -1,24 +1,22 @@
 import React, { useState, useEffect, createRef } from 'react'
 import {Image, CheckBox, Alert} from 'react-native'
-import { Header } from '../../../components'
+import { Header } from '../../../../components'
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import IconOcticons from 'react-native-vector-icons/Octicons'
 import IconAntDesign from 'react-native-vector-icons/AntDesign'
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import IconFontisto from 'react-native-vector-icons/Fontisto'
-import Colors from '../../../utils/Colors'
+import Colors from '../../../../utils/Colors'
 import Calendar from 'react-native-calendar-select';
 import moment from 'moment'
 import ImagePicker from 'react-native-image-picker'
 import RNFetchBlob from 'rn-fetch-blob'
-import {isLoadingCreate} from '../atom'
+import {isLoadingCreate} from '../../atom'
 import {useRecoilState} from 'recoil'
-import {Loading} from '../../../components'
-import Routes from '../../../utils/Routes'
-import Constant from '../../../utils/Constants'
-import {listTour} from '../../OverView/atom'
-import {getListTourUpdated} from '../selector'
-import {Account} from '../../Login/atom'
+import {Loading} from '../../../../components'
+import Routes from '../../../../utils/Routes'
+import {listTour} from '../../../OverView/atom'
+import {getListTourUpdated} from '../../selector'
 import {
     Wrapper,
     ViewComponent,
@@ -59,7 +57,6 @@ function index(props) {
 
     const [isLoadingCreateState, setIsLoadingCreateState] = useRecoilState(isLoadingCreate)
     const [listTourState, setListTourState] = useRecoilState(listTour)
-    const [accountState, setAccountState] = useRecoilState(Account)
 
     const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
@@ -115,7 +112,7 @@ function index(props) {
       function updateTour() {
         setIsLoadingCreateState(true)
         if(!data || !title || !image || !startDate || !endDate || !sumDay || !sumMoney) {
-            setIsLoadingCreateState(false)
+          setIsLoadingAccountState(false)
           Alert.alert('Thông báo', 'Vui lòng điền đầy đủ thông tin')
         } else {
     
@@ -125,12 +122,12 @@ function index(props) {
           'Content-Type': 'multipart/form-data',
         }, [
             { name: 'image', filename: 'image.png', type: 'image/png', data },
-            { name: 'idUser', data: accountState.idUser },
+            { name: 'idUser', data: dataAccount.idUser },
             { name: 'title', data: title },
             { name: 'timeCreate', data: startDate },
             { name: 'sumDay', data: sumDay },
             { name: 'sumMoney', data: sumMoney },
-            { name: 'deal', data: deal ? '1' : '0' },
+            { name: 'deal', data: deal ? 1 : 0 },
     
           ]).then((resp) => {
             setIsLoadingCreateState(false)

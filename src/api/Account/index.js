@@ -3,7 +3,6 @@ import Constants from '../../utils/Constants'
 export default {
 
   fetchAccountUpdated: function(idUser) {
-    debugger
     return fetch(`${Constants.host}/DoAnTN/getAccountUpdated.php`,
     {
       method: 'POST',

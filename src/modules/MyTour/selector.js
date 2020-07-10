@@ -4,7 +4,6 @@ import {selector} from 'recoil'
 import {listTourComing, listTourWalking, listTourWent} from './atom'
 
 export const getListTourComing = async (idUser, setAtom, setLoading) => {
-  debugger
   setLoading(true)
   const data = await MyTourAPI.fetchListTourComing(idUser)
   setAtom(data)
@@ -37,7 +36,6 @@ export const deleteAtomLikeComing = selector({
     return list;
   },
   set: ({ get, set }, index) => {
-    debugger
     let list = get(listTourComing);
     let temp = list.slice()
     temp[index] = {...temp[index], like_yn: null}
@@ -90,7 +88,6 @@ export const uploadAtomLikeComing = selector({
     return list;
   },
   set: ({ get, set }, index) => {
-    debugger
     let list = get(listTourComing);
     let temp = list.slice()
     temp[index] = {...temp[index], like_yn: 1}

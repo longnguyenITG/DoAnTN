@@ -17,5 +17,6 @@ export default {
     webview: "WebView",
     viewall: "ViewAll",
     map: "Map",
-    forgotpassword: 'ForgotPassWord'
+    forgotpassword: 'ForgotPassWord',
+    createdetail: 'CreateDetail',
 }

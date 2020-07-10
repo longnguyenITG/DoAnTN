@@ -10,7 +10,6 @@ export const getListNotify = async (setAtom, setLoading) => {
   setLoading(false)
 }
 export const deleteNotify = async (idNoti, setLoading, setSuccessFully) => {
-  debugger
   setLoading(true)
   const data = await NotifyCationAPI.deleteNotify(idNoti)
   if(data.success) {
@@ -28,7 +27,6 @@ export const deleteAtomNotify = selector({
     return list;
   },
   set: ({ get, set }, idNoti) => {
-    debugger
     let list = get(listNotify);
     const index = list.findIndex(e => e.idNoti == idNoti)
     let temp = list.slice()

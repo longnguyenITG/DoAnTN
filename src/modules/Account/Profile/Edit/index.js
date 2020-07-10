@@ -88,7 +88,6 @@ function renderTxtIP() {
       } else if (response.customButton) {
         console.log('User tapped custom button: ', response.customButton);
       } else {
-        debugger
         // const source = { uri: response.uri };
         console.log('data image', response)
         // You can also display the image using data:
@@ -118,7 +117,6 @@ function renderTxtIP() {
         { name: 'sdt', data: txtSDT },
 
       ]).then((resp) => {
-        debugger
         setIsLoadingAccountState(false)
         if(JSON.parse(resp.data).success) {
           getAccountUpdated(accountState.idUser, setAccountState)

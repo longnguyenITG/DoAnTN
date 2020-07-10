@@ -31,7 +31,6 @@ function index(props) {
       text: 'Xoá',
       type: 'delete',
       onPress: () => {
-        debugger
         deleteNotify(keyItem, setIsLoadingNotifyState, setSuccessFullyNotifyState)
         
       }

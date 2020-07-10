@@ -47,7 +47,6 @@ export default {
     })
   },
   fetchLiked: function(idTour, idUser) {
-    debugger
     return fetch(`${Constants.host}/DoAnTN/getLiked.php`,
     {
       method: 'POST',
@@ -67,7 +66,6 @@ export default {
     })
   },
   submitDeleteLiked: function(idTour, idUser) {
-    debugger
     return fetch(`${Constants.host}/DoAnTN/deleteLiked.php`,
     {
       method: 'POST',
@@ -87,7 +85,6 @@ export default {
     })
   },
   submitUploadLiked: function(idTour, idUser) {
-    debugger
     return fetch(`${Constants.host}/DoAnTN/uploadLiked.php`,
     {
       method: 'POST',

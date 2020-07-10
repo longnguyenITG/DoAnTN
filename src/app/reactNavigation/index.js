@@ -6,7 +6,7 @@ import Routes from '../../utils/Routes'
 import {SflashScreen, Login, LoginApp, RegisTration, ForgotPassWord} from '../../modules/Login'
 import {Home, Detail, Schedule, WebView, ViewAll, Map} from '../../modules/OverView'
 import {ListMytour} from '../../modules/MyTour'
-import {CreateTour} from '../../modules/Create'
+import {CreateTour, CreateDetail} from '../../modules/Create'
 import {ListNotifycation} from '../../modules/Notifycation'
 import {HomeSetting, Setting, Profile, EditProfile, ChangePass} from '../../modules/Account'
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -32,7 +32,8 @@ const {
   webview,
   viewall,
   map,
-  forgotpassword
+  forgotpassword,
+  createdetail
 } = Routes
 
 const StackAll = createStackNavigator();
@@ -187,6 +188,9 @@ function index() {
               options = {{headerShown: false}}
             /> 
             <StackAll.Screen name={forgotpassword} component={ForgotPassWord}
+              options = {{headerShown: false}}
+            /> 
+            <StackAll.Screen name={createdetail} component={CreateDetail}
               options = {{headerShown: false}}
             /> 
             
