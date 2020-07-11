@@ -2,6 +2,7 @@ import React, { useState, useEffect, createRef } from 'react'
 import {Image, CheckBox, Alert} from 'react-native'
 import { Header } from '../../../../components'
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import IconOcticons from 'react-native-vector-icons/Octicons'
 import IconAntDesign from 'react-native-vector-icons/AntDesign'
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
@@ -63,7 +64,7 @@ function index(props) {
     const [deal, setDeal] = useState(false)
     const [sumDay, setSumDay] = useState('')
     const [sumMoney, setSumMoney] = useState('')
-    const [title, setTitle] = useState('')
+    const [location, setLocation] = useState('')
     const [image, setImage] = useState(null)
     const [data, setData] = useState('')
 
@@ -152,17 +153,17 @@ function index(props) {
     return (
         <Wrapper
             showsVerticalScrollIndicator = {false} >
-            <Header navigation = {navigation} title = 'Tạo lịch trình' iconRight = 'md-help-circle'/>
+            <Header navigation = {navigation} title = 'Tạo chi tiết lịch trình'/>
             <ViewComponent>
-                <IconMaterialIcons name = 'subtitles' size = {25}  />
-                <ViewChild>
-                    <TxtTitle>Tiêu đề</TxtTitle>
+                <IconMaterialIcons name = 'location-city' size = {25}  />
+                <BtChild>
+                    <TxtTitle>Địa điểm</TxtTitle>
                     <TxtContent
-                        placeholder = 'Nhập tiêu đề'
-                        onChangeText = {text => setTitle(text)}
-                        value = {title}
+                        placeholder = 'Chọn địa điểm'
+                        value = {location}
+                        editable = {false}
                     />
-                </ViewChild>
+                </BtChild>
             </ViewComponent>
             <ViewComponent>
                 <IconMaterialIcons name = 'image' size = {26} style = {{marginRight: 5}} />
@@ -202,33 +203,35 @@ function index(props) {
                 </BtChild>
             </ViewComponent>
             <ViewComponent>
-                <IconFontisto name = 'clock' size = {21} style = {{marginRight: 4, marginLeft: 2}} />
+                <IconMaterialIcons name = 'location-on' size = {21} style = {{marginRight: 4, marginLeft: 2}} />
                 <ViewChild>
-                    <TxtTitle>Thời gian đi</TxtTitle>
+                    <TxtTitle>Tổng số địa điểm & khoảng cách</TxtTitle>
                     <TxtContent
-                        placeholder = 'Nhập thời gian đi'
+                        placeholder = 'Nhập...'
                         onChangeText = {text=> setSumDay(text)}
                         value = {sumDay}
                     />
                 </ViewChild>
             </ViewComponent>
             <ViewComponent>
-                <IconFontisto name = 'dollar' size = {21} style = {{marginRight: 4, marginLeft: 6}} />
+                <IconMaterialIcons name = 'directions-bike' size = {21} style = {{marginRight: 3, marginLeft: 4}} />
                 <ViewChild>
-                    <TxtTitle>Tổng tiền</TxtTitle>
+                    <TxtTitle>Thời gian di chuyển</TxtTitle>
                     <TxtContent
-                        placeholder = 'Nhập tổng tiền cho chuyến đi'
+                        placeholder = 'Nhập thời gian di chuyển'
                         onChangeText = {text=> setSumMoney(text)}
                         value = {sumMoney}
                     />
                 </ViewChild>
             </ViewComponent>
             <ViewComponent>
-                <ViewChild style = {{marginLeft: 30}} >
-                    <TxtTitle>Deal</TxtTitle>
-                    <CheckBox 
-                        value = {deal}
-                        onValueChange = {()=> setDeal(!deal)}
+                <IconMaterialCommunityIcons name = 'rename-box' size = {21} style = {{marginRight: 3, marginLeft: 4}} />
+                <ViewChild>
+                    <TxtTitle>Tên địa điểm</TxtTitle>
+                    <TxtContent
+                        placeholder = 'Nhập tên địa điểm'
+                        onChangeText = {text=> setSumMoney(text)}
+                        value = {sumMoney}
                     />
                 </ViewChild>
             </ViewComponent>

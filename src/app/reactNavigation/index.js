@@ -134,6 +134,10 @@ function index() {
         <RecoilLogger/>
         <NavigationContainer>
           <StackAll.Navigator>
+
+          <StackAll.Screen name={createdetail} component={CreateDetail}
+              options = {{headerShown: false}}
+            /> 
      
             <StackAll.Screen
               name={sflashscreen}
@@ -190,9 +194,7 @@ function index() {
             <StackAll.Screen name={forgotpassword} component={ForgotPassWord}
               options = {{headerShown: false}}
             /> 
-            <StackAll.Screen name={createdetail} component={CreateDetail}
-              options = {{headerShown: false}}
-            /> 
+            
             
           </StackAll.Navigator>
         </NavigationContainer>
