@@ -32,7 +32,7 @@ function index(props) {
                 <Image source = {{uri: item.imageDay}} 
                 style = {{width: '100%', height: 180, borderRadius: 5}}/>
                 <TxtDay>Ngày {index+1}</TxtDay>
-                <TxtContentDay>{Helpers.formatDate(item.timeDay)}</TxtContentDay>
+                <TxtContentDay>{item.timeDay}</TxtContentDay>
                 <TxtContentDay style = {{color: Colors.gray_3}} >{item.place}</TxtContentDay>
             </WrapperItemFLRecentLy>
         )

@@ -124,7 +124,7 @@ function index(props) {
         return(
             <ViewTitleDetail>
                 <TxtTitle>{item.title}</TxtTitle>
-                <TxtTitlechildren>{Helpers.formatDate(item.timeCreate)},  {detailTourState.sumPeopleJoin && detailTourState.sumPeopleJoin.length} người tham gia</TxtTitlechildren>
+                <TxtTitlechildren>{item.timeCreate},  {detailTourState.sumPeopleJoin && detailTourState.sumPeopleJoin.length} người tham gia</TxtTitlechildren>
                 <TxtTitlechildren>Tạo bởi {<TxtTitlechildren style = {{color: Colors.black}}>{item.userName}</TxtTitlechildren>}</TxtTitlechildren>
             </ViewTitleDetail>
         )}

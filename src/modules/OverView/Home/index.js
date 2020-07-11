@@ -98,7 +98,7 @@ function index(props) {
                     <Image  source = {{uri: item.image}} style = {{width: 30, height: 30, borderRadius: 60, borderWidth: 1, marginRight: 10, borderColor: Colors.gray_4}}/>
                     <ViewNameAcc>
                         <TxtItemName>{item.userName}</TxtItemName>
-                        <TxtItemTimeAgo>{Helpers.formatDate(item.timeCreate)}</TxtItemTimeAgo>
+                        <TxtItemTimeAgo>{item.timeCreate}</TxtItemTimeAgo>
                     </ViewNameAcc>
                 </ViewAccFL>
                 <Bt

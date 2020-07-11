@@ -4,7 +4,7 @@ import Shadows from '../../../utils/Shadow'
 
 export const Wrapper = styled.ScrollView `
     flex: 1;
-    margin-bottom: 30;
+    margin-bottom: 100;
 `
 export const ViewComponent = styled.View `
     flex-direction: row;

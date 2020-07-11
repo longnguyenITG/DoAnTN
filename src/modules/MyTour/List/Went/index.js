@@ -53,7 +53,7 @@ function index(props) {
                     <ViewAccChild>
                         <ViewNameAcc>
                             <TxtItemName>{item.userName}</TxtItemName>
-                            <TxtItemTimeAgo>{Helpers.formatDate(item.timeCreate)}</TxtItemTimeAgo>
+                            <TxtItemTimeAgo>{item.timeCreate}</TxtItemTimeAgo>
                         </ViewNameAcc>
                         <ViewIcon>
                             <Bt

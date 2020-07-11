@@ -25,6 +25,8 @@ import DataLocal from '../../../OverView/Home/fakeData'
 import Modal from 'react-native-modal'
 import MapView, { Marker, Callout } from 'react-native-maps';
 import Constants from '../../../../utils/Constants'
+import {Account} from '../../../Login/atom'
+import {submitKeyAccount} from '../../selector'
 
 import {
     Wrapper,
@@ -75,6 +77,7 @@ function index(props) {
 
     const [isLoadingCreateState, setIsLoadingCreateState] = useRecoilState(isLoadingCreate)
     const [listTourState, setListTourState] = useRecoilState(listTour)
+    const [accountState, setAccountState] = useRecoilState(Account)
 
     const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
@@ -96,6 +99,10 @@ function index(props) {
       latitudeDelta,
       longitudeDelta,
     }
+
+    // useEffect(()=> {
+    //   submitKeyAccount(listTourState[listTourState.length - 1].idTour, accountState.idUser)
+    // },[])
 
     function confirmDate({startDate, endDate, startMoment, endMoment}) {
         setStartDate(moment(String(startDate)).format('DD-MM-YYYY'))
