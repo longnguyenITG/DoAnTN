@@ -147,11 +147,6 @@ function index(props) {
             </WrapperItemFLRecentLy>
         )
     }
-    function widgetOnRefresh() {
-        // getWidgetDetail(widgetInfoCustom)
-        // refresh lại 
-        return setWidgetRefreshing(false)
-    }
     function renderLoading() {
         return(
             <Loading isVisible = {isLoadingState} />
@@ -171,7 +166,7 @@ function index(props) {
                 refreshControl={
                     <RefreshControl
                     refreshing={widgetRefreshing}
-                    onRefresh={() => widgetOnRefresh()}/>
+                    onRefresh={() => getListTour(setListTourState, setIsLoadingState)}/>
                 }
                 showsVerticalScrollIndicator = {false}>
                 <FlatList

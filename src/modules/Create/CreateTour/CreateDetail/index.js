@@ -7,6 +7,7 @@ import IconOcticons from 'react-native-vector-icons/Octicons'
 import IconAntDesign from 'react-native-vector-icons/AntDesign'
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import IconFontisto from 'react-native-vector-icons/Fontisto'
+import IconEntypo from 'react-native-vector-icons/Entypo'
 import Colors from '../../../../utils/Colors'
 import Calendar from 'react-native-calendar-select';
 import moment from 'moment'
@@ -19,6 +20,12 @@ import Routes from '../../../../utils/Routes'
 import {listTour} from '../../../OverView/atom'
 import {getListTourUpdated} from '../../selector'
 import TimePicker from "react-native-24h-timepicker";
+import RNPickerSelect from 'react-native-picker-select';
+import DataLocal from '../../../OverView/Home/fakeData'
+import Modal from 'react-native-modal'
+import MapView, { Marker, Callout } from 'react-native-maps';
+import Constants from '../../../../utils/Constants'
+
 import {
     Wrapper,
     ViewComponent,
@@ -29,7 +36,11 @@ import {
     BtJoin,
     TxtBtJoin,
     BtChild,
-    ViewBtDetail
+    ViewBtDetail,
+    ViewModal,
+    BtModal,
+    TxtBtModal,
+    Bt
 } from './styled'
 
 function index(props) {
@@ -54,8 +65,11 @@ function index(props) {
     storageOptions: {
         skipBackup: true,
         path: 'images',
-    },
-    };
+    }};
+
+    const latitudeDelta = 0.0999;
+    const longitudeDelta = 0.0621;
+   
     const dateRef = createRef()
     const clockRef = createRef()
 
@@ -71,6 +85,17 @@ function index(props) {
     const [timeStart, setTimeStart] = useState('')
     const [image, setImage] = useState(null)
     const [data, setData] = useState('')
+    const [statusVisibale ,setStatusVisibale] = useState(false)
+    const [currentLat, setCurrentLat] = useState(20.942220)
+    const [currentLong, setCurrentLong] = useState(106.060027)
+    const [typeMap , setTypeMap] = useState('standard')
+
+    const region = {
+      latitude: currentLat,
+      longitude: currentLong,
+      latitudeDelta,
+      longitudeDelta,
+    }
 
     function confirmDate({startDate, endDate, startMoment, endMoment}) {
         setStartDate(moment(String(startDate)).format('DD-MM-YYYY'))
@@ -113,41 +138,6 @@ function index(props) {
           }
         });
       }
-
-      function updateTour() {
-        setIsLoadingCreateState(true)
-        if(!data || !title || !image || !startDate || !endDate || !sumDay || !sumMoney) {
-          setIsLoadingAccountState(false)
-          Alert.alert('Thông báo', 'Vui lòng điền đầy đủ thông tin')
-        } else {
-    
-        RNFetchBlob.fetch('POST', `${Constant.host}/DoAnTN/UploadTour.php`, {
-          Authorization: "Bearer access-token",
-          otherHeader: "foo",
-          'Content-Type': 'multipart/form-data',
-        }, [
-            { name: 'image', filename: 'image.png', type: 'image/png', data },
-            { name: 'idUser', data: dataAccount.idUser },
-            { name: 'title', data: title },
-            { name: 'timeCreate', data: startDate },
-            { name: 'sumDay', data: sumDay },
-            { name: 'sumMoney', data: sumMoney },
-            { name: 'deal', data: deal ? 1 : 0 },
-    
-          ]).then((resp) => {
-            setIsLoadingCreateState(false)
-            if(JSON.parse(resp.data).success) {
-              getListTourUpdated(setListTourState)
-              navigation.navigate(Routes.createdetail)
-            } else {
-                Alert.alert('Thông báo', 'Thêm Tour không thành công')
-            }
-    
-          }).catch((err) => {
-            console.log('updateAccount err', err)
-          })
-        }
-      }
     
       function renderLoading() {
         return(
@@ -168,19 +158,142 @@ function index(props) {
         setTimeStart(`${hour}:${minute}`)
         clockRef.current.close()
       }
+      function conFirmPickerSelect(value) {
+        setLocation(value)
+      }
+     
+      function renderModalLocation() {
+        return(
+            <Modal
+                isVisible={statusVisibale}
+                style = {{height: '100%', maxWidth: '100%', alignSelf: "center"}}
+                coverScreen
+                backdropOpacity={0.5}
+                useNativeDriver={true}>
+                <ViewModal>
+                    <MapView
+                      initialRegion={region}
+                      showsUserLocation={true}
+                      scrollEnabled
+                      zoomEnabled
+                      pitchEnabled
+                      style={{
+                        marginTop: 5 ,
+                        shadowColor: 'gray',
+                        shadowOpacity: 0.3,
+                        shadowRadius: 4,
+                        height: '90.5%',
+                        borderRadius: 10,
+                        marginHorizontal: 5,
+                        marginVertical: 5,
+                        elevation: 1
+
+                      }}
+                      onPress={(e)=>{
+                        setCurrentLat(e.nativeEvent.coordinate.latitude);
+                        setCurrentLong(e.nativeEvent.coordinate.longitude);
+                        console.log('lat', e.nativeEvent.coordinate.latitude)
+                        console.log('lng', e.nativeEvent.coordinate.longitude)
+                      }}
+                      mapType={typeMap}
+                      // ref={mapRef}
+                    >
+                      <Marker.Animated
+                        ref={marker => { this.marker = marker }}
+                        coordinate={{
+                          latitude: currentLat,
+                          longitude: currentLong 
+                        }}
+                      />
+                    </MapView>
+                    <BtModal>
+                        <Bt onPress = {() => setStatusVisibale(false)} style = {{borderBottomRightRadius: 7, borderBottomLeftRadius: 7}} >
+                          <TxtBtModal>OK</TxtBtModal>
+                        </Bt>
+                    </BtModal>
+                </ViewModal>
+            </Modal>
+        )
+    }
+
+    function addDetailTour() {
+      setIsLoadingCreateState(true)
+      if(!data || !location || !image || !startDate || !endDate || !place || !namePlace || !goTime || !currentLat || !currentLong) {
+        setIsLoadingCreateState(false)
+        Alert.alert('Thông báo', 'Vui lòng điền đầy đủ thông tin')
+      } else {
+  
+      RNFetchBlob.fetch('POST', `${Constants.host}/DoAnTN/UploadDetailTour.php`, {
+        Authorization: "Bearer access-token",
+        otherHeader: "foo",
+        'Content-Type': 'multipart/form-data',
+      }, [
+          { name: 'image', filename: 'image.png', type: 'image/png', data },
+          { name: 'timeDay', data: startDate },
+          { name: 'place', data: place },
+          { name: 'goTime', data: goTime },
+          { name: 'namePlace', data: namePlace },
+          { name: 'timeStart', data: timeStart },
+          { name: 'location', data: location },
+          { name: 'idTour', data: `${listTourState[listTourState.length - 1].idTour}`},
+          { name: 'latidute', data: `${currentLat}` },
+          { name: 'longitude', data: `${currentLong}` },
+  
+        ]).then((resp) => {
+          setIsLoadingCreateState(false)
+          if(JSON.parse(resp.data).success) {
+              Alert.alert('Thành công', 'Thêm lịch trình thành công \n Bạn có muốn tiếp tục thêm địa điểm cho lịch trình không?', [
+                {
+                  text: 'Cancel',
+                  onPress:() => navigation.navigate(Routes.home)
+                },
+                {
+                  text: 'OK',
+                  onPress:() => {
+                    setLocation('')
+                    setData('')
+                    setImage(null)
+                    setStartDate()
+                    setEndDate()
+                    setPlace('')
+                    setGoTime('')
+                    setNamePlace('')
+                    setTimeStart('')
+                    setCurrentLat(20.942220)
+                    setCurrentLong(106.060027)
+                  },
+                  style: 'cancel'
+                }
+              ])
+          } else {
+              Alert.alert('Thông báo', 'Thêm chi tiết tour không thành công')
+          }
+  
+        }).catch((err) => {
+          console.log('updateDetailTour err', err)
+        })
+      }
+    }
     return (
         <Wrapper
             showsVerticalScrollIndicator = {false} >
             <Header navigation = {navigation} title = 'Tạo chi tiết lịch trình'/>
             <ViewComponent>
-                <IconMaterialIcons name = 'location-city' size = {25}  />
-                <BtChild>
+                <IconMaterialIcons name = 'location-city' size = {25} style = {{marginRight: 5}} />
+                <BtChild
+                    onPress = {()=> null}>
                     <TxtTitle>Địa điểm</TxtTitle>
-                    <TxtContent
-                        placeholder = 'Chọn địa điểm'
-                        value = {location}
-                        editable = {false}
-                    />
+                    <RNPickerSelect
+                    onValueChange={(value) => conFirmPickerSelect(value)}
+                    placeholder={{
+                      label: 'Chọn địa điểm...',
+                      value: '',
+                    }}
+                    placeholderTextColor = {Colors.gray_3}
+                    items={DataLocal.dataDistrict}
+                    value = {location}
+                    useNativeAndroidPickerStyle={false}
+                />
                 </BtChild>
             </ViewComponent>
             <ViewComponent>
@@ -265,22 +378,28 @@ function index(props) {
                     />
                 </BtChild>
             </ViewComponent>
+            <ViewComponent>
+                <IconEntypo name = 'location' size = {21} style = {{marginRight: 1, marginLeft: 5}} />
+                <BtChild
+                    onPress = {() => setStatusVisibale(true)}>
+                    <TxtTitle>Toạ độ</TxtTitle>
+                    <TxtContent
+                        placeholder = 'Chọn toạ độ'
+                        value = {`${currentLat}, ${currentLong}`}
+                        editable = {false}
+                    />
+                </BtChild>
+            </ViewComponent>
             <ViewBtDetail>
               <BtJoin
-                  style = {{borderTopRightRadius: 0, borderBottomRightRadius: 0, marginRight: 3}}
-                  onPress = {()=> null}>
-                  <TxtBtJoin>Hoàn thành</TxtBtJoin>
-              </BtJoin>
-              <BtJoin
-                  style = {{borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
-                  onPress = {()=> null}>
+                  onPress = {()=> addDetailTour()}>
                   <TxtBtJoin>Thêm lịch trình</TxtBtJoin>
               </BtJoin>
             </ViewBtDetail>
-           
             {renderDate()}
             {renderLoading()}
             {renderTimePicker()}
+            {renderModalLocation()}
         </Wrapper>
     )
 }

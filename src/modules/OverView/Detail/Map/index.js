@@ -46,13 +46,13 @@ function index(props) {
                 provider={PROVIDER_GOOGLE} // remove if not using Google Maps
                 style = {{flex: 1}}
                 region={{
-                    latitude: item.latitude ? item.latitude : 20.890656,
-                    longitude: item.longitude ? item.longitude : 104.686605,
+                    latitude: item.latitude ? Number(item.latitude) : 20.890656,
+                    longitude: item.longitude ? Number(item.longitude) : 104.686605,
                     latitudeDelta: 0.1,
                     longitudeDelta: 0.5,
                 }}>
                 <Marker
-                    coordinate = {{latitude: item.latitude ? item.latitude : 20.890656, longitude: item.longitude ? item.longitude : 104.686605}}
+                    coordinate = {{latitude: item.latitude ? Number(item.latitude) : 20.890656, longitude: item.longitude ? Number(item.longitude) : 104.686605}}
                     title = {item.namePlace}
                 />
             </MapView>

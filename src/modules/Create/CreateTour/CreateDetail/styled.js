@@ -41,7 +41,7 @@ export const TxtContent = styled.TextInput `
 `
 export const View = styled.View ``
 export const BtJoin = styled.TouchableOpacity `
-    width: 180;
+    width: 250;
     height: 43;
     background-color: ${Colors.red};
     border-radius: 5;
@@ -57,4 +57,25 @@ export const TxtBtJoin = styled.Text `
 export const ViewBtDetail = styled.View `
     flex-direction: row;
     align-self: center;
+`
+export const ViewModal = styled.View `
+    width: 500;
+    height: 85%;
+    background: ${Colors.white_4};
+    border-radius: 10;
+    justify-content: flex-end;
+`
+export const BtModal = styled.View `
+    height: 8%;
+`
+export const Bt = styled.TouchableOpacity `
+    background: ${Colors.lightcoral};
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+`
+export const TxtBtModal = styled.Text `
+    color: ${Colors.white};
+    font-size: 18;
 `
