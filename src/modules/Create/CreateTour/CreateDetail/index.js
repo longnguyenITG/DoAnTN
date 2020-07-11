@@ -18,6 +18,7 @@ import {Loading} from '../../../../components'
 import Routes from '../../../../utils/Routes'
 import {listTour} from '../../../OverView/atom'
 import {getListTourUpdated} from '../../selector'
+import TimePicker from "react-native-24h-timepicker";
 import {
     Wrapper,
     ViewComponent,
@@ -27,7 +28,8 @@ import {
     View,
     BtJoin,
     TxtBtJoin,
-    BtChild
+    BtChild,
+    ViewBtDetail
 } from './styled'
 
 function index(props) {
@@ -55,16 +57,18 @@ function index(props) {
     },
     };
     const dateRef = createRef()
+    const clockRef = createRef()
 
     const [isLoadingCreateState, setIsLoadingCreateState] = useRecoilState(isLoadingCreate)
     const [listTourState, setListTourState] = useRecoilState(listTour)
 
     const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
-    const [deal, setDeal] = useState(false)
-    const [sumDay, setSumDay] = useState('')
-    const [sumMoney, setSumMoney] = useState('')
+    const [place, setPlace] = useState('')
+    const [goTime, setGoTime] = useState('')
+    const [namePlace, setNamePlace] = useState('')
     const [location, setLocation] = useState('')
+    const [timeStart, setTimeStart] = useState('')
     const [image, setImage] = useState(null)
     const [data, setData] = useState('')
 
@@ -150,6 +154,20 @@ function index(props) {
           <Loading isVisible = {isLoadingCreateState} />
         )
       }
+
+      function renderTimePicker() {
+        return(
+          <TimePicker
+            ref={clockRef}
+            onCancel={() => clockRef.current.close()}
+            onConfirm={(hour, minute) => conFirmTime(hour, minute)}
+          />
+        )
+      }
+      function conFirmTime(hour, minute) {
+        setTimeStart(`${hour}:${minute}`)
+        clockRef.current.close()
+      }
     return (
         <Wrapper
             showsVerticalScrollIndicator = {false} >
@@ -208,8 +226,8 @@ function index(props) {
                     <TxtTitle>Tổng số địa điểm & khoảng cách</TxtTitle>
                     <TxtContent
                         placeholder = 'Nhập...'
-                        onChangeText = {text=> setSumDay(text)}
-                        value = {sumDay}
+                        onChangeText = {text=> setPlace(text)}
+                        value = {place}
                     />
                 </ViewChild>
             </ViewComponent>
@@ -219,8 +237,8 @@ function index(props) {
                     <TxtTitle>Thời gian di chuyển</TxtTitle>
                     <TxtContent
                         placeholder = 'Nhập thời gian di chuyển'
-                        onChangeText = {text=> setSumMoney(text)}
-                        value = {sumMoney}
+                        onChangeText = {text=> setGoTime(text)}
+                        value = {goTime}
                     />
                 </ViewChild>
             </ViewComponent>
@@ -230,17 +248,39 @@ function index(props) {
                     <TxtTitle>Tên địa điểm</TxtTitle>
                     <TxtContent
                         placeholder = 'Nhập tên địa điểm'
-                        onChangeText = {text=> setSumMoney(text)}
-                        value = {sumMoney}
+                        onChangeText = {text=> setNamePlace(text)}
+                        value = {namePlace}
                     />
                 </ViewChild>
             </ViewComponent>
-            <BtJoin
-                onPress = {()=> updateTour()}>
-                <TxtBtJoin>Tiếp tục</TxtBtJoin>
-             </BtJoin>
+            <ViewComponent>
+                <IconAntDesign name = 'clockcircleo' size = {21} style = {{marginRight: 1, marginLeft: 5}} />
+                <BtChild
+                    onPress = {()=> clockRef.current.open()}>
+                    <TxtTitle>Thời gian bắt đầu</TxtTitle>
+                    <TxtContent
+                        placeholder = 'Chọn thời gian bắt đầu'
+                        value = {timeStart}
+                        editable = {false}
+                    />
+                </BtChild>
+            </ViewComponent>
+            <ViewBtDetail>
+              <BtJoin
+                  style = {{borderTopRightRadius: 0, borderBottomRightRadius: 0, marginRight: 3}}
+                  onPress = {()=> null}>
+                  <TxtBtJoin>Hoàn thành</TxtBtJoin>
+              </BtJoin>
+              <BtJoin
+                  style = {{borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
+                  onPress = {()=> null}>
+                  <TxtBtJoin>Thêm lịch trình</TxtBtJoin>
+              </BtJoin>
+            </ViewBtDetail>
+           
             {renderDate()}
             {renderLoading()}
+            {renderTimePicker()}
         </Wrapper>
     )
 }

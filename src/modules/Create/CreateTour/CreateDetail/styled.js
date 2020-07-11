@@ -41,7 +41,7 @@ export const TxtContent = styled.TextInput `
 `
 export const View = styled.View ``
 export const BtJoin = styled.TouchableOpacity `
-    width: 250;
+    width: 180;
     height: 43;
     background-color: ${Colors.red};
     border-radius: 5;
@@ -53,4 +53,8 @@ export const BtJoin = styled.TouchableOpacity `
 export const TxtBtJoin = styled.Text `
     color: white;
     font-size: 16;
+`
+export const ViewBtDetail = styled.View `
+    flex-direction: row;
+    align-self: center;
 `
