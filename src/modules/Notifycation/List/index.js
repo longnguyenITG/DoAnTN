@@ -62,7 +62,7 @@ function index(props) {
           <Image source = {{uri: item.image}} style = {{width: 65, height: 65, borderRadius: 10}} />
           <ViewChild>
             <TxtTitle style = {{fontSize: 15}} >{item.content}</TxtTitle>
-            <TxtTime>{Helpers.formatDate(item.timeCreate)}</TxtTime>
+            <TxtTime>{item.timeCreate}</TxtTime>
           </ViewChild>
         </WrapperItem>
       </Swipeout>
